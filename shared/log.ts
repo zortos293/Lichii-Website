@@ -13,6 +13,28 @@ export function validateLog(text: string): string | null {
 
 export function extractLogFields(text: string): Partial<ReportFields> {
   const fields: Partial<ReportFields> = {};
+  const settingLabels = new Map([
+    ['Renderer.backend', 'Graphics backend'],
+    ['Renderer.resolution_setup', 'Resolution'],
+    ['Renderer.gpu_accuracy', 'GPU accuracy'],
+    ['Cpu.cpu_accuracy', 'CPU accuracy'],
+    ['Renderer.use_asynchronous_shaders', 'Asynchronous shaders'],
+    ['Renderer.use_asynchronous_gpu_emulation', 'Asynchronous GPU emulation'],
+    ['Renderer.async_presentation', 'Asynchronous presentation'],
+    ['Renderer.use_vsync', 'VSync'],
+    ['Renderer.scaling_filter', 'Scaling filter'],
+    ['Renderer.anti_aliasing', 'Anti-aliasing'],
+    ['Renderer.max_anisotropy', 'Anisotropic filtering'],
+    ['Renderer.accelerate_astc', 'ASTC decoding'],
+    ['Renderer.astc_recompression', 'ASTC recompression'],
+    ['Renderer.nvdec_emulation', 'Video decoding'],
+    ['Renderer.use_disk_shader_cache', 'Disk shader cache'],
+    ['Renderer.frame_gen', 'Frame generation'],
+    ['Renderer.frame_pacing_mode', 'Frame pacing'],
+    ['System.use_docked_mode', 'Console mode'],
+    ['Core.memory_layout_mode', 'Memory layout'],
+  ]);
+  const settings = new Map<string, string>();
   for (const line of text.split(/\r?\n/)) {
     if (!/^\[\s*\d+\.\d+\]\s+[\w.]+\s+<Info>\s/.test(line)) continue;
     const capture = (source: string, label: string) => {
@@ -26,7 +48,15 @@ export function extractLogFields(text: string): Partial<ReportFields> {
     const gpu = capture('renderer_vulkan\\.cpp', 'Device');
     const driver = capture('renderer_vulkan\\.cpp', 'Driver');
     const vulkan = capture('renderer_vulkan\\.cpp', 'Vulkan');
-    const boot = line.match(/\bmain_window\.cpp:[0-9]+:[A-Za-z0-9_:~]+: Booting game: [0-9A-Fa-f]+ \| .+ \| (.{1,60})$/)?.[1];
+    const boot = line.match(/\bmain_window\.cpp:[0-9]+:[A-Za-z0-9_:~]+: Booting game: [0-9A-Fa-f]+ \| .+ \| (.{0,60})$/);
+    const setting = line.match(/\bsettings\.cpp:[0-9]+:LogSettings: (?:M-|--) ([A-Za-z0-9_.]+): ([A-Za-z0-9_.+-]{1,60})$/);
+    if (setting) {
+      const key = setting[1] ?? '';
+      const value = setting[2] ?? '';
+      const label = settingLabels.get(key);
+      if (label) settings.set(label, value);
+      if (key === 'Renderer.backend' && (value === 'Vulkan' || value === 'OpenGL')) fields.graphicsApi = value;
+    }
     if (build) fields.build = build;
     if (cpu) fields.cpu = cpu;
     if (os) fields.os = os;
@@ -34,7 +64,12 @@ export function extractLogFields(text: string): Partial<ReportFields> {
     if (gpu) fields.gpu = gpu;
     if (driver) fields.driver = driver;
     if (vulkan) fields.graphicsApi = 'Vulkan';
-    if (boot) fields.gameVersion = boot;
+    if (boot) {
+      const version = boot[1]?.trim();
+      if (version) fields.gameVersion = version;
+      else delete fields.gameVersion;
+    }
   }
+  if (settings.size) fields.settings = [...settings].map(([label, value]) => `${label}: ${value}`).join('\n');
   return fields;
 }
