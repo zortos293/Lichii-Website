@@ -9,6 +9,7 @@ import { Catalog, GameDetail } from './catalog.tsx';
 import { SubmitReport } from './submit.tsx';
 import { PublicReportPage, RecentReports, Submitted } from './reports.tsx';
 import { Guide, Privacy } from './guide.tsx';
+import { DesktopGuide } from './desktop-guide.tsx';
 import { Maintainer } from './maintainer.tsx';
 
 const root = document.getElementById('root');
@@ -21,6 +22,7 @@ createRoot(root).render(<StrictMode><BrowserRouter><TrackingBoundary><Layout><Ro
   <Route path="/reports" element={<RecentReports />} />
   <Route path="/reports/:id" element={<PublicReportPage />} />
   <Route path="/guide" element={<Guide />} />
+  <Route path="/guide/desktop" element={<DesktopGuide />} />
   <Route path="/privacy" element={<Privacy />} />
   <Route path="/maintainer" element={<Maintainer />} />
   <Route path="*" element={<div className="empty"><h1>Page not found</h1><p>This page may have moved.</p><Link className="button" to="/">Back to games</Link></div>} />
