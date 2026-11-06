@@ -31,6 +31,9 @@ export const submissionSchema = reportFieldsSchema.extend({
   publicConsent: z.literal(true), safeFilesConsent: z.literal(true), privateLogConsent: z.boolean(),
   log: logUploadSchema.nullable(), website: z.literal(''),
 }).strict().refine(v => !v.log || v.privateLogConsent, { message: 'Consent is required for a private log.', path: ['privateLogConsent'] });
+export const desktopSubmissionSchema = reportFieldsSchema.extend({
+  publicConsent: z.literal(true), safeFilesConsent: z.literal(true),
+}).strict();
 const localArt = z.string().regex(/^\/art\/[a-zA-Z0-9_-]+\.(png|jpg|jpeg|webp)$/).nullable();
 export const catalogEntrySchema = z.object({
   sgdbId: z.number().int().positive(), slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(180),

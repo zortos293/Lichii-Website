@@ -1,12 +1,12 @@
-import Fastify from 'fastify';
+import Fastify, { type FastifyReply, type FastifyRequest } from 'fastify';
 import cookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
 import staticFiles from '@fastify/static';
-import { createHmac, randomUUID } from 'node:crypto';
+import { createHash, createHmac, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { isIP } from 'node:net';
 import { z } from 'zod';
-import { gameSchema, publicReportSchema, reportFieldsSchema, submissionSchema, triageSchema, maintainerReportSchema } from '../shared/domain.ts';
+import { desktopSubmissionSchema, gameSchema, publicReportSchema, reportFieldsSchema, submissionSchema, triageSchema, maintainerReportSchema } from '../shared/domain.ts';
 import { validateLog } from '../shared/log.ts';
 import type { Config } from './config.ts';
 import type { Database } from './db.ts';
@@ -22,6 +22,9 @@ const querySchema = z.object({
   gameId: z.coerce.number().int().positive().optional(),
 });
 const uuidParams = z.object({ id: z.uuid() });
+const desktopReportPath = '/api/v1/desktop/reports';
+const desktopHeaders = z.object({ 'idempotency-key': z.uuid() });
+type SubmissionResult = { kind: 'created' | 'replayed'; id: string } | { kind: 'conflict' } | { kind: 'limited' };
 
 export async function createApp(config: Config, sql: Database, serveStatic = true) {
   const app = Fastify({
@@ -49,12 +52,18 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     reply.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
     if (path.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
     if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method)) {
-      if (request.headers.origin !== config.APP_ORIGIN) return reply.code(403).send({ error: 'This request must come from the Lichii website.' });
-      if (request.headers['sec-fetch-site'] === 'cross-site') return reply.code(403).send({ error: 'Cross-site requests are not allowed.' });
+      if (path === desktopReportPath) {
+        if (request.headers['x-lichii-client'] !== 'desktop/1'
+          || ['origin', 'cookie', 'authorization'].some(name => request.headers[name] !== undefined)
+          || Object.keys(request.headers).some(name => name.startsWith('sec-fetch-'))) return reply.code(403).send({ error: 'Use the anonymous Lichii desktop submission protocol.' });
+      } else {
+        if (request.headers.origin !== config.APP_ORIGIN) return reply.code(403).send({ error: 'This request must come from the Lichii website.' });
+        if (request.headers['sec-fetch-site'] === 'cross-site') return reply.code(403).send({ error: 'Cross-site requests are not allowed.' });
+      }
       if (request.headers['content-type']?.split(';')[0] !== 'application/json') return reply.code(415).send({ error: 'Send application/json.' });
     }
     if (!path.startsWith('/api/') || path === '/api/health') return;
-    const submitting = request.method === 'POST' && path === '/api/reports';
+    const submitting = request.method === 'POST' && (path === '/api/reports' || path === desktopReportPath);
     const auth = path === '/api/auth/login';
     const period = submitting || auth ? 3600 : 60;
     const limit = submitting ? 5 : auth ? 20 : 240;
@@ -145,8 +154,10 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     return mapReport(rows[0]);
   });
 
-  app.post('/api/reports', async (request, reply) => {
-    const data = submissionSchema.parse(request.body);
+  async function submitReport(request: FastifyRequest, reply: FastifyReply) {
+    const desktop = request.routeOptions.url === desktopReportPath;
+    const key = desktop ? desktopHeaders.parse(request.headers)['idempotency-key'].toLowerCase() : null;
+    const data = desktop ? { ...desktopSubmissionSchema.parse(request.body), log: null, privateLogConsent: false, website: '' } : submissionSchema.parse(request.body);
     if (data.log) {
       const problem = validateLog(data.log.text);
       if (problem) return reply.code(400).send({ error: problem, fields: { log: [problem] } });
@@ -154,18 +165,28 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     const game = await sql`SELECT sgdb_id FROM games WHERE sgdb_id = ${data.gameId}`;
     if (!game.length) return reply.code(400).send({ error: 'Choose a game in the Switch 2 catalog.' });
     const { log, publicConsent, safeFilesConsent, privateLogConsent, website, ...fields } = data;
+    const requestHash = desktop ? createHash('sha256').update(JSON.stringify(data)).digest('hex') : null;
     const id = randomUUID();
     const day = Math.floor(Date.now() / 86400000);
-    const stored = await sql.begin(async tx => {
+    const stored = await sql.begin(async (tx): Promise<SubmissionResult> => {
+      if (key) {
+        await tx`SELECT pg_advisory_xact_lock(hashtextextended(${key}, 0))`;
+        const previous = await tx`SELECT id, desktop_submission_hash FROM reports WHERE desktop_submission_key = ${key}`;
+        if (previous[0]) return previous[0].desktop_submission_hash === requestHash ? { kind: 'replayed', id: z.uuid().parse(previous[0].id) } : { kind: 'conflict' };
+      }
       const volume = await tx`INSERT INTO rate_limits(key, count, expires_at) VALUES (${`global-submit:${day}`}, 1, now() + interval '1 day') ON CONFLICT(key) DO UPDATE SET count = rate_limits.count + 1 RETURNING count`;
-      if (Number(volume[0]?.count) > 1000) return false;
-      await tx`INSERT INTO reports(id, game_id, fields) VALUES (${id}, ${fields.gameId}, ${tx.json(fields)})`;
+      if (Number(volume[0]?.count) > 1000) return { kind: 'limited' };
+      await tx`INSERT INTO reports(id, game_id, fields, desktop_submission_key, desktop_submission_hash) VALUES (${id}, ${fields.gameId}, ${tx.json(fields)}, ${key}, ${requestHash})`;
       if (log) await tx`INSERT INTO private_logs(report_id, content) VALUES (${id}, ${Buffer.from(log.text, 'utf8')})`;
-      return true;
+      return { kind: 'created', id };
     });
-    if (!stored) return reply.code(429).send({ error: 'The daily submission limit has been reached. Please try again tomorrow.' });
-    return reply.code(201).send({ id });
-  });
+    if (stored.kind === 'conflict') return reply.code(409).send({ error: 'This submission key was already used for a different report. Review your changes and submit with a new key.' });
+    if (stored.kind === 'limited') return reply.header('Retry-After', String(86400 - Math.floor(Date.now() / 1000) % 86400)).code(429).send({ error: 'The daily submission limit has been reached. Please try again tomorrow.' });
+    if (desktop) return reply.code(stored.kind === 'created' ? 201 : 200).send({ id: stored.id, url: `${config.APP_ORIGIN}/reports/${stored.id}` });
+    return reply.code(201).send({ id: stored.id });
+  }
+  app.post('/api/reports', submitReport);
+  app.post(desktopReportPath, { bodyLimit: 128 * 1024 }, submitReport);
 
   await app.register(async privateApp => {
     privateApp.addHook('onRequest', auth.requireMaintainer);
