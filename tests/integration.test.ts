@@ -154,18 +154,3 @@ test('durable limits trust only valid Railway X-Real-IP and ignore spoofed forwa
   }
   await local.close();
 });
-
-test('Unkey limits use one validated forwarded address and ignore caller-supplied X-Real-IP', async t => {
-  const unkey = await createApp({ ...config, TRUST_PROXY: 'unkey' }, sql, false);
-  t.after(() => unkey.close());
-  for (let i = 0; i < 6; i++) {
-    const response = await unkey.inject({ method: 'POST', url: '/api/reports', headers: { ...headers(), 'x-forwarded-for': '203.0.113.83', 'x-real-ip': `192.0.2.${i}` }, payload: { ...validSubmission, name: '' } });
-    assert.equal(response.statusCode, i === 5 ? 429 : 400);
-  }
-  for (const value of [undefined, 'invalid', '8.8.8.8, 1.1.1.1']) {
-    const response = await unkey.inject({ url: '/api/games', headers: { 'x-real-ip': '203.0.113.84', ...(value === undefined ? {} : { 'x-forwarded-for': value }) } });
-    assert.equal(response.statusCode, 400);
-  }
-  const response = await unkey.inject({ url: '/api/games', headers: { 'x-forwarded-for': '2001:db8::83' } });
-  assert.equal(response.statusCode, 200);
-});

@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { z } from 'zod';
 import { catalogEntrySchema } from '../shared/domain.ts';
 
-export function connectDatabase(url: string, tls?: { ca: string; servername?: string }) {
-  return postgres(url, { max: 8, idle_timeout: 20, connect_timeout: 10, onnotice: () => {}, ...(tls ? { ssl: { ca: tls.ca, ...(tls.servername ? { servername: tls.servername } : {}), rejectUnauthorized: true } } : {}) });
+export function connectDatabase(url: string) {
+  return postgres(url, { max: 8, idle_timeout: 20, connect_timeout: 10, onnotice: () => {} });
 }
 export type Database = ReturnType<typeof connectDatabase>;
 

@@ -2,14 +2,12 @@ import { z } from 'zod';
 
 const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
-  DATABASE_SSL_CA: z.string().min(1).optional(),
-  DATABASE_SSL_SERVERNAME: z.string().min(1).optional(),
   APP_ORIGIN: z.url(),
   COOKIE_SECRET: z.string().min(32),
   RATE_LIMIT_SECRET: z.string().min(32),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   NODE_ENV: z.enum(['production', 'development', 'test']).default('development'),
-  TRUST_PROXY: z.enum(['true', 'false', 'unkey']).default('false'),
+  TRUST_PROXY: z.enum(['true', 'false']).default('false'),
   GITHUB_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_SECRET: z.string().optional(),
   GITHUB_ALLOWED_ID: z.string().regex(/^\d+$/).optional(),
@@ -20,7 +18,6 @@ export function readConfig(env: NodeJS.ProcessEnv) {
   const parsed = envSchema.safeParse(env);
   if (!parsed.success) throw new Error(`Invalid configuration keys: ${parsed.error.issues.map(i => i.path.join('.')).join(', ')}`);
   const value = parsed.data;
-  if (value.DATABASE_SSL_SERVERNAME && !value.DATABASE_SSL_CA) throw new Error('DATABASE_SSL_SERVERNAME requires DATABASE_SSL_CA.');
   const url = new URL(value.APP_ORIGIN);
   if (url.origin !== value.APP_ORIGIN || url.username || url.password) throw new Error('APP_ORIGIN must be an origin without a path.');
   if (value.NODE_ENV === 'production' && url.protocol !== 'https:') throw new Error('Production requires an HTTPS APP_ORIGIN.');

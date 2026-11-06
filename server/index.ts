@@ -3,7 +3,7 @@ import { connectDatabase, prepareDatabase, cleanup } from './db.ts';
 import { createApp } from './app.ts';
 
 const config = readConfig(process.env);
-const sql = connectDatabase(config.DATABASE_URL, config.DATABASE_SSL_CA ? { ca: config.DATABASE_SSL_CA, servername: config.DATABASE_SSL_SERVERNAME } : undefined);
+const sql = connectDatabase(config.DATABASE_URL);
 await prepareDatabase(sql);
 const app = await createApp(config, sql);
 const timer = setInterval(() => { void cleanup(sql).catch(() => app.log.error('Retention cleanup failed')); }, 3600000);
