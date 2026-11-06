@@ -9,7 +9,7 @@ export const hashToken = (token: string) => createHash('sha256').update(token).d
 const githubUserSchema = z.object({ id: z.number().int().positive(), login: z.string() });
 const oauthCookieSchema = z.object({ state: z.string(), verifier: z.string() });
 const githubServer: oauth.AuthorizationServer = {
-  issuer: 'https://github.com',
+  issuer: 'https://github.com/login/oauth',
   authorization_endpoint: 'https://github.com/login/oauth/authorize',
   token_endpoint: 'https://github.com/login/oauth/access_token',
 };
