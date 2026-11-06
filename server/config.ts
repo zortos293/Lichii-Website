@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { databuddyWebsiteId } from '../shared/databuddy.ts';
 
 const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
@@ -12,6 +13,7 @@ const envSchema = z.object({
   GITHUB_CLIENT_SECRET: z.string().optional(),
   GITHUB_ALLOWED_ID: z.string().regex(/^\d+$/).optional(),
   GITHUB_ALLOWED_LOGIN: z.literal('zortos293').default('zortos293'),
+  DATABUDDY_WEBSITE_ID: z.uuid().default(databuddyWebsiteId),
 });
 
 export function readConfig(env: NodeJS.ProcessEnv) {

@@ -64,8 +64,8 @@ Use a separate PostgreSQL database named `lichii_test`. The integration test **d
 
 ```sh
 npm run check
-TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm test
 npm run build
+TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm test
 TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm run test:privacy
 npm audit
 ```
@@ -118,9 +118,11 @@ Logs become inaccessible at 90 days. Hourly and startup cleanup deletes expired 
 
 ## Databuddy visitor analytics
 
-`@databuddy/sdk/react` uses the public client ID `da37ce88-b18d-4639-a886-b2e74119b0ad`. Visitor analytics and Web Vitals load automatically on known public pages. There is no consent prompt or session recording. Do Not Track, Global Privacy Control and the SDK’s opt-out controls remain respected.
+`@databuddy/sdk/react` uses the public client ID `da37ce88-b18d-4639-a886-b2e74119b0ad` from `shared/databuddy.ts`. Visitor analytics and Web Vitals load automatically on known public pages. There is no consent prompt or session recording. Do Not Track, Global Privacy Control and the SDK’s opt-out controls remain respected.
 
 Analytics measures public-page visits and Web Vitals, including page and referrer paths, browser/device information and approximate location. The tracker can collect selected campaign parameters and creates browser-local anonymous and session identifiers. Error, attribute, outgoing-link and custom interaction tracking are disabled. We do not identify visitors by name or send report fields as events. See [Databuddy’s security documentation](https://www.databuddy.cc/docs/security) for its storage and processing behavior.
+
+Crawlers and coding agents such as GPTBot, ClaudeBot and Claude Code do not run JavaScript, so a global Fastify `onRequest` hook calls `trackAgents` from `@databuddy/sdk/agents` on every request, including static files, `.md`, `.txt`, `llms.txt`, the SPA fallback, API routes and 404s. It is fire-and-forget: the hook never awaits it and swallows rejections, and the SDK times out after 3 seconds. The hook passes only the method, raw URL and the `User-Agent`, `Accept`, `Signature-Agent`, `Sec-Fetch-Mode` and `Referer` headers, with `Host` fixed to `APP_ORIGIN`. Cookies, `Authorization`, forwarding headers and bodies never reach the SDK, and requests with Do Not Track or Global Privacy Control are skipped. The SDK posts to `https://basket.databuddy.cc/ai-traffic` only for `GET` and `HEAD` requests from known AI user agents, signed agent browsers or non-browser clients asking for Markdown first, skipping images, scripts, styles and fonts. It sends the path without its query, host, user agent, `Accept`, referrer, signature agent, format and website ID, but no client IP. `DATABUDDY_WEBSITE_ID` can override the website ID, which defaults to the client ID in `shared/databuddy.ts`.
 
 Session replay is explicitly disabled in the SDK. No recorder script is loaded and no DOM snapshots, text, typed inputs, clicks or mouse movements are recorded. Previously saved replay preferences cannot enable it.
 
