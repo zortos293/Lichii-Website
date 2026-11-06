@@ -154,3 +154,22 @@ test('automatic analytics never sends page text, inputs or arbitrary URL queries
   for (const request of requests) expect(request.url + request.body).not.toMatch(/PRIVATE_(QUERY|INPUT|TEXT)_SENTINEL/);
   await expectNoReplay(page);
 });
+
+test('desktop reporting tutorial loads its self-hosted screenshots under the CSP without analytics', async ({ page }) => {
+  await observeDatabuddy(page);
+  const violations: string[] = [];
+  page.on('console', message => { if (/Content Security Policy/i.test(message.text())) violations.push(message.text()); });
+  await page.goto('/guide');
+  await page.getByRole('link', { name: /Reporting from the Lichii desktop app/ }).click();
+  await expect(page).toHaveURL('/guide/desktop');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Report from Lichii');
+  await expect(page.getByRole('navigation', { name: 'Steps in this guide' }).getByRole('link')).toHaveCount(6);
+  const screenshots = page.locator('.tut-shot img');
+  await expect(screenshots).toHaveCount(2);
+  for (const screenshot of await screenshots.all()) {
+    await screenshot.scrollIntoViewIfNeeded();
+    await expect.poll(() => screenshot.evaluate(image => image instanceof HTMLImageElement && image.complete ? image.naturalWidth : 0)).toBe(760);
+  }
+  expect(violations).toEqual([]);
+  await expectNoTracker(page);
+});
