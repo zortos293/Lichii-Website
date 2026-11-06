@@ -88,7 +88,8 @@ export function authHandlers(sql: Database, config: Config) {
         reply.setCookie(sessionName, token, { ...cookie, maxAge: 8 * 3600 });
         return reply.redirect('/maintainer');
       } catch (error) {
-        const candidate = (error instanceof oauth.ResponseBodyError ? error.error : error instanceof oauth.OperationProcessingError ? error.code : '') ?? '';
+        const githubError = z.object({ body: z.object({ error: z.string() }) }).safeParse(error instanceof oauth.OperationProcessingError ? error.cause : undefined);
+        const candidate = (error instanceof oauth.ResponseBodyError ? error.error : githubError.success ? githubError.data.body.error : error instanceof oauth.OperationProcessingError ? error.code : '') ?? '';
         const reason = ['incorrect_client_credentials', 'bad_verification_code', 'redirect_uri_mismatch', 'invalid_client', 'invalid_grant', 'access_denied', 'OAUTH_INVALID_RESPONSE'].includes(candidate) ? candidate : 'unclassified';
         request.log.warn({ stage, reason }, 'GitHub sign-in failed');
         return reply.redirect('/maintainer?error=sign-in-failed');

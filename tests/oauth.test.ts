@@ -19,6 +19,9 @@ test('GitHub issuer callbacks complete sign-in while unexpected issuers are reje
   await sql`CREATE SCHEMA oauth_regression`;
   await prepareDatabase(sql);
   const calls: string[] = [];
+  const warnings: unknown[][] = [];
+  t.mock.method(app.log, 'warn', (...args: unknown[]) => { warnings.push(args); });
+  let tokenError: string | undefined;
   t.mock.method(globalThis, 'fetch', async (input: string | URL | Request, init?: RequestInit) => {
     const url = input instanceof Request ? input.url : String(input);
     calls.push(url);
@@ -27,6 +30,7 @@ test('GitHub issuer callbacks complete sign-in while unexpected issuers are reje
       assert.equal(body.get('redirect_uri'), `${config.APP_ORIGIN}/api/auth/callback`);
       assert.equal(body.get('client_secret'), 'test-secret');
       assert.ok(body.get('code_verifier'));
+      if (tokenError) return Response.json({ error: tokenError, error_description: 'PRIVATE_ERROR_SENTINEL', access_token: 'PRIVATE_TOKEN_SENTINEL' });
       return Response.json({ access_token: 'synthetic-access-token', token_type: 'bearer', scope: 'read:user' });
     }
     assert.equal(url, 'https://api.github.com/user');
@@ -55,4 +59,14 @@ test('GitHub issuer callbacks complete sign-in while unexpected issuers are reje
   const rejected = await app.inject({ url: `/api/auth/callback?${query}`, headers: { cookie: String(next.headers['set-cookie']).split(';')[0] } });
   assert.equal(rejected.headers.location, '/maintainer?error=sign-in-failed');
   assert.equal(calls.length, 2);
+  for (const reason of ['incorrect_client_credentials', 'bad_verification_code', 'redirect_uri_mismatch', 'PRIVATE_UNKNOWN_ERROR_SENTINEL']) {
+    tokenError = reason;
+    const attempt = await app.inject({ url: '/api/auth/login' });
+    const state = new URL(String(attempt.headers.location)).searchParams.get('state') ?? '';
+    const query = new URLSearchParams({ code: 'synthetic-code', state, iss: 'https://github.com/login/oauth' });
+    const failed = await app.inject({ url: `/api/auth/callback?${query}`, headers: { cookie: String(attempt.headers['set-cookie']).split(';')[0] } });
+    assert.equal(failed.headers.location, '/maintainer?error=sign-in-failed');
+    assert.deepEqual(warnings.at(-1), [{ stage: 'token-response', reason: reason.startsWith('PRIVATE_') ? 'unclassified' : reason }, 'GitHub sign-in failed']);
+  }
+  assert.doesNotMatch(JSON.stringify(warnings), /PRIVATE_(ERROR|TOKEN|UNKNOWN_ERROR)_SENTINEL/);
 });
