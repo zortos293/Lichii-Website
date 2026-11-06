@@ -54,6 +54,7 @@ export function authHandlers(sql: Database, config: Config) {
     app.get('/api/auth/callback', async (request, reply) => {
       reply.clearCookie(oauthName, cookie);
       if (!oauthConfigured(config) || !config.GITHUB_CLIENT_ID || !config.GITHUB_CLIENT_SECRET) return reply.code(503).send({ error: 'GitHub sign-in is not configured.' });
+      let stage = 'cookie';
       try {
         const raw = request.cookies[oauthName];
         if (!raw) throw new Error('Missing state');
@@ -61,17 +62,24 @@ export function authHandlers(sql: Database, config: Config) {
         if (!signed.valid || !signed.value) throw new Error('Invalid state');
         const { state, verifier } = oauthCookieSchema.parse(JSON.parse(signed.value));
         const client = { client_id: config.GITHUB_CLIENT_ID };
+        stage = 'authorization-response';
         const parameters = oauth.validateAuthResponse(githubServer, client, new URL(request.url, config.APP_ORIGIN), state);
+        stage = 'single-use-state';
         const consumed = await sql`DELETE FROM oauth_attempts WHERE state_hash = ${hashToken(state)} AND expires_at > now() RETURNING state_hash`;
         if (consumed.length !== 1) throw new Error('Expired state');
+        stage = 'token-request';
         const response = await oauth.authorizationCodeGrantRequest(githubServer, client, oauth.ClientSecretPost(config.GITHUB_CLIENT_SECRET), parameters, `${config.APP_ORIGIN}/api/auth/callback`, verifier, { signal: AbortSignal.timeout(10000) });
+        stage = 'token-response';
         const tokens = await oauth.processAuthorizationCodeResponse(githubServer, client, response);
+        stage = 'profile-request';
         const profile = await fetch('https://api.github.com/user', { headers: { Authorization: `Bearer ${tokens.access_token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'Lichii-compatibility' }, signal: AbortSignal.timeout(10000) });
         if (!profile.ok) throw new Error('GitHub profile unavailable');
+        stage = 'profile-response';
         const user = githubUserSchema.parse(await profile.json());
         if (!allowedGithubUser(config, user)) return reply.redirect('/maintainer?error=not-allowed');
         const token = randomBytes(32).toString('hex');
         const previous = request.cookies[sessionName];
+        stage = 'session';
         await sql.begin(async tx => {
           if (previous) await tx`DELETE FROM sessions WHERE token_hash = ${hashToken(previous)}`;
           await tx`INSERT INTO sessions(token_hash, github_id, github_login, expires_at) VALUES (${hashToken(token)}, ${String(user.id)}, ${user.login.toLowerCase()}, now() + interval '8 hours')`;
@@ -79,7 +87,10 @@ export function authHandlers(sql: Database, config: Config) {
         });
         reply.setCookie(sessionName, token, { ...cookie, maxAge: 8 * 3600 });
         return reply.redirect('/maintainer');
-      } catch {
+      } catch (error) {
+        const candidate = (error instanceof oauth.ResponseBodyError ? error.error : error instanceof oauth.OperationProcessingError ? error.code : '') ?? '';
+        const reason = ['incorrect_client_credentials', 'bad_verification_code', 'redirect_uri_mismatch', 'invalid_client', 'invalid_grant', 'access_denied', 'OAUTH_INVALID_RESPONSE'].includes(candidate) ? candidate : 'unclassified';
+        request.log.warn({ stage, reason }, 'GitHub sign-in failed');
         return reply.redirect('/maintainer?error=sign-in-failed');
       }
     });

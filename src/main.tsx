@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Link } from './navigation.tsx';
+import { TrackingBoundary } from './analytics.tsx';
 import './styles.css';
 import { Layout } from './components.tsx';
 import { Catalog, GameDetail } from './catalog.tsx';
@@ -11,7 +13,7 @@ import { Maintainer } from './maintainer.tsx';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Application root missing');
-createRoot(root).render(<StrictMode><BrowserRouter><Layout><Routes>
+createRoot(root).render(<StrictMode><BrowserRouter><TrackingBoundary><Layout><Routes>
   <Route path="/" element={<Catalog />} />
   <Route path="/games/:slug" element={<GameDetail />} />
   <Route path="/submit" element={<SubmitReport />} />
@@ -22,4 +24,4 @@ createRoot(root).render(<StrictMode><BrowserRouter><Layout><Routes>
   <Route path="/privacy" element={<Privacy />} />
   <Route path="/maintainer" element={<Maintainer />} />
   <Route path="*" element={<div className="empty"><h1>Page not found</h1><p>This page may have moved.</p><Link className="button" to="/">Back to games</Link></div>} />
-</Routes></Layout></BrowserRouter></StrictMode>);
+</Routes></Layout></TrackingBoundary></BrowserRouter></StrictMode>);

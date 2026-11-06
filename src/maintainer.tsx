@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { Link } from './navigation.tsx';
 import { z } from 'zod';
 import { ArrowRight, Download, Github, LockKeyhole, LogOut, Search, ShieldCheck, Trash2 } from 'lucide-react';
 import { maintainerResponseSchema, type maintainerReportSchema } from '../shared/domain.ts';

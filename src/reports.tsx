@@ -1,4 +1,5 @@
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { Link } from './navigation.tsx';
 import { ArrowRight, Check, LockKeyhole, MessageSquare, ShieldCheck } from 'lucide-react';
 import { publicReportSchema, reportsResponseSchema, type PublicReport } from '../shared/domain.ts';
 import { useApi, useDebounced } from './api.ts';

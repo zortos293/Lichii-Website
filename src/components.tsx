@@ -1,5 +1,8 @@
 import { ArrowRight, ChevronLeft, ChevronRight, FileText, Gamepad2, LockKeyhole, Search, ShieldCheck } from 'lucide-react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link, NavLink } from './navigation.tsx';
+import { TrackingPreferences } from './analytics.tsx';
+import { isPublicTrackingPath } from './tracking-policy.ts';
 import { useEffect, type ReactNode } from 'react';
 import { statuses, type Game, type PublicReport } from '../shared/domain.ts';
 
@@ -10,7 +13,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <Link to="/" className="brand" aria-label="Lichii compatibility home"><img src="/branding/lockup.png" width="122" height="56" alt="Lichii" /><span>compat · Switch 2</span></Link>
     <nav aria-label="Main navigation"><NavLink to="/" end>Games</NavLink><NavLink to="/reports">Recent reports</NavLink><NavLink to="/guide">How to report</NavLink></nav>
     <Link to="/submit" className="button primary header-cta">Submit a report</Link>
-  </div></header><main id="main" className="page">{children}</main><footer className="site-footer"><p>Lichii is an independent, experimental emulator, not affiliated with Nintendo.</p><div><Link to="/privacy">Privacy & safety</Link><Link to="/maintainer"><ShieldCheck size={14} /> Maintainer</Link></div></footer></>;
+  </div></header><main id="main" className="page" data-replay-block={!isPublicTrackingPath(location.pathname) || location.pathname.startsWith('/reports/') ? '' : undefined}>{children}</main><TrackingPreferences /><footer className="site-footer"><p>Lichii is an independent, experimental emulator, not affiliated with Nintendo.</p><div><Link to="/privacy">Privacy & safety</Link><Link to="/maintainer"><ShieldCheck size={14} /> Maintainer</Link></div></footer></>;
 }
 export function Status({ value, large = false }: { value: Game['status']; large?: boolean }) {
   return <span className={`status status-${value.toLowerCase()} ${large ? 'status-large' : ''}`}><i aria-hidden="true" />{value}</span>;
@@ -33,7 +36,7 @@ export function Filters({ status, gpu, os, onChange }: { status: string; gpu: st
   return <div className="filter-group"><label>Status <select aria-label="Filter by status" value={status} onChange={e => onChange('status', e.target.value)}><option value="Any">Any result</option>{statuses.map(s => <option key={s}>{s}</option>)}</select></label><label>GPU <select aria-label="Filter by GPU" value={gpu} onChange={e => onChange('gpu', e.target.value)}><option value="">Any vendor</option><option>NVIDIA</option><option>AMD</option><option>Intel</option><option>Apple</option></select></label><label>OS <select aria-label="Filter by operating system" value={os} onChange={e => onChange('os', e.target.value)}><option value="">Any</option><option>Windows</option><option>Linux</option><option>Android</option><option>macOS</option></select></label></div>;
 }
 export function ReportCard({ report }: { report: PublicReport }) {
-  return <article className="report-card"><div className="flex flex-wrap items-center gap-3"><Status value={report.outcome} /><Link to={`/reports/${report.id}`} className="report-title">{report.summary}</Link></div><p className="report-game"><Link to={`/games/${report.gameSlug}`}>{report.gameTitle}</Link><span>by {report.name} · {formatDate(report.createdAt)}</span></p><p className="report-excerpt">{report.details}</p><div className="tags"><span>{report.build}</span><span>v{report.gameVersion.replace(/^v/i, '')}</span><span>{report.gpu}</span><span>{report.os}</span><span>{report.graphicsApi}</span></div><Link className="text-link report-open" to={`/reports/${report.id}`}>Open report <ArrowRight size={15} /></Link></article>;
+  return <article className="report-card" data-replay-block=""><div className="flex flex-wrap items-center gap-3"><Status value={report.outcome} /><Link to={`/reports/${report.id}`} className="report-title">{report.summary}</Link></div><p className="report-game"><Link to={`/games/${report.gameSlug}`}>{report.gameTitle}</Link><span>by {report.name} · {formatDate(report.createdAt)}</span></p><p className="report-excerpt">{report.details}</p><div className="tags"><span>{report.build}</span><span>v{report.gameVersion.replace(/^v/i, '')}</span><span>{report.gpu}</span><span>{report.os}</span><span>{report.graphicsApi}</span></div><Link className="text-link report-open" to={`/reports/${report.id}`}>Open report <ArrowRight size={15} /></Link></article>;
 }
 export function Contribute({ game }: { game?: Game }) {
   return <aside className="contribute panel"><h2>{game ? `Played ${game.title} on Lichii?` : 'Played a Switch 2 game on Lichii? Tell people how it ran.'}</h2><p className="muted">A useful report starts with what you actually tested.</p><div className="contribute-steps"><div><strong>eden_log.txt</strong><span>Private to the maintainer</span></div><div><strong>Build and hardware</strong><span>Read from the log, you check</span></div><div><strong>Outcome</strong><span>You pick it</span></div><div><strong>What happened</strong><span>You write it</span></div></div><Link className="button primary" to={game ? `/submit?game=${game.slug}` : '/submit'}>Submit a report</Link><Link className="button" to="/guide">How to report <ArrowRight size={15} /></Link><p className="fine-print">No account needed, just a name. Never upload game files, keys, firmware, saves or personal information.</p></aside>;

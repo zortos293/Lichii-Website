@@ -36,8 +36,8 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
   await app.register(cookie, { secret: config.COOKIE_SECRET });
   await app.register(helmet, {
     contentSecurityPolicy: { directives: {
-      defaultSrc: ["'self'"], scriptSrc: ["'self'"], styleSrc: ["'self'"], imgSrc: ["'self'"],
-      fontSrc: ["'self'"], connectSrc: ["'self'"], objectSrc: ["'none'"], frameAncestors: ["'none'"],
+      defaultSrc: ["'self'"], scriptSrc: ["'self'", 'https://cdn.databuddy.cc'], styleSrc: ["'self'"], imgSrc: ["'self'"],
+      fontSrc: ["'self'"], connectSrc: ["'self'", 'https://basket.databuddy.cc'], objectSrc: ["'none'"], frameAncestors: ["'none'"],
       baseUri: ["'none'"], formAction: ["'self'"], upgradeInsecureRequests: config.NODE_ENV === 'production' ? [] : null,
     } },
     referrerPolicy: { policy: 'no-referrer' },
