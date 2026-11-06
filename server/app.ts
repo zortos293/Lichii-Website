@@ -2,6 +2,7 @@ import Fastify, { type FastifyReply, type FastifyRequest } from 'fastify';
 import cookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
 import staticFiles from '@fastify/static';
+import { trackAgents } from '@databuddy/sdk/agents';
 import { createHash, createHmac, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { isIP } from 'node:net';
@@ -25,8 +26,9 @@ const uuidParams = z.object({ id: z.uuid() });
 const desktopReportPath = '/api/v1/desktop/reports';
 const desktopHeaders = z.object({ 'idempotency-key': z.uuid() });
 type SubmissionResult = { kind: 'created' | 'replayed'; id: string } | { kind: 'conflict' } | { kind: 'limited' };
+const agentHeaders = ['user-agent', 'accept', 'signature-agent', 'sec-fetch-mode', 'referer'] as const;
 
-export async function createApp(config: Config, sql: Database, serveStatic = true) {
+export async function createApp(config: Config, sql: Database, serveStatic = true, reportAgent = trackAgents) {
   const app = Fastify({
     logger: { level: 'warn', serializers: { req: () => ({}), res: () => ({}), err: () => ({ type: 'Error', message: 'Request failed', stack: '' }) } },
     disableRequestLogging: true,
@@ -35,6 +37,14 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     connectionTimeout: 20000,
     trustProxy: false,
     routerOptions: { maxParamLength: 200 },
+  });
+  const host = new URL(config.APP_ORIGIN).host;
+  app.addHook('onRequest', (request, _reply, done) => {
+    if (request.headers.dnt !== '1' && request.headers['sec-gpc'] !== '1') {
+      const headers = Object.fromEntries(agentHeaders.map(name => [name, request.headers[name]]));
+      void reportAgent({ method: request.method, url: request.url, headers: { ...headers, host } }, { websiteId: config.DATABUDDY_WEBSITE_ID }).catch(() => {});
+    }
+    done();
   });
   await app.register(cookie, { secret: config.COOKIE_SECRET });
   await app.register(helmet, {

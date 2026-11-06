@@ -1,6 +1,7 @@
 import { Databuddy } from '@databuddy/sdk/react';
 import { useEffect, useLayoutEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
+import { databuddyWebsiteId } from '../shared/databuddy.ts';
 import { isPublicTrackingPath, trackingAllowed } from './tracking-policy.ts';
 
 function hasPrivacySignal() {
@@ -30,7 +31,7 @@ export function TrackingBoundary({ children }: { children: ReactNode }) {
   }, []);
   if (crossingBoundary) return null;
   return <>{publicDocument && trackingAllowed(location.pathname, hasPrivacySignal()) && <Databuddy
-    clientId="da37ce88-b18d-4639-a886-b2e74119b0ad"
+    clientId={databuddyWebsiteId}
     trackWebVitals
     replay={false}
     trackErrors={false}
