@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { Link } from './navigation.tsx';
 import { ArrowRight, ArrowUpRight, Database, Info } from 'lucide-react';
 import { gameSchema, gamesResponseSchema, reportsResponseSchema, statuses } from '../shared/domain.ts';
 import { useApi, useDebounced } from './api.ts';

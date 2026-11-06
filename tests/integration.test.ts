@@ -25,6 +25,17 @@ before(async () => {
 });
 after(async () => { await app.close(); await sql.end(); });
 
+test('CSP permits only the exact Databuddy script and ingestion origins', async () => {
+  const response = await app.inject({ url: '/api/health' });
+  const policy = response.headers['content-security-policy'];
+  assert.ok(typeof policy === 'string');
+  const directives = policy.split(';').map(value => value.trim());
+  assert.ok(directives.includes("script-src 'self' https://cdn.databuddy.cc"));
+  assert.ok(directives.includes("connect-src 'self' https://basket.databuddy.cc"));
+  for (const directive of ['style-src', 'img-src', 'font-src']) assert.ok(directives.includes(`${directive} 'self'`));
+  assert.equal(policy.includes('*'), false);
+});
+
 test('real PostgreSQL migrations/import are concurrent-safe, idempotent and seed zero reports', async () => {
   await Promise.all([prepareDatabase(sql), prepareDatabase(sql)]);
   const response = await app.inject({ method: 'GET', url: '/api/games', headers: headers() });

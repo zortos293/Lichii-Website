@@ -23,7 +23,7 @@ Migrations and imports share a PostgreSQL transaction advisory lock. They are sa
 
 - Use `/` as the service root and the repository root as the Docker build context. `Dockerfile` builds the frontend and runs the server as the non-root `node` user.
 - Attach PostgreSQL and set `DATABASE_URL` to its private connection string. Keep database traffic on the private network. Use a verified TLS configuration if connecting over a public database endpoint; the app never disables certificate verification.
-- Set `APP_ORIGIN` to the exact HTTPS origin without a trailing slash, such as `https://your-service.up.railway.app`.
+- Set `APP_ORIGIN` to the exact HTTPS origin without a trailing slash. The production origin is `https://lichii.zortos.me`.
 - Set `COOKIE_SECRET` and `RATE_LIMIT_SECRET` to separate random values of at least 32 characters.
 - Set `NODE_ENV=production` and `TRUST_PROXY=true` only behind Railway’s edge.
 - Use `/api/health` as the health check. It queries PostgreSQL and returns 503 if the database is unavailable.
@@ -37,10 +37,12 @@ Configure the service in Railway’s dashboard or API with root directory `/`, D
 Create a GitHub OAuth App with the callback:
 
 ```text
-https://YOUR_ORIGIN/api/auth/callback
+https://lichii.zortos.me/api/auth/callback
 ```
 
 Set `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GITHUB_ALLOWED_ID=65777760` and `GITHUB_ALLOWED_LOGIN=zortos293`. The login is deliberately restricted to this account. The immutable numeric ID and current login must both match the identity returned by GitHub’s authenticated `/user` endpoint. Never substitute the username for the ID check.
+
+Set this callback in the GitHub OAuth App as well. The website domain alone does not update that setting. For a separate deployment, use its exact origin with `/api/auth/callback`.
 
 Missing OAuth configuration disables maintainer access rather than bypassing authentication. The public site remains usable. Real OAuth testing requires the configured callback origin and the account owner’s browser. Local tests verify the flow’s state, PKCE, cookie and allowlist logic without using production credentials.
 
@@ -60,10 +62,13 @@ Use a separate PostgreSQL database named `lichii_test`. The integration test **d
 npm run check
 TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm test
 npm run build
+TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm run test:privacy
 npm audit
 ```
 
 Tests run migrations and real parameterized queries. They cover repeat/concurrent imports, zero reports, search, report persistence, private/public separation, malformed uploads, MIME/size limits, CSRF, SQL-injection-shaped search, OAuth state and PKCE, immutable-ID rejection, expired/forged sessions, every privileged endpoint, audit events, triage/hiding, log deletion/expiry, and durable rate limits with spoofed forwarding headers.
+
+`test:privacy` starts the built application on port 3100 against the same isolated database and drives Chromium. It uses `/usr/local/bin/chromium` when available, `PLAYWRIGHT_CHROMIUM_EXECUTABLE` when set, or Playwright’s browser installed with `npx playwright install chromium`. The browser maps `lichii.example` to loopback because the production tracker suppresses analytics on localhost. The tests download and execute the SDK-pinned CDN scripts, but intercept all ingestion requests so test visits and replay data never reach Databuddy. They cover prior consent, analytics-only consent, browser privacy signals, cross-tab withdrawal, hard navigation, programmatic SPA navigation, delayed recorder loading, and actual masked replay payloads. Internet access to the pinned CDN scripts is required.
 
 ## Catalog and artwork
 
@@ -107,14 +112,28 @@ The public report contains only explicitly entered fields. Logs are separate Pos
 
 Logs become inaccessible at 90 days. Hourly and startup cleanup deletes expired rows from the live database. Public reports remain. Backups have their own infrastructure retention policy. The privacy page explains the distinction. There are no author accounts or self-service editing tokens; removal requests go to the maintainer.
 
+## Optional Databuddy analytics and replay
+
+`@databuddy/sdk/react` uses the public client ID `da37ce88-b18d-4639-a886-b2e74119b0ad`. Neither analytics nor replay loads before a visitor opts in through **Tracking preferences**. The choices are off, analytics only, or analytics with replay. The versioned choice is stored in local storage. Unavailable storage, unknown choices, Do Not Track and Global Privacy Control keep collection off.
+
+Analytics measures public-page visits and Web Vitals, including page and referrer paths, browser/device information and approximate location. The tracker can collect selected campaign parameters and creates browser-local anonymous and session identifiers after consent. Error, attribute, outgoing-link and custom interaction tracking are disabled. We do not identify visitors by name or send report fields as events. See [Databuddy’s security documentation](https://www.databuddy.cc/docs/security) for its storage and processing behavior.
+
+Replay is a separate opt-in. Page text and inputs retain the recorder’s default masking, iframe recording is off, and public report cards and bodies use `data-replay-block`. Databuddy documents a 30-day replay retention period and offers AI-assisted analysis of recordings. Withdrawing consent stops further collection but does not delete data already collected.
+
+Only known public catalog, game, report, guide and privacy routes may mount the SDK. `/submit`, `/submitted/:id`, `/maintainer`, their descendants and unknown routes never mount it. Links crossing this boundary perform a full-document navigation. `TrackingBoundary` also refuses to render the destination when a programmatic SPA navigation crosses it, stops the current recorder, and reloads before any private component mounts. Private-page content is blocked from replay as a second precaution. Changes to consent reload the document, including changes from another tab or while a page was in the back-forward cache.
+
+SDK 3.4.7 pins date-versioned CDN scripts with integrity hashes. Its React cleanup calls `databuddyReplay.stop()`, which removes recorder listeners, drops buffered events and cancels pending uploads. Removing a script tag alone cannot prevent an in-flight script from executing, so private content never renders in a document that loaded tracking. Keep this boundary when adding links or routes: use `src/navigation.tsx`, and explicitly review additions to the public-route allowlist.
+
+CSP allows scripts only from self and `https://cdn.databuddy.cc`, and connections only to self and `https://basket.databuddy.cc`. The pinned tracker and recorder use these origins. Web Vitals are collected by the tracker. No wildcard, external image, iframe or worker origin is required. Check origins and lifecycle behavior again before upgrading the SDK. See [session replay](https://www.databuddy.cc/docs/session-replay) and [consent guidance](https://www.databuddy.cc/docs/security).
+
 ## Launch security and scope
 
 - JSON bodies are bounded before parsing to 1,100 KiB. Logs are at most 512 KiB of UTF-8 text, checked both in the browser and on the server, with a database byte-length constraint.
 - Archives, binaries, HTML/SVG, unexpected content types and malformed report fields are rejected. Uploaded filenames are validated then discarded. Screenshot uploads are intentionally not supported.
-- React escapes all report/log content. There is no raw HTML rendering. CSP permits only local scripts/styles/images/fonts and prohibits embedding, objects and external connections. Additional headers include `nosniff`, no-referrer, HSTS in production and a restrictive Permissions Policy.
+- React escapes all report/log content. There is no raw HTML rendering. CSP keeps styles, images and fonts local, limits external scripts and connections to the Databuddy origins above, and prohibits embedding and objects. Additional headers include `nosniff`, no-referrer, HSTS in production and a restrictive Permissions Policy.
 - All mutations require the exact configured Origin and JSON content type. Cross-site Fetch Metadata is rejected. SQL uses parameterized queries; the only raw SQL is the checked-in migration file.
 - Submission attempts are limited to five per IP per hour, OAuth starts to twenty per IP per hour, and other APIs to 240 requests per IP per minute. A global 1,000-report daily limit bounds storage abuse. Limits are atomic and durable across restarts. IP-derived keys are HMAC hashes, not raw addresses, and expire.
-- The application has no analytics and suppresses request/body/error serialization that could disclose logs, tokens or queries. Error responses do not expose stack traces or database errors.
+- Optional analytics and replay exclude reporting and maintainer pages. The server suppresses request/body/error serialization that could disclose logs, tokens or queries. Error responses do not expose stack traces or database errors.
 - Anonymous content is still untrusted. Rate limits and a honeypot reduce abuse but cannot stop distributed determined spam. The maintainer can hide reports. No automatic consensus, deduplication, issue matching, voting, benchmark inference or screenshot service is claimed.
 
 ## Code map

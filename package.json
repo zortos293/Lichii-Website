@@ -9,9 +9,11 @@
     "start": "node --env-file-if-exists=.env --import tsx server/index.ts",
     "check": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
+    "test:privacy": "playwright test --config tests/playwright.config.ts",
     "db:prepare": "node --env-file-if-exists=.env --import tsx server/prepare.ts"
   },
   "dependencies": {
+    "@databuddy/sdk": "3.4.7",
     "@fastify/cookie": "^11.0.2",
     "@fastify/helmet": "^13.0.2",
     "@fastify/static": "^10.1.8",
@@ -28,6 +30,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@playwright/test": "1.56.1",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

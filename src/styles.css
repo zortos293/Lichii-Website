@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+.tracking-preferences { max-width: 1320px; margin: 0 auto; padding: 0 28px 28px; }
+.tracking-options { margin-top: 16px; }
+.tracking-options h2 { font-size: 18px; margin: 0 0 12px; }
+.tracking-options p { max-width: 900px; margin: 12px 0; }
+.tracking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.tracking-actions .button { white-space: normal; text-align: left; }
+
 @font-face {
   font-family: 'Paper Mono';
   src: url('/fonts/PaperMono.woff2') format('woff2');

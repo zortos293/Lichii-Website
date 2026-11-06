@@ -1,5 +1,6 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link } from './navigation.tsx';
 import { ArrowRight, Check, FileText, LockKeyhole, Upload, X } from 'lucide-react';
 import { z } from 'zod';
 import { gameSchema, gamesResponseSchema, outcomeDescriptions, outcomes, type Game, type ReportFields } from '../shared/domain.ts';
