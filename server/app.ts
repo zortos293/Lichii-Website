@@ -45,16 +45,17 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     hsts: config.NODE_ENV === 'production' ? { maxAge: 31536000 } : false,
   });
   app.addHook('onRequest', async (request, reply) => {
+    const path = request.routeOptions.url ?? request.url.split('?')[0] ?? '';
     reply.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    if (request.url.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
+    if (path.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
     if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method)) {
       if (request.headers.origin !== config.APP_ORIGIN) return reply.code(403).send({ error: 'This request must come from the Lichii website.' });
       if (request.headers['sec-fetch-site'] === 'cross-site') return reply.code(403).send({ error: 'Cross-site requests are not allowed.' });
       if (request.headers['content-type']?.split(';')[0] !== 'application/json') return reply.code(415).send({ error: 'Send application/json.' });
     }
-    if (!request.url.startsWith('/api/') || request.url === '/api/health') return;
-    const submitting = request.method === 'POST' && request.url.split('?')[0] === '/api/reports';
-    const auth = request.url.startsWith('/api/auth/login');
+    if (!path.startsWith('/api/') || path === '/api/health') return;
+    const submitting = request.method === 'POST' && path === '/api/reports';
+    const auth = path === '/api/auth/login';
     const period = submitting || auth ? 3600 : 60;
     const limit = submitting ? 5 : auth ? 20 : 240;
     const bucket = Math.floor(Date.now() / (period * 1000));

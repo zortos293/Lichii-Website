@@ -154,3 +154,58 @@ test('durable limits trust only valid Railway X-Real-IP and ignore spoofed forwa
   }
   await local.close();
 });
+
+test('encoded API paths cannot bypass trusted proxy validation or private response cache protection', async () => {
+  for (const url of ['/api/games', '/%61pi/games', '/a%70i/%67ames']) {
+    const response = await app.inject({ url });
+    assert.equal(response.statusCode, 400, url);
+    assert.equal(response.headers['cache-control'], 'no-store', url);
+  }
+  for (const url of ['/api/maintainer/reports', '/%61pi/maintainer/reports', '/a%70i/%6daintainer/reports']) {
+    const response = await app.inject({ url, headers: headers() });
+    assert.equal(response.statusCode, 401, url);
+    assert.equal(response.headers['cache-control'], 'no-store', url);
+  }
+});
+
+test('report submission limits cannot be bypassed by encoding the API prefix or endpoint', async () => {
+  const stable = { ...headers(), 'x-real-ip': '203.0.113.171' };
+  for (let i = 0; i < 5; i++) {
+    const response = await app.inject({ method: 'POST', url: '/api/reports', headers: stable, payload: { ...validSubmission, name: '' } });
+    assert.equal(response.statusCode, 400);
+  }
+  for (const url of ['/api/reports', '/api/%72eports', '/%61pi/reports', '/%61pi/%72eports', '/api/reports?source=test']) {
+    const response = await app.inject({ method: 'POST', url, headers: stable, payload: { ...validSubmission, name: '' } });
+    assert.equal(response.statusCode, 429, url);
+    assert.equal(response.headers['cache-control'], 'no-store', url);
+  }
+});
+
+test('private API responses stay uncacheable through encoded routes with or without a valid session', async t => {
+  const privateToken = randomBytes(32).toString('hex');
+  await sql`INSERT INTO sessions(token_hash, github_id, github_login, expires_at) VALUES (${hashToken(privateToken)}, '65777760', 'zortos293', now() + interval '1 hour')`;
+  t.after(async () => { await sql`DELETE FROM sessions WHERE token_hash = ${hashToken(privateToken)}`; });
+  for (const signedIn of [false, true]) {
+    for (const url of ['/api/maintainer/reports', '/%61pi/maintainer/reports', '/%61pi/%6daintainer/reports']) {
+      const response = await app.inject({ url, headers: { ...headers(), ...(signedIn ? { cookie: `lichii-session=${privateToken}` } : {}) } });
+      assert.equal(response.statusCode, signedIn ? 200 : 401, url);
+      assert.equal(response.headers['cache-control'], 'no-store', url);
+    }
+  }
+});
+
+test('OAuth attempt limits cannot be bypassed by encoding the API prefix or endpoint', async () => {
+  const stable = { ...headers(), 'x-real-ip': '203.0.113.172' };
+  for (let i = 0; i < 20; i++) {
+    const response = await app.inject({ url: '/api/auth/login', headers: stable });
+    assert.equal(response.statusCode, 302);
+  }
+  const before = await sql`SELECT count(*)::int AS count FROM oauth_attempts`;
+  for (const url of ['/api/auth/login', '/api/auth/%6cogin', '/%61pi/auth/login', '/%61pi/auth/%6cogin']) {
+    const response = await app.inject({ url, headers: stable });
+    assert.equal(response.statusCode, 429, url);
+    assert.equal(response.headers['set-cookie'], undefined, url);
+  }
+  const after = await sql`SELECT count(*)::int AS count FROM oauth_attempts`;
+  assert.equal(after[0]?.count, before[0]?.count);
+});
