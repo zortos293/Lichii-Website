@@ -11,14 +11,17 @@ export type Database = ReturnType<typeof connectDatabase>;
 export async function prepareDatabase(sql: Database, catalogPath = new URL('../data/catalog.json', import.meta.url)) {
   const entries = z.array(catalogEntrySchema).parse(JSON.parse(await readFile(catalogPath, 'utf8')));
   if (new Set(entries.map(e => e.sgdbId)).size !== entries.length || new Set(entries.map(e => e.slug)).size !== entries.length) throw new Error('Catalog IDs and slugs must be unique.');
-  const migration = await readFile(new URL('./migrations/001-initial.sql', import.meta.url), 'utf8');
+  const migrations = await Promise.all(['001-initial.sql', '002-desktop-reporting.sql'].map(file => readFile(new URL(`./migrations/${file}`, import.meta.url), 'utf8')));
   await sql.begin(async tx => {
     await tx`SELECT pg_advisory_xact_lock(674393520)`;
     await tx`CREATE TABLE IF NOT EXISTS schema_migrations (version integer PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now())`;
-    const applied = await tx`SELECT version FROM schema_migrations WHERE version = 1`;
-    if (!applied.length) {
-      await tx.unsafe(migration);
-      await tx`INSERT INTO schema_migrations(version) VALUES (1)`;
+    for (const [index, migration] of migrations.entries()) {
+      const version = index + 1;
+      const applied = await tx`SELECT version FROM schema_migrations WHERE version = ${version}`;
+      if (!applied.length) {
+        await tx.unsafe(migration);
+        await tx`INSERT INTO schema_migrations(version) VALUES (${version})`;
+      }
     }
     for (const entry of entries) {
       await tx`INSERT INTO games(sgdb_id, slug, title, catalog) VALUES (${entry.sgdbId}, ${entry.slug}, ${entry.title}, ${tx.json(entry)})

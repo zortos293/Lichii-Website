@@ -54,6 +54,10 @@ Fastify does not trust `X-Forwarded-For`. In Railway mode, rate limits use only 
 
 Only Railway’s edge and trusted services in the private project may reach the app in this mode. Do not expose its container port directly or put an untrusted private-network service beside it. Such a caller could set `X-Real-IP`; this is a deployment trust boundary, not a portable proxy setting. Reverify the edge behavior before moving to another hosting provider. Railway’s guidance: [trusted proxy configuration](https://station.railway.com/questions/engineering-confirmation-secure-proxy-t-d05079b3).
 
+## Desktop reporting API
+
+The [desktop API reference](docs/desktop-api.md) defines the anonymous, opt-in native report endpoint, catalog matching, required consents, request limits, and duplicate-safe retries. Native v1 accepts no logs or attachments. Browser submission and maintainer authentication keep their existing security boundaries.
+
 ## Test
 
 Use a separate PostgreSQL database named `lichii_test`. The integration test **drops and recreates its public schema** and refuses other database names. Do not point it at production or a development database containing work.

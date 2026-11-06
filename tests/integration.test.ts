@@ -44,7 +44,7 @@ test('real PostgreSQL migrations/import are concurrent-safe, idempotent and seed
   assert.equal(data.totalGames, 465); assert.equal(data.totalReports, 0); assert.equal(data.counts.Untested, 465);
   assert.equal(data.games.length, 15); assert.equal(data.pageCount, 31);
   assert.ok(data.games.every((g: { status: string; reportCount: number }) => g.status === 'Untested' && g.reportCount === 0));
-  assert.equal((await sql`SELECT * FROM schema_migrations`).length, 1);
+  assert.deepEqual((await sql`SELECT version FROM schema_migrations ORDER BY version`).map(row => row.version), [1, 2]);
   const filtered = await app.inject({ url: '/api/games?q=Mario%20Kart%20World&status=Untested', headers: headers() });
   assert.equal(filtered.json().total, 1);
   const attack = await app.inject({ url: "/api/games?q='OR%201=1--", headers: headers() });
