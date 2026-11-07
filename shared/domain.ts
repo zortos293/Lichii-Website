@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { platforms } from './compat.ts';
 
 export const outcomes = ['Perfect', 'Playable', 'Runs', 'Loads', 'Unplayable'] as const;
 export const statuses = [...outcomes, 'Untested'] as const;
@@ -43,20 +44,31 @@ export const catalogEntrySchema = z.object({
   releaseDate: z.string().nullable().optional(), publisher: z.string().nullable().optional(),
 });
 export type CatalogEntry = z.infer<typeof catalogEntrySchema>;
+export const platformSchema = z.enum([...platforms, 'other']);
+const countsSchema = z.object(Object.fromEntries(outcomes.map(outcome => [outcome, z.number().int().nonnegative()])) as Record<(typeof outcomes)[number], z.ZodNumber>);
+export const tallySchema = z.object({ total: z.number().int().nonnegative(), counts: countsSchema, playable: z.number().int().nonnegative(), median: z.enum(outcomes).nullable() });
 export const gameSchema = catalogEntrySchema.extend({
   reportCount: z.number().int().nonnegative(), status: z.enum(statuses), latestAt: z.string().nullable(),
+  median: z.enum(outcomes).nullable(), best: z.object({ outcome: z.enum(outcomes), setup: z.string() }).nullable(),
+  latestVersion: z.string().nullable(), recentBuilds: z.array(z.object({ build: z.number().int().positive(), status: z.enum(statuses) })),
 });
 export type Game = z.infer<typeof gameSchema>;
 export const publicReportSchema = reportFieldsSchema.extend({
-  id: z.uuid(), createdAt: z.string(), gameTitle: z.string(), gameSlug: z.string(),
+  id: z.uuid(), createdAt: z.string(), gameTitle: z.string(), gameSlug: z.string(), gameCoverPath: localArt.default(null),
   triage: z.enum(['new', 'reviewed', 'needs-info', 'hidden']),
 });
 export type PublicReport = z.infer<typeof publicReportSchema>;
 export const pageSchema = z.object({ page: z.number(), pageCount: z.number(), total: z.number() });
 export const gamesResponseSchema = pageSchema.extend({
   games: z.array(gameSchema), totalGames: z.number(), totalReports: z.number(),
-  counts: z.record(z.enum(statuses), z.number()),
+  counts: z.record(z.enum(statuses), z.number()), latestBuild: z.number().int().positive().nullable(),
 });
+export const summaryResponseSchema = z.object({
+  latestBuild: z.number().int().positive().nullable(), gamesTested: z.number().int().nonnegative(), overall: tallySchema,
+  platforms: z.array(tallySchema.extend({ platform: platformSchema })),
+  builds: z.array(tallySchema.extend({ build: z.number().int().positive().nullable(), games: z.number().int().nonnegative(), latestAt: z.string() })),
+});
+export type Summary = z.infer<typeof summaryResponseSchema>;
 export const reportsResponseSchema = pageSchema.extend({ reports: z.array(publicReportSchema) });
 export const maintainerReportSchema = publicReportSchema.extend({ internalNote: z.string(), hasLog: z.boolean() });
 export const maintainerResponseSchema = pageSchema.extend({ reports: z.array(maintainerReportSchema) });

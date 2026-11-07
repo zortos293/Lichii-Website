@@ -100,6 +100,31 @@ The snapshot matches Nintendo Europe’s English Switch 2 index against SteamGri
 
 See `scripts/catalog/README.md` to reproduce discovery, matching and image conversion. Regenerate deliberately, review the unmatched queue and artwork, replace the checked-in export, then deploy. There is no automatic upstream sync and no API-key dependency at runtime.
 
+## Compatibility views
+
+The home page follows the Ledger frames in Paper: the catalog status bar, then a community status band with the median result and per-platform bars, then the latest 8 results as colored rows, then the games table and a by-build table. Every number comes from public reports. With no reports, each block shows an empty state instead of placeholder figures.
+
+The site derives platform and build from the free-text fields players already submit. The report schema and the native desktop contract are unchanged. All derivation lives in `shared/compat.ts`, which the server and the browser both import:
+
+- **Platform** comes from `os`, `cpu` and `gpu`. Steam Deck hardware (the words "Steam Deck", the Van Gogh/Aerith or Sephiroth APUs, "Custom APU/GPU 0405/0932") always counts as Steam Deck, even under Windows. SteamOS without a named desktop GPU counts as Steam Deck, and SteamOS with one counts as Linux. After that the order is macOS (including Apple M-series hardware), Windows, then Linux distributions and RADV/Mesa drivers. Anything else is Other.
+- **Lichii build** is the number after `build` (`build-93`, `Build 93`, `nx2-build-93`, `Lichii build-93 (09b78bd2dfdd)`) or a bare number (`93`). Commit-only, fork and version-like strings (`9.3`, `1973c1df56-HEAD`) are grouped under **Other / unknown**. They are never guessed.
+- **Median** is the middle rating on the ordinal scale Unplayable < Loads < Runs < Playable < Perfect. For an even count it takes the lower of the two middle ratings, so it never overstates compatibility.
+- **Playable share** is the share of reports rated Playable or Perfect.
+- **Best result on** summarises the highest-rated report for a game (newest wins ties) as GPU family, graphics API and OS, for example `RTX 40 · Vulkan · Win 11`. If the best report is Unplayable, the table says "No working report yet".
+- **Last 8 builds** shows the 8 consecutive build numbers that end at the newest build anyone reported. Each square is that game's best result on that build. Gray means nobody reported it on that build.
+
+A game's `status` is still its latest visible report, as before. Platform toggles and the build selector filter reports. When they are active, the games table only lists games with matching reports, and each row's figures cover only those reports. The top-of-page status counts always cover the whole catalog.
+
+Read-only API additions, all backward compatible:
+
+- `GET /api/games` and `GET /api/games/:slug` add `median`, `best` (`{ outcome, setup }` or `null`), `latestVersion` and `recentBuilds` (`[{ build, status }]`) per game, and `latestBuild` at the top level. `/api/games` accepts `platform` (comma-separated `steam-deck`, `windows`, `linux`, `macos`, `other`) and `lichiiBuild` (a number or `other`). Existing fields, page size, sorting and the desktop search query are unchanged.
+- `GET /api/reports` accepts the same `platform` and `lichiiBuild` filters and adds `gameCoverPath` to each report.
+- `GET /api/summary` returns the overall tally, per-platform tallies, per-build tallies (newest first, Other / unknown last), `gamesTested` and `latestBuild`. It accepts `gameId`, `platform` and `lichiiBuild`.
+
+Aggregates are computed per request from the visible reports with the shared functions, so the server and the UI cannot disagree. This is cheap at the current volume, but it scans all visible reports. Add caching or stored derived columns before the report count reaches the tens of thousands.
+
+Platform logos come from [Simple Icons](https://simpleicons.org) (CC0-1.0), bundled through npm and rendered as inline SVG, so the `img-src 'self'` CSP is untouched. The logos remain trademarks of their owners. Simple Icons does not ship Microsoft marks, so Windows uses a plain four-pane glyph. UI glyphs use Lucide (ISC).
+
 ## Reporting and maintenance
 
 1. Pick a game and choose **Submit a report**.
@@ -145,6 +170,9 @@ CSP allows scripts only from self and `https://cdn.databuddy.cc`, and connection
 ## Code map
 
 - `shared/domain.ts`: Zod boundary schemas and shared report/catalog types.
+- `shared/compat.ts`: platform, build, GPU family, setup summary, median and playable-share derivation shared by server and browser.
+- `server/insights.ts`: per-game, per-platform and per-build aggregation over visible reports.
+- `src/insights.tsx`: platform icons and toggles, build selector, distribution bars, build strip and build table.
 - `shared/log.ts`: bounded log validation and conservative local extraction.
 - `server/app.ts`: HTTP security boundary, public APIs and protected maintainer APIs.
 - `server/auth.ts`: GitHub OAuth and database-backed sessions.

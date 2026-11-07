@@ -7,21 +7,34 @@ import { createHash, createHmac, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { isIP } from 'node:net';
 import { z } from 'zod';
-import { desktopSubmissionSchema, gameSchema, publicReportSchema, reportFieldsSchema, submissionSchema, triageSchema, maintainerReportSchema } from '../shared/domain.ts';
+import { catalogEntrySchema, desktopSubmissionSchema, gameSchema, platformSchema, publicReportSchema, reportFieldsSchema, submissionSchema, summaryResponseSchema, triageSchema, maintainerReportSchema } from '../shared/domain.ts';
 import { validateLog } from '../shared/log.ts';
 import type { Config } from './config.ts';
 import type { Database } from './db.ts';
 import { authHandlers } from './auth.ts';
+import { aggregateGame, buildColumns, hasReportFilter, latestBuild, loadFacts, matchesFilter, summarize, type ReportFact, type ReportFilter } from './insights.ts';
 
 const querySchema = z.object({
   q: z.string().trim().max(150).default(''),
   status: z.enum(['Any', 'Perfect', 'Playable', 'Runs', 'Loads', 'Unplayable', 'Untested']).default('Any'),
   gpu: z.string().trim().max(100).default(''), os: z.string().trim().max(100).default(''),
   build: z.string().trim().max(100).default(''),
+  platform: z.string().trim().max(80).default('').transform(value => value ? [...new Set(value.split(','))] : []).pipe(z.array(platformSchema)),
+  lichiiBuild: z.union([z.literal(''), z.literal('other'), z.string().regex(/^\d{1,4}$/).transform(Number)]).default(''),
   sort: z.enum(['popular', 'title', 'recent']).default('popular'),
   page: z.coerce.number().int().min(1).max(10000).default(1),
   gameId: z.coerce.number().int().positive().optional(),
 });
+type ListQuery = z.infer<typeof querySchema>;
+const reportFilter = (q: ListQuery): ReportFilter => ({ platforms: q.platform, build: q.lichiiBuild === '' ? null : q.lichiiBuild, gpu: q.gpu, os: q.os, buildText: q.build });
+const pinnedGames = [5483943, 5483961, 5483963];
+const pinRank = (id: number) => pinnedGames.includes(id) ? pinnedGames.indexOf(id) : pinnedGames.length;
+const byTitle = (a: { title: string; sgdbId: number }, b: { title: string; sgdbId: number }) => a.title.toLowerCase() < b.title.toLowerCase() ? -1 : a.title.toLowerCase() > b.title.toLowerCase() ? 1 : a.sgdbId - b.sgdbId;
+function groupByGame(facts: readonly ReportFact[]) {
+  const groups = new Map<number, ReportFact[]>();
+  for (const fact of facts) groups.set(fact.gameId, [...groups.get(fact.gameId) ?? [], fact]);
+  return groups;
+}
 const uuidParams = z.object({ id: z.uuid() });
 const desktopReportPath = '/api/v1/desktop/reports';
 const desktopHeaders = z.object({ 'idempotency-key': z.uuid() });
@@ -100,61 +113,57 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     catch { return reply.code(503).send({ ok: false }); }
   });
 
-  const gameRows = sql`SELECT g.catalog,
-    (SELECT count(*)::int FROM reports r WHERE r.game_id = g.sgdb_id AND r.triage <> 'hidden') AS report_count,
-    COALESCE((SELECT r.fields->>'outcome' FROM reports r WHERE r.game_id = g.sgdb_id AND r.triage <> 'hidden' ORDER BY r.created_at DESC, r.id DESC LIMIT 1), 'Untested') AS status,
-    (SELECT r.created_at FROM reports r WHERE r.game_id = g.sgdb_id AND r.triage <> 'hidden' ORDER BY r.created_at DESC, r.id DESC LIMIT 1) AS latest_at,
-    g.sgdb_id, g.title, g.slug FROM games g`;
-  const mapGame = (row: Record<string, unknown>) => gameSchema.parse({ ...z.record(z.string(), z.unknown()).parse(row.catalog), reportCount: row.report_count, status: row.status, latestAt: row.latest_at instanceof Date ? row.latest_at.toISOString() : null });
-
   app.get('/api/games', async request => {
     const q = querySchema.parse(request.query);
-    const where = sql`position(lower(${q.q}) in lower(title || ' ' || COALESCE(catalog->>'publisher', ''))) > 0 AND (${q.status} = 'Any' OR status = ${q.status})
-      AND (${q.gpu} = '' AND ${q.os} = '' AND ${q.build} = '' OR EXISTS(SELECT 1 FROM reports r WHERE r.game_id = catalog_rows.sgdb_id AND r.triage <> 'hidden'
-        AND position(lower(${q.gpu}) in lower(r.fields->>'gpu')) > 0 AND position(lower(${q.os}) in lower(r.fields->>'os')) > 0 AND position(lower(${q.build}) in lower(r.fields->>'build')) > 0))`;
-    const ordering = q.sort === 'title' ? sql`lower(title)` : q.sort === 'recent' ? sql`latest_at DESC NULLS LAST, lower(title)` : sql`report_count DESC, CASE sgdb_id WHEN 5483943 THEN 0 WHEN 5483961 THEN 1 WHEN 5483963 THEN 2 ELSE 3 END, lower(title)`;
-    const [rows, total, counts, reportTotal] = await Promise.all([
-      sql`WITH catalog_rows AS (${gameRows}) SELECT * FROM catalog_rows WHERE ${where} ORDER BY ${ordering} LIMIT 15 OFFSET ${(q.page - 1) * 15}`,
-      sql`WITH catalog_rows AS (${gameRows}) SELECT count(*)::int AS total FROM catalog_rows WHERE ${where}`,
-      sql`WITH catalog_rows AS (${gameRows}) SELECT status, count(*)::int AS count FROM catalog_rows GROUP BY status`,
-      sql`SELECT count(*)::int AS total FROM reports WHERE triage <> 'hidden'`,
-    ]);
-    const distribution = { Perfect: 0, Playable: 0, Runs: 0, Loads: 0, Unplayable: 0, Untested: 0 };
-    for (const row of counts) {
-      const status = gameSchema.shape.status.parse(row.status);
-      distribution[status] = z.number().parse(row.count);
-    }
-    const number = Number(total[0]?.total ?? 0);
-    return { games: rows.map(mapGame), page: q.page, pageCount: Math.max(1, Math.ceil(number / 15)), total: number, totalGames: Object.values(distribution).reduce((a, b) => a + b, 0), totalReports: Number(reportTotal[0]?.total ?? 0), counts: distribution };
+    const filter = reportFilter(q);
+    const [catalog, facts] = await Promise.all([sql`SELECT catalog FROM games`, loadFacts(sql)]);
+    const columns = buildColumns(facts);
+    const latestByGame = groupByGame(facts);
+    const matching = groupByGame(facts.filter(matchesFilter(filter)));
+    const games = catalog.map(row => catalogEntrySchema.parse(row.catalog));
+    const counts = { Perfect: 0, Playable: 0, Runs: 0, Loads: 0, Unplayable: 0, Untested: 0 };
+    for (const game of games) counts[latestByGame.get(game.sgdbId)?.[0]?.outcome ?? 'Untested']++;
+    const needle = q.q.toLowerCase();
+    const filtered = hasReportFilter(filter);
+    const rows = games.map(game => ({ ...game, ...aggregateGame(matching.get(game.sgdbId) ?? [], columns) }))
+      .filter(game => (!filtered || game.reportCount > 0) && `${game.title} ${game.publisher ?? ''}`.toLowerCase().includes(needle) && (q.status === 'Any' || game.status === q.status));
+    rows.sort(q.sort === 'title' ? byTitle
+      : q.sort === 'recent' ? (a, b) => (b.latestAt ?? '').localeCompare(a.latestAt ?? '') || byTitle(a, b)
+      : (a, b) => b.reportCount - a.reportCount || pinRank(a.sgdbId) - pinRank(b.sgdbId) || byTitle(a, b));
+    return {
+      games: rows.slice((q.page - 1) * 15, q.page * 15).map(game => gameSchema.parse(game)), page: q.page, pageCount: Math.max(1, Math.ceil(rows.length / 15)), total: rows.length,
+      totalGames: games.length, totalReports: facts.length, counts, latestBuild: latestBuild(facts),
+    };
   });
 
   app.get('/api/games/:slug', async (request, reply) => {
     const { slug } = z.object({ slug: z.string().max(180) }).parse(request.params);
-    const rows = await sql`WITH catalog_rows AS (${gameRows}) SELECT * FROM catalog_rows WHERE slug = ${slug}`;
+    const [rows, facts] = await Promise.all([sql`SELECT catalog FROM games WHERE slug = ${slug}`, loadFacts(sql)]);
     if (!rows[0]) return reply.code(404).send({ error: 'Game not found.' });
-    return mapGame(rows[0]);
+    const game = catalogEntrySchema.parse(rows[0].catalog);
+    return gameSchema.parse({ ...game, ...aggregateGame(facts.filter(fact => fact.gameId === game.sgdbId), buildColumns(facts)) });
   });
 
-  const publicColumns = sql`r.id, r.fields, r.created_at, r.triage, g.title AS game_title, g.slug AS game_slug`;
+  app.get('/api/summary', async request => {
+    const q = querySchema.parse(request.query);
+    const scope = await loadFacts(sql, q.gameId);
+    return summaryResponseSchema.parse(summarize(scope.filter(matchesFilter(reportFilter(q))), scope));
+  });
+
+  const publicColumns = sql`r.id, r.fields, r.created_at, r.triage, g.title AS game_title, g.slug AS game_slug, g.catalog->>'coverPath' AS game_cover`;
   const mapReport = (row: Record<string, unknown>) => publicReportSchema.parse({
     ...reportFieldsSchema.parse(row.fields), id: row.id, createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : '', triage: row.triage,
-    gameTitle: row.game_title, gameSlug: row.game_slug,
+    gameTitle: row.game_title, gameSlug: row.game_slug, gameCoverPath: row.game_cover,
   });
 
   app.get('/api/reports', async request => {
     const q = querySchema.parse(request.query);
-    const where = sql`r.triage <> 'hidden' AND (${q.gameId ?? 0} = 0 OR r.game_id = ${q.gameId ?? 0})
-      AND (${q.status} = 'Any' OR r.fields->>'outcome' = ${q.status})
-      AND position(lower(${q.q}) in lower(g.title || ' ' || (r.fields->>'summary'))) > 0
-      AND position(lower(${q.gpu}) in lower(r.fields->>'gpu')) > 0
-      AND position(lower(${q.os}) in lower(r.fields->>'os')) > 0
-      AND position(lower(${q.build}) in lower(r.fields->>'build')) > 0`;
-    const [rows, totals] = await Promise.all([
-      sql`SELECT ${publicColumns} FROM reports r JOIN games g ON g.sgdb_id = r.game_id WHERE ${where} ORDER BY r.created_at DESC, r.id DESC LIMIT 15 OFFSET ${(q.page - 1) * 15}`,
-      sql`SELECT count(*)::int AS total FROM reports r JOIN games g ON g.sgdb_id = r.game_id WHERE ${where}`,
-    ]);
-    const total = Number(totals[0]?.total ?? 0);
-    return { reports: rows.map(mapReport), page: q.page, pageCount: Math.max(1, Math.ceil(total / 15)), total };
+    const filter = matchesFilter(reportFilter(q));
+    const facts = (await loadFacts(sql, q.gameId)).filter(fact => filter(fact) && (q.status === 'Any' || fact.outcome === q.status)
+      && `${fact.title} ${fact.summary}`.toLowerCase().includes(q.q.toLowerCase()));
+    const ids = facts.slice((q.page - 1) * 15, q.page * 15).map(fact => fact.id);
+    const rows = ids.length ? await sql`SELECT ${publicColumns} FROM reports r JOIN games g ON g.sgdb_id = r.game_id WHERE r.id IN ${sql(ids)} ORDER BY r.created_at DESC, r.id DESC` : [];
+    return { reports: rows.map(mapReport), page: q.page, pageCount: Math.max(1, Math.ceil(facts.length / 15)), total: facts.length };
   });
 
   app.get('/api/reports/:id', async (request, reply) => {

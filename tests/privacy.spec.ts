@@ -173,3 +173,25 @@ test('desktop reporting tutorial loads its self-hosted screenshots under the CSP
   expect(violations).toEqual([]);
   await expectNoTracker(page);
 });
+
+test('home status summary, platform toggles and build sections render under the CSP and work from the keyboard', async ({ page }) => {
+  await observeDatabuddy(page);
+  const violations: string[] = [];
+  page.on('console', message => { if (/Content Security Policy/i.test(message.text())) violations.push(message.text()); });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Playable by platform' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Latest results' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'By Lichii build' })).toBeVisible();
+  const toggles = page.getByRole('group', { name: 'Filter by platform' });
+  await expect(toggles.getByRole('button')).toHaveText(['Steam Deck', 'Windows', 'Linux', 'macOS']);
+  const deck = toggles.getByRole('button', { name: 'Steam Deck' });
+  await deck.focus();
+  await page.keyboard.press('Enter');
+  await expect(deck).toHaveAttribute('aria-pressed', 'true');
+  await expect(page).toHaveURL(/[?&]platform=steam-deck(&|$)/);
+  await page.keyboard.press('Space');
+  await expect(deck).toHaveAttribute('aria-pressed', 'false');
+  await expect(page).not.toHaveURL(/platform=/);
+  await page.getByLabel('Filter by Lichii build').selectOption('');
+  expect(violations).toEqual([]);
+});

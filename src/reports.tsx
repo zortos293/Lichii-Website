@@ -1,9 +1,11 @@
 import { useParams, useSearchParams } from 'react-router-dom';
 import { Link } from './navigation.tsx';
-import { ArrowRight, Check, LockKeyhole, MessageSquare, ShieldCheck } from 'lucide-react';
-import { publicReportSchema, reportsResponseSchema, type PublicReport } from '../shared/domain.ts';
+import { ArrowRight, Check, LockKeyhole, MessageSquare, ShieldCheck, X } from 'lucide-react';
+import { publicReportSchema, reportsResponseSchema, summaryResponseSchema, type PublicReport } from '../shared/domain.ts';
+import { buildLabel, derivePlatform, lichiiBuild as lichiiBuildOf, platformLabels } from '../shared/compat.ts';
+import { DistributionBar, playableLine } from './insights.tsx';
 import { useApi, useDebounced } from './api.ts';
-import { Breadcrumbs, Empty, ErrorNotice, Filters, Loading, Pagination, PrivateNote, ReportCard, SearchBox, Status, formatDate } from './components.tsx';
+import { Breadcrumbs, Empty, ErrorNotice, Filters, Loading, Pagination, PrivateNote, ReportCard, SearchBox, Status, filterValues, formatDate } from './components.tsx';
 
 export function RecentReports() {
   const [params, setParams] = useSearchParams();
@@ -11,8 +13,25 @@ export function RecentReports() {
   const debounced = useDebounced(search);
   const query = new URLSearchParams(params); query.set('q', debounced);
   const state = useApi(`/api/reports?${query}`, reportsResponseSchema);
-  function filter(key: string, value: string) { const next = new URLSearchParams(params); next.set(key, value); next.delete('page'); setParams(next, { replace: true }); }
-  return <><div className="page-heading"><div><h1 className="page-title">Recent reports</h1><p className="page-description">Real tests. Specific builds. The details that help the next player.</p></div><Link className="button primary" to="/submit">Submit a report <ArrowRight size={16} /></Link></div><SearchBox value={search} onChange={value => filter('q', value)} placeholder="Search reports or games" /><div className="filter-bar"><Filters status={params.get('status') ?? 'Any'} gpu={params.get('gpu') ?? ''} os={params.get('os') ?? ''} onChange={filter} /><span className="muted text-sm">Newest first</span></div><div className="reports-wide">{state.kind === 'loading' ? <Loading /> : state.kind === 'error' ? <ErrorNotice message={state.message} /> : <>{state.data.reports.length ? state.data.reports.map(report => <ReportCard key={report.id} report={report} />) : <Empty title="No reports here yet">{params.size ? 'No reports match these filters. Try a broader search.' : 'The catalog is ready. The testing starts with you. Share what happened on your setup.'}<Link className="button primary mt-6" to="/submit">Write the first report <ArrowRight size={16} /></Link></Empty>}<Pagination {...state.data} onPage={page => { const next = new URLSearchParams(params); next.set('page', String(page)); setParams(next); }} /></>}</div><div className="notice mt-10"><ShieldCheck size={20} /><p>Reports are community observations, not guarantees or official compatibility ratings. The latest result can differ from another build or setup.</p></div></>;
+  const scope = new URLSearchParams();
+  for (const key of ['platform', 'gameId']) { const value = params.get(key); if (value) scope.set(key, value); }
+  const summary = useApi(`/api/summary?${scope}`, summaryResponseSchema);
+  const buildParam = params.get('lichiiBuild') ?? '';
+  const selectedBuild = summary.kind === 'ready' && buildParam ? summary.data.builds.find(entry => String(entry.build ?? 'other') === buildParam) : undefined;
+  const gameId = params.get('gameId');
+  const gameTitle = gameId && state.kind === 'ready' ? state.data.reports[0]?.gameTitle : undefined;
+  function filter(key: string, value: string) { const next = new URLSearchParams(params); if (value) next.set(key, value); else next.delete(key); next.delete('page'); setParams(next, { replace: true }); }
+  const latest = summary.kind === 'ready' ? summary.data.builds.find(entry => entry.build !== null && entry.build === summary.data.latestBuild) : undefined;
+  return <><div className="page-heading"><div><h1 className="page-title">Recent reports</h1><p className="page-description">Every report players submitted, newest first.{latest ? ` ${latest.total} came in for build ${latest.build}.` : ''}</p></div>
+    {summary.kind === 'ready' && <dl className="heading-stats"><div><dt>{latest ? `on build ${latest.build}` : 'on the latest build'}</dt><dd>{latest?.total ?? 0}</dd></div><div><dt>games tested</dt><dd>{summary.data.gamesTested}</dd></div><div><dt>reports</dt><dd>{summary.data.overall.total}</dd></div></dl>}</div>
+    <SearchBox value={search} onChange={value => filter('q', value)} placeholder="Search reports or games" />
+    <div className="filter-bar"><Filters values={filterValues(params)} builds={summary.kind === 'ready' ? summary.data.builds : null} onChange={filter} />{gameId && <button type="button" className="filter-chip" onClick={() => filter('gameId', '')}>Game: {gameTitle ?? 'selected game'} <X size={13} aria-label="Remove game filter" /></button>}<span className="sort-label">Sort <strong>Newest</strong></span></div>
+    {selectedBuild && <section className="build-section-head" aria-label={`${buildLabel(selectedBuild.build)} summary`}>
+      <div><span className="eyebrow">Lichii build</span><h2>{buildLabel(selectedBuild.build)}</h2></div>
+      <div className="build-section-bar"><DistributionBar tally={selectedBuild} label={`${buildLabel(selectedBuild.build)} results`} /><span className="mono">{playableLine(selectedBuild)} playable or better</span></div>
+      <dl><div><dt>Median</dt><dd><Status value={selectedBuild.median ?? 'Untested'} /></dd></div><div><dt>Games</dt><dd>{selectedBuild.games}</dd></div><div><dt>Reports</dt><dd>{selectedBuild.total}</dd></div></dl>
+    </section>}
+    <div className="reports-wide">{state.kind === 'loading' ? <Loading /> : state.kind === 'error' ? <ErrorNotice message={state.message} /> : <>{state.data.reports.length ? state.data.reports.map(report => <ReportCard key={report.id} report={report} />) : <Empty title="No reports here yet">{[...params.keys()].some(key => key !== 'page') ? 'No reports match these filters. Turn a platform or build filter off, or try a broader search.' : 'The catalog is ready. The testing starts with you. Share what happened on your setup.'}<Link className="button primary mt-6" to="/submit">Write a report <ArrowRight size={16} /></Link></Empty>}<Pagination {...state.data} onPage={page => { const next = new URLSearchParams(params); next.set('page', String(page)); setParams(next); }} /></>}</div><div className="notice mt-10"><ShieldCheck size={20} /><p>Reports are community observations, not guarantees or official compatibility ratings. Builds and platforms are read from what each player typed in; unrecognised builds are grouped under Other / unknown.</p></div></>;
 }
 export function PublicReportPage() {
   const { id } = useParams();
@@ -24,7 +43,7 @@ export function PublicReportPage() {
 }
 export function ReportSetup({ report }: { report: PublicReport }) {
   return <section><h3 className="lined-heading">Tested on this setup</h3><dl className="facts">{[
-    ['Lichii build', report.build], ['Game version', report.gameVersion], ['CPU', report.cpu], ['GPU', report.gpu], ['GPU driver', report.driver], ['Operating system', report.os], ['RAM', report.ram || 'Not supplied'], ['Graphics API', report.graphicsApi], ['Updates / DLC', report.updates || 'Not supplied'], ['Mods / cheats', report.mods || 'Not supplied'],
+    ['Lichii build', report.build], ['Build section', buildLabel(lichiiBuildOf(report.build))], ['Platform', platformLabels[derivePlatform(report)]], ['Game version', report.gameVersion], ['CPU', report.cpu], ['GPU', report.gpu], ['GPU driver', report.driver], ['Operating system', report.os], ['RAM', report.ram || 'Not supplied'], ['Graphics API', report.graphicsApi], ['Updates / DLC', report.updates || 'Not supplied'], ['Mods / cheats', report.mods || 'Not supplied'],
   ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>;
 }
 export function Submitted() {

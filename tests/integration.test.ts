@@ -5,6 +5,8 @@ import { connectDatabase, prepareDatabase, cleanup } from '../server/db.ts';
 import { createApp } from '../server/app.ts';
 import { readConfig } from '../server/config.ts';
 import { hashToken } from '../server/auth.ts';
+import { z } from 'zod';
+import { summaryResponseSchema } from '../shared/domain.ts';
 import { validSubmission, sourceLog } from './fixtures.ts';
 
 const databaseUrl = process.env.TEST_DATABASE_URL;
@@ -208,4 +210,68 @@ test('OAuth attempt limits cannot be bypassed by encoding the API prefix or endp
   }
   const after = await sql`SELECT count(*)::int AS count FROM oauth_attempts`;
   assert.equal(after[0]?.count, before[0]?.count);
+});
+
+test('platform toggles, build sections, median and playable share are derived read-only from report fields', async t => {
+  const submit = async (change: Partial<typeof validSubmission>) => {
+    const response = await app.inject({ method: 'POST', url: '/api/reports', headers: headers(), payload: { ...validSubmission, log: null, privateLogConsent: false, ...change } });
+    assert.equal(response.statusCode, 201, response.body);
+    return z.object({ id: z.uuid() }).parse(response.json()).id;
+  };
+  const ids: string[] = [];
+  ids.push(await submit({ build: 'Lichii build-93 (09b78bd2dfdd)', os: 'Windows 11 Version 26H2', gpu: 'NVIDIA GeForce RTX 4070', outcome: 'Playable' }));
+  ids.push(await submit({ build: 'Build 92', os: 'SteamOS 3.7', cpu: 'AMD Custom APU 0405', gpu: 'AMD Custom GPU 0405', outcome: 'Runs' }));
+  ids.push(await submit({ build: '93', os: 'CachyOS', gpu: 'AMD Radeon RX 7800 XT (RADV NAVI32)', outcome: 'Unplayable' }));
+  ids.push(await submit({ build: 'custom-fork-1973c1df56', os: 'macOS', cpu: 'Apple M3', gpu: 'Apple M3', outcome: 'Perfect' }));
+  ids.push(await submit({ gameId: 5483961, build: 'nx2-build-93', os: 'Win 11', gpu: 'RX 9070 XT', outcome: 'Loads' }));
+  t.after(async () => { await sql`DELETE FROM reports WHERE id IN ${sql(ids)}`; });
+
+  const games = (await app.inject({ url: '/api/games?q=Mario%20Kart%20World', headers: headers() })).json();
+  const mario = games.games[0];
+  assert.equal(mario.reportCount, 4); assert.equal(mario.status, 'Perfect'); assert.equal(mario.median, 'Runs');
+  assert.deepEqual(mario.best, { outcome: 'Perfect', setup: 'Apple M3 · Vulkan · macOS' });
+  assert.deepEqual(mario.recentBuilds.map((entry: { build: number }) => entry.build), [86, 87, 88, 89, 90, 91, 92, 93]);
+  assert.deepEqual(mario.recentBuilds.slice(-3).map((entry: { status: string }) => entry.status), ['Untested', 'Runs', 'Playable']);
+  assert.equal(games.latestBuild, 93); assert.equal(games.totalReports, 5); assert.equal(games.counts.Perfect, 1); assert.equal(games.counts.Loads, 1);
+
+  const deck = (await app.inject({ url: '/api/games?platform=steam-deck', headers: headers() })).json();
+  assert.equal(deck.total, 1); assert.equal(deck.games[0].sgdbId, 5483943); assert.equal(deck.games[0].reportCount, 1); assert.equal(deck.games[0].status, 'Runs');
+  const other = (await app.inject({ url: '/api/games?lichiiBuild=other', headers: headers() })).json();
+  assert.equal(other.total, 1); assert.equal(other.games[0].status, 'Perfect');
+  const both = (await app.inject({ url: '/api/games?platform=windows,linux&lichiiBuild=93', headers: headers() })).json();
+  assert.deepEqual(both.games.map((game: { sgdbId: number; reportCount: number }) => [game.sgdbId, game.reportCount]), [[5483943, 2], [5483961, 1]]);
+  for (const url of ['/api/games?platform=playstation', '/api/reports?lichiiBuild=build-93', '/api/summary?platform=%27OR%201=1--']) assert.equal((await app.inject({ url, headers: headers() })).statusCode, 400, url);
+
+  const summary = summaryResponseSchema.parse((await app.inject({ url: '/api/summary', headers: headers() })).json());
+  assert.deepEqual(summary.overall, { total: 5, counts: { Perfect: 1, Playable: 1, Runs: 1, Loads: 1, Unplayable: 1 }, playable: 2, median: 'Runs' });
+  assert.deepEqual(summary.platforms.map(entry => [entry.platform, entry.total, entry.playable, entry.median]), [['steam-deck', 1, 0, 'Runs'], ['windows', 2, 1, 'Loads'], ['linux', 1, 0, 'Unplayable'], ['macos', 1, 1, 'Perfect']]);
+  assert.deepEqual(summary.builds.map(entry => [entry.build, entry.total, entry.games, entry.median]), [[93, 3, 2, 'Loads'], [92, 1, 1, 'Runs'], [null, 1, 1, 'Perfect']]);
+  assert.equal(summary.latestBuild, 93); assert.equal(summary.gamesTested, 2);
+  assert.equal(summaryResponseSchema.parse((await app.inject({ url: '/api/summary?gameId=5483961', headers: headers() })).json()).overall.total, 1);
+
+  const count = async (query: string) => (await app.inject({ url: `/api/reports?${query}`, headers: headers() })).json().total;
+  assert.equal(await count('platform=steam-deck'), 1); assert.equal(await count('lichiiBuild=93'), 3); assert.equal(await count('lichiiBuild=other'), 1);
+  assert.equal(await count('platform=windows&lichiiBuild=93'), 2); assert.equal(await count('platform=windows&lichiiBuild=93&status=Loads'), 1);
+  assert.equal(await count('platform=macos&gameId=5483961'), 0);
+  const page = (await app.inject({ url: '/api/reports?platform=steam-deck', headers: headers() })).json();
+  assert.equal(page.reports[0].id, ids[1]); assert.equal(page.reports[0].gameCoverPath, '/art/5483943-cover.webp');
+
+  await sql`UPDATE reports SET triage = 'hidden' WHERE id = ${ids[3] ?? ''}`;
+  assert.equal(summaryResponseSchema.parse((await app.inject({ url: '/api/summary', headers: headers() })).json()).overall.total, 4);
+  assert.equal((await app.inject({ url: '/api/games?lichiiBuild=other', headers: headers() })).json().total, 0);
+});
+
+test('the desktop catalog search keeps its response contract', async () => {
+  const response = await app.inject({ url: '/api/games?q=Mario&page=1&sort=title', headers: headers() });
+  assert.equal(response.statusCode, 200);
+  const data = response.json();
+  assert.equal(data.page, 1); assert.ok(data.pageCount >= 1 && data.pageCount <= 10000); assert.ok(Array.isArray(data.games) && data.games.length <= 15);
+  for (const key of ['games', 'page', 'pageCount', 'total', 'totalGames', 'totalReports', 'counts']) assert.ok(key in data, key);
+  for (const game of data.games) {
+    assert.ok(Number.isSafeInteger(game.sgdbId) && game.sgdbId > 0); assert.equal(typeof game.slug, 'string'); assert.ok(game.title.trim());
+    for (const key of ['reportCount', 'status', 'latestAt', 'coverPath', 'publisher']) assert.ok(key in game, key);
+  }
+  const titles = data.games.map((game: { title: string }) => game.title.toLowerCase());
+  assert.deepEqual(titles, [...titles].sort());
+  assert.equal((await app.inject({ url: '/api/games?q=Mario&page=2&sort=title', headers: headers() })).json().page, 2);
 });
