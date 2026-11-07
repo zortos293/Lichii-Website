@@ -13,7 +13,8 @@ import { validateLog } from '../shared/log.ts';
 import type { Config } from './config.ts';
 import type { Database } from './db.ts';
 import { authHandlers, maintainerTokenMatches } from './auth.ts';
-import { aggregateGame, buildColumns, hasReportFilter, latestBuild, loadFacts, matchesFilter, summarize, type ReportFact, type ReportFilter } from './insights.ts';
+import { aggregateGame, buildColumns, groupByGame, hasReportFilter, latestBuild, loadFacts, matchesFilter, summarize, type ReportFilter } from './insights.ts';
+import { registerSite } from './seo.ts';
 
 const querySchema = z.object({
   q: z.string().trim().max(150).default(''),
@@ -31,11 +32,6 @@ const reportFilter = (q: ListQuery): ReportFilter => ({ platforms: q.platform, b
 const pinnedGames = [5483943, 5483961, 5483963];
 const pinRank = (id: number) => pinnedGames.includes(id) ? pinnedGames.indexOf(id) : pinnedGames.length;
 const byTitle = (a: { title: string; sgdbId: number }, b: { title: string; sgdbId: number }) => a.title.toLowerCase() < b.title.toLowerCase() ? -1 : a.title.toLowerCase() > b.title.toLowerCase() ? 1 : a.sgdbId - b.sgdbId;
-function groupByGame(facts: readonly ReportFact[]) {
-  const groups = new Map<number, ReportFact[]>();
-  for (const fact of facts) groups.set(fact.gameId, [...groups.get(fact.gameId) ?? [], fact]);
-  return groups;
-}
 const maintainerQuerySchema = querySchema.extend({
   triage: z.enum(['any', ...triageStates]).default('any'),
   log: z.enum(['any', 'attached', 'none']).default('any'),
@@ -84,7 +80,7 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     const path = route ?? request.url.split('?')[0] ?? '';
     const maintainerApi = route?.startsWith('/api/maintainer/') === true;
     reply.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    if (path.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
+    if (path.startsWith('/api/')) reply.header('Cache-Control', 'no-store').header('X-Robots-Tag', 'noindex');
     if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method)) {
       if (path === desktopReportPath) {
         if (request.headers['x-lichii-client'] !== 'desktop/1'
@@ -286,11 +282,9 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
   });
 
   if (serveStatic) {
-    await app.register(staticFiles, { root: fileURLToPath(new URL('../dist', import.meta.url)), wildcard: false, index: false, maxAge: 3600 });
-    app.setNotFoundHandler((request, reply) => {
-      if (request.url.startsWith('/api/') || request.method !== 'GET' || request.url.split('?')[0]?.includes('.')) return reply.code(404).send({ error: 'Not found.' });
-      return reply.header('Cache-Control', 'no-cache').sendFile('index.html');
-    });
+    const root = fileURLToPath(new URL('../dist', import.meta.url));
+    await app.register(staticFiles, { root, wildcard: false, index: false, maxAge: 3600, allowedPath: path => path !== '/index.html' });
+    await registerSite(app, sql, config, root);
   }
   return app;
 }

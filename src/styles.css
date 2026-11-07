@@ -35,6 +35,12 @@
   .mono { font-family: var(--font-mono); }
   .fine-print { color: #96969f; font-size: 12px; line-height: 1.65; }
   .fine-print a { color: #ff7ba1; text-decoration: underline; text-underline-offset: 3px; }
+  .noscript-page { padding-top: 40px; }
+  .noscript-page > * + *, .noscript-page section > * + * { margin-top: 16px; }
+  .noscript-page section { margin-top: 36px; }
+  .noscript-page a:not(.button) { color: #ff7ba1; text-decoration: underline; text-underline-offset: 3px; }
+  .noscript-list { display: grid; gap: 10px; padding-left: 20px; list-style: disc; line-height: 1.6; }
+  ol.noscript-list { list-style: decimal; }
   .eyebrow { display: block; color: #a5a5ad; font: 11px/1.5 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
   .button { @apply inline-flex items-center justify-center gap-2; padding: 12px 19px; border: 1px solid #36363d; border-radius: 8px; background: transparent; color: #f2f2f4; font-size: 14px; line-height: 1.25; font-weight: 600; transition: background .15s, border-color .15s; }
   .button:hover:not(:disabled) { background: #232328; border-color: #64646e; }

@@ -59,6 +59,22 @@ Only Railway’s edge and trusted services in the private project may reach the 
 
 The [desktop API reference](docs/desktop-api.md) defines the anonymous, opt-in native report endpoint, catalog matching, required consents, request limits, and duplicate-safe retries. Native v1 accepts no logs or attachments. Browser submission and maintainer authentication keep their existing security boundaries.
 
+## Search engines and AI agents
+
+The server still serves the React app's `index.html` for every page, but `server/seo.ts` fills in each page's head from PostgreSQL first: title, description, canonical URL, robots, Open Graph and Twitter tags, and JSON-LD (`WebSite` with a search action on the home page, `VideoGame` and `BreadcrumbList` on game pages, `BreadcrumbList` on report pages and the desktop guide). There is no rating markup, because reports are observations, not reviews. All values are HTML-escaped, and JSON-LD escapes `<`, `>` and `&`, so report text cannot close the script block. The CSP needs no change because `application/ld+json` is a data block, not a script.
+
+A `<noscript>` summary before `#root` gives clients without JavaScript the heading, status, facts and report links. Browsers with JavaScript never render it, so the app looks exactly as before and nothing flashes before React mounts.
+
+- Unknown games, hidden or unknown reports and unknown routes return 404 with `noindex`. `/submit`, `/submitted/*` and `/maintainer` are `noindex`, and API responses send `X-Robots-Tag: noindex`.
+- A trailing slash, a percent-encoded or uppercase report path and `/index.html` redirect permanently to the canonical URL. Query strings never change the canonical URL.
+- `/robots.txt` blocks the private areas and the auth, maintainer and native API paths. The public read APIs stay crawlable, because search engines fetch them to render pages.
+- `/sitemap.xml` lists the home page, guides, every catalog game and every visible report, with the latest report time as `lastmod`. Hidden reports are excluded.
+- `/llms.txt` and `/llms-full.txt` follow [llmstxt.org](https://llmstxt.org/). Every game has a Markdown view at `/games/<slug>.md`, and `/docs/desktop-api.md` serves the desktop API reference. None of them include reporter names, handles or hardware beyond the setup summary.
+
+HTML pages keep `Cache-Control: no-cache`. The sitemap, llms files and Markdown views use `public, max-age=900`, and robots.txt and the API reference use `public, max-age=3600`. The server-side AI crawler hook runs before routing, so it records these reads too.
+
+After deploying, submit `https://lichii.zortos.me/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+
 ## Test
 
 Use a separate PostgreSQL database named `lichii_test`. The integration test **drops and recreates its public schema** and refuses other database names. Do not point it at production or a development database containing work.
@@ -73,7 +89,7 @@ npm audit
 
 Tests run migrations and real parameterized queries. They cover the maintainer token boundary, the MCP server over stdio, repeat/concurrent imports, zero reports, search, report persistence, private/public separation, malformed uploads, MIME/size limits, CSRF, SQL-injection-shaped search, OAuth state and PKCE, immutable-ID rejection, expired/forged sessions, every privileged endpoint, audit events, triage/hiding, log deletion/expiry, and durable rate limits with spoofed forwarding headers.
 
-`test:privacy` starts the built application on port 3100 against the same isolated database and drives Chromium. It uses `/usr/local/bin/chromium` when available, `PLAYWRIGHT_CHROMIUM_EXECUTABLE` when set, or Playwright’s browser installed with `npx playwright install chromium`. The browser maps `lichii.example` to loopback because the production tracker suppresses analytics on localhost. Tests execute the SDK-pinned tracker while intercepting ingestion so test visits never reach Databuddy. They verify automatic analytics, disabled replay even with a previously saved replay choice, browser privacy signals, private-route isolation, and exclusion of page text, inputs and arbitrary URL queries. Internet access to the pinned CDN scripts is required.
+`test:privacy` starts the built application on port 3100 against the same isolated database and drives Chromium. It uses `/usr/local/bin/chromium` when available, `PLAYWRIGHT_CHROMIUM_EXECUTABLE` when set, or Playwright’s browser installed with `npx playwright install chromium`. The browser maps `lichii.example` to loopback because the production tracker suppresses analytics on localhost. Tests execute the SDK-pinned tracker while intercepting ingestion so test visits never reach Databuddy. They verify automatic analytics, disabled replay even with a previously saved replay choice, browser privacy signals, private-route isolation, and exclusion of page text, inputs and arbitrary URL queries. Internet access to the pinned CDN scripts is required. `seo.spec.ts` runs in the same suite: with JavaScript disabled it checks game, report and 404 pages, and with JavaScript enabled it holds the app bundle to prove no server content shows before React mounts.
 
 ## Catalog and artwork
 
