@@ -29,10 +29,15 @@ const secrets = { cookie: 'lichii-session=secret-session-token', authorization: 
 const paths = [
   { url: '/guide.md?token=secret', path: '/guide.md', status: 404, format: 'markdown' },
   { url: '/fonts/OFL.txt', path: '/fonts/OFL.txt', status: 200, format: 'html' },
-  { url: '/llms.txt', path: '/llms.txt', status: 404, format: 'llms' },
-  { url: '/llms-full.txt', path: '/llms-full.txt', status: 404, format: 'llms' },
+  { url: '/llms.txt', path: '/llms.txt', status: 200, format: 'llms' },
+  { url: '/llms-full.txt', path: '/llms-full.txt', status: 200, format: 'llms' },
+  { url: '/games/mario-kart-world-5483943.md', path: '/games/mario-kart-world-5483943.md', status: 200, format: 'markdown' },
+  { url: '/docs/desktop-api.md', path: '/docs/desktop-api.md', status: 200, format: 'markdown' },
+  { url: '/robots.txt', path: '/robots.txt', status: 200, format: 'html' },
+  { url: '/sitemap.xml', path: '/sitemap.xml', status: 200, format: 'html' },
   { url: '/', path: '/', status: 200, format: 'html' },
-  { url: '/games/mario-kart-world', path: '/games/mario-kart-world', status: 200, format: 'html' },
+  { url: '/games/mario-kart-world-5483943', path: '/games/mario-kart-world-5483943', status: 200, format: 'html' },
+  { url: '/games/mario-kart-world', path: '/games/mario-kart-world', status: 404, format: 'html' },
   { url: '/api/not-a-route', path: '/api/not-a-route', status: 404, format: 'html' },
 ];
 

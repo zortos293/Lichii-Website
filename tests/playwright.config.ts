@@ -6,7 +6,7 @@ if (!databaseUrl || new URL(databaseUrl).pathname !== '/lichii_test') throw new 
 
 export default defineConfig({
   testDir: '.',
-  testMatch: 'privacy.spec.ts',
+  testMatch: ['privacy.spec.ts', 'seo.spec.ts'],
   workers: 1,
   reporter: 'list',
   outputDir: '../test-results',
