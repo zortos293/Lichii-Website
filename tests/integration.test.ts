@@ -1,6 +1,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
 import { connectDatabase, prepareDatabase, cleanup } from '../server/db.ts';
 import { createApp } from '../server/app.ts';
 import { readConfig } from '../server/config.ts';
@@ -43,8 +44,9 @@ test('real PostgreSQL migrations/import are concurrent-safe, idempotent and seed
   const response = await app.inject({ method: 'GET', url: '/api/games', headers: headers() });
   assert.equal(response.statusCode, 200);
   const data = response.json();
-  assert.equal(data.totalGames, 465); assert.equal(data.totalReports, 0); assert.equal(data.counts.Untested, 465);
-  assert.equal(data.games.length, 15); assert.equal(data.pageCount, 31);
+  const catalogSize = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8')).length;
+  assert.equal(data.totalGames, catalogSize); assert.equal(data.totalReports, 0); assert.equal(data.counts.Untested, catalogSize);
+  assert.equal(data.games.length, 15); assert.equal(data.pageCount, Math.ceil(catalogSize / 15));
   assert.ok(data.games.every((g: { status: string; reportCount: number }) => g.status === 'Untested' && g.reportCount === 0));
   assert.deepEqual((await sql`SELECT version FROM schema_migrations ORDER BY version`).map(row => row.version), [1, 2]);
   const filtered = await app.inject({ url: '/api/games?q=Mario%20Kart%20World&status=Untested', headers: headers() });

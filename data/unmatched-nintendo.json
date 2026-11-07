@@ -1,6 +1,7 @@
 [
   {
     "nintendoId": "3104819",
+    "source": "Nintendo Europe",
     "title": "ANOMALITH",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/ANOMALITH-3104819.html",
     "method": "unmatched_or_ambiguous",
@@ -51,12 +52,118 @@
     ]
   },
   {
+    "nintendoId": "noa-7100122225",
+    "source": "Nintendo of America",
+    "title": "ANOMALITH Anomaly Zone Countermeasures Office Database",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/anomalith-anomaly-zone-countermeasures-office-database-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "ANOMALITH Anomaly Zone Countermeasures Office Database"
+    ],
+    "candidates": [
+      {
+        "id": 12007,
+        "title": "Anomalie"
+      },
+      {
+        "id": 14862,
+        "title": "Anomalies"
+      },
+      {
+        "id": 16111,
+        "title": "ANIMALITY"
+      },
+      {
+        "id": 5341190,
+        "title": "Anomalia Parte1"
+      },
+      {
+        "id": 5455068,
+        "title": "Anomalia O Despertar"
+      },
+      {
+        "id": 5496542,
+        "title": "Anomalien"
+      },
+      {
+        "id": 5526698,
+        "title": "Anomalista"
+      },
+      {
+        "id": 5541293,
+        "title": "Anomalia"
+      },
+      {
+        "id": 5550534,
+        "title": "Anomalium"
+      },
+      {
+        "id": 5557513,
+        "title": "Anomalift"
+      }
+    ]
+  },
+  {
+    "nintendoId": "3231929",
+    "source": "Nintendo Europe",
+    "title": "A.O.T. 3",
+    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/A-O-T-3-3231929.html",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "A.O.T. 3"
+    ],
+    "candidates": [
+      {
+        "id": 5343074,
+        "title": "Wand Out - A 3D Magical Gay Novel"
+      },
+      {
+        "id": 11019,
+        "title": "Attack on Titan / A.O.T. Wings of Freedom"
+      },
+      {
+        "id": 4888797,
+        "title": "Attack on Titan 2 - A.O.T.2 - Demo"
+      },
+      {
+        "id": 5262138,
+        "title": "A.T.O.M."
+      },
+      {
+        "id": 5286187,
+        "title": "S.O.T.A 2"
+      },
+      {
+        "id": 5506552,
+        "title": "Z.A.T.O. // I Love the World and Everything In It"
+      },
+      {
+        "id": 5286559,
+        "title": "B.I.O.T.A."
+      },
+      {
+        "id": 5352697,
+        "title": "B.I.O.T.A. Swarm"
+      },
+      {
+        "id": 5345928,
+        "title": "Action Man A.T.O.M. Alpha Teens on Machines"
+      },
+      {
+        "id": 5395088,
+        "title": "G.O.P.O.T.A"
+      }
+    ]
+  },
+  {
     "nintendoId": "3033246",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 ADVENTURE CANOE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-ADVENTURE-CANOE-3033246.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 ADVENTURE CANOE",
+      "ADVENTURE CANOE",
       "ADVENTURE CANOE"
     ],
     "candidates": [
@@ -144,6 +251,7 @@
   },
   {
     "nintendoId": "2866533",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives2 AIR COMBAT 22",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives2-AIR-COMBAT-22-2866533.html",
     "method": "unmatched_or_ambiguous",
@@ -195,11 +303,13 @@
   },
   {
     "nintendoId": "2894451",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 AQUA JET",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-AQUA-JET-2894451.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 AQUA JET",
+      "AQUA JET",
       "AQUA JET"
     ],
     "candidates": [
@@ -287,11 +397,13 @@
   },
   {
     "nintendoId": "3146976",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 ARMADILLO RACING",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-ARMADILLO-RACING-3146976.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 ARMADILLO RACING",
+      "ARMADILLO RACING",
       "ARMADILLO RACING"
     ],
     "candidates": [
@@ -379,11 +491,13 @@
   },
   {
     "nintendoId": "3213193",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 BALLOON BOMBER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-BALLOON-BOMBER-3213193.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 BALLOON BOMBER",
+      "BALLOON BOMBER",
       "BALLOON BOMBER"
     ],
     "candidates": [
@@ -471,11 +585,13 @@
   },
   {
     "nintendoId": "3114513",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 CAMELTRY",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-CAMELTRY-3114513.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 CAMELTRY",
+      "CAMELTRY",
       "CAMELTRY"
     ],
     "candidates": [
@@ -527,11 +643,13 @@
   },
   {
     "nintendoId": "3213365",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 CRAZY BALLOON",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-CRAZY-BALLOON-3213365.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 CRAZY BALLOON",
+      "CRAZY BALLOON",
       "CRAZY BALLOON"
     ],
     "candidates": [
@@ -619,11 +737,13 @@
   },
   {
     "nintendoId": "3092346",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 CYBER COMMANDO",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-CYBER-COMMANDO-3092346.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 CYBER COMMANDO",
+      "CYBER COMMANDO",
       "CYBER COMMANDO"
     ],
     "candidates": [
@@ -711,11 +831,13 @@
   },
   {
     "nintendoId": "3179365",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 CYBER CYCLES",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-CYBER-CYCLES-3179365.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 CYBER CYCLES",
+      "CYBER CYCLES",
       "CYBER CYCLES"
     ],
     "candidates": [
@@ -803,11 +925,13 @@
   },
   {
     "nintendoId": "3200539",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 DACHOLER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-DACHOLER-3200539.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 DACHOLER",
+      "DACHOLER",
       "DACHOLER"
     ],
     "candidates": [
@@ -855,11 +979,13 @@
   },
   {
     "nintendoId": "3054985",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 DEVASTATORS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-DEVASTATORS-3054985.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 DEVASTATORS",
+      "DEVASTATORS",
       "DEVASTATORS"
     ],
     "candidates": [
@@ -923,11 +1049,13 @@
   },
   {
     "nintendoId": "3060650",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 FINAL LAP",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-FINAL-LAP-3060650.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 FINAL LAP",
+      "FINAL LAP",
       "FINAL LAP"
     ],
     "candidates": [
@@ -1015,11 +1143,13 @@
   },
   {
     "nintendoId": "2963496",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 GALACTIC WARRIORS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-GALACTIC-WARRIORS-2963496.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 GALACTIC WARRIORS",
+      "GALACTIC WARRIORS",
       "GALACTIC WARRIORS"
     ],
     "candidates": [
@@ -1107,11 +1237,13 @@
   },
   {
     "nintendoId": "3074981",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 KONAMI GT",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-KONAMI-GT-3074981.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 KONAMI GT",
+      "KONAMI GT",
       "KONAMI GT"
     ],
     "candidates": [
@@ -1199,11 +1331,13 @@
   },
   {
     "nintendoId": "3010793",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 LABYRINTH RUNNER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-LABYRINTH-RUNNER-3010793.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 LABYRINTH RUNNER",
+      "LABYRINTH RUNNER",
       "LABYRINTH RUNNER"
     ],
     "candidates": [
@@ -1291,11 +1425,13 @@
   },
   {
     "nintendoId": "2910184",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 MACH BREAKERS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-MACH-BREAKERS-2910184.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 MACH BREAKERS",
+      "MACH BREAKERS",
       "MACH BREAKERS"
     ],
     "candidates": [
@@ -1383,11 +1519,13 @@
   },
   {
     "nintendoId": "3027213",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 MEGA ZONE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-MEGA-ZONE-3027213.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 MEGA ZONE",
+      "MEGA ZONE",
       "MEGA ZONE"
     ],
     "candidates": [
@@ -1475,11 +1613,13 @@
   },
   {
     "nintendoId": "2946302",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 MIDNIGHT LANDING",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-MIDNIGHT-LANDING-2946302.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 MIDNIGHT LANDING",
+      "MIDNIGHT LANDING",
       "MIDNIGHT LANDING"
     ],
     "candidates": [
@@ -1567,11 +1707,13 @@
   },
   {
     "nintendoId": "3128642",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 MOON SHUTTLE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-MOON-SHUTTLE-3128642.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 MOON SHUTTLE",
+      "MOON SHUTTLE",
       "MOON SHUTTLE"
     ],
     "candidates": [
@@ -1659,11 +1801,13 @@
   },
   {
     "nintendoId": "3146991",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 MOUSER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-MOUSER-3146991.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 MOUSER",
+      "MOUSER",
       "MOUSER"
     ],
     "candidates": [
@@ -1751,11 +1895,13 @@
   },
   {
     "nintendoId": "3201409",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 Mr.Do!'s Castle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-Mr-Do-s-Castle-3201409.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 Mr.Do!'s Castle",
+      "Mr.Do!'s Castle",
       "Mr.Do!'s Castle"
     ],
     "candidates": [
@@ -1843,11 +1989,13 @@
   },
   {
     "nintendoId": "3179329",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 NINJA EMAKI",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-NINJA-EMAKI-3179329.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 NINJA EMAKI",
+      "NINJA EMAKI",
       "NINJA EMAKI"
     ],
     "candidates": [
@@ -1935,11 +2083,13 @@
   },
   {
     "nintendoId": "3174785",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 PINBALL ACTION",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-PINBALL-ACTION-3174785.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 PINBALL ACTION",
+      "PINBALL ACTION",
       "PINBALL ACTION"
     ],
     "candidates": [
@@ -2027,11 +2177,13 @@
   },
   {
     "nintendoId": "3069315",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 POLARIS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-POLARIS-3069315.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 POLARIS",
+      "POLARIS",
       "POLARIS"
     ],
     "candidates": [
@@ -2118,12 +2270,108 @@
     ]
   },
   {
+    "nintendoId": "noa-7100112117",
+    "source": "Nintendo of America",
+    "title": "Arcade Archives 2 QUESTER",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/arcade-archives-2-quester-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Arcade Archives 2 QUESTER",
+      "QUESTER",
+      "QUESTER"
+    ],
+    "candidates": [
+      {
+        "id": 5443034,
+        "title": "Arcade Archives VS. SUPER MARIO BROS."
+      },
+      {
+        "id": 5558421,
+        "title": "The Arcane Archive"
+      },
+      {
+        "id": 5260946,
+        "title": "ARCADE"
+      },
+      {
+        "id": 8757,
+        "title": "Arcade Game Series: Pac-Man"
+      },
+      {
+        "id": 9156,
+        "title": "Arcade Game Series: Dig Dug"
+      },
+      {
+        "id": 9157,
+        "title": "Arcade Game Series: Ms. Pac-Man"
+      },
+      {
+        "id": 9158,
+        "title": "Arcade Game Series: Galaga"
+      },
+      {
+        "id": 11633,
+        "title": "Arcade Saga"
+      },
+      {
+        "id": 17735,
+        "title": "Arcade Tale"
+      },
+      {
+        "id": 22429,
+        "title": "Arcade Moonlander"
+      },
+      {
+        "id": 5321688,
+        "title": "Quester"
+      },
+      {
+        "id": 5398398,
+        "title": "QUESTER"
+      },
+      {
+        "id": 5443739,
+        "title": "QUESTER | OSAKA"
+      },
+      {
+        "id": 5423600,
+        "title": "Astral Quester"
+      },
+      {
+        "id": 5476467,
+        "title": "Forever Quester"
+      },
+      {
+        "id": 5523007,
+        "title": "METRO QUESTER"
+      },
+      {
+        "id": 5523008,
+        "title": "METRO QUESTER | OSAKA"
+      },
+      {
+        "id": 5548508,
+        "title": "METRO QUESTER ZERO"
+      },
+      {
+        "id": 5363,
+        "title": "Questerium: Sinister Trinity HD"
+      },
+      {
+        "id": 26956,
+        "title": "Questery"
+      }
+    ]
+  },
+  {
     "nintendoId": "3119739",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 RACK'EM UP",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-RACK-EM-UP-3119739.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 RACK'EM UP",
+      "RACK'EM UP",
       "RACK'EM UP"
     ],
     "candidates": [
@@ -2207,11 +2455,13 @@
   },
   {
     "nintendoId": "2835912",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 RIDGE RACER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-RIDGE-RACER-2835912.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 RIDGE RACER",
+      "RIDGE RACER",
       "RIDGE RACER"
     ],
     "candidates": [
@@ -2299,11 +2549,13 @@
   },
   {
     "nintendoId": "2986479",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 ROC'N ROPE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-ROC-N-ROPE-2986479.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 ROC'N ROPE",
+      "ROC'N ROPE",
       "ROC'N ROPE"
     ],
     "candidates": [
@@ -2371,11 +2623,13 @@
   },
   {
     "nintendoId": "2951461",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SCION",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SCION-2951461.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SCION",
+      "SCION",
       "SCION"
     ],
     "candidates": [
@@ -2463,11 +2717,13 @@
   },
   {
     "nintendoId": "2904291",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SCRAMBLED EGG",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SCRAMBLED-EGG-2904291.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SCRAMBLED EGG",
+      "SCRAMBLED EGG",
       "SCRAMBLED EGG"
     ],
     "candidates": [
@@ -2555,11 +2811,13 @@
   },
   {
     "nintendoId": "3124790",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SPACE CYCLONE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SPACE-CYCLONE-3124790.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SPACE CYCLONE",
+      "SPACE CYCLONE",
       "SPACE CYCLONE"
     ],
     "candidates": [
@@ -2647,11 +2905,13 @@
   },
   {
     "nintendoId": "2994836",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SPACE INVADERS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SPACE-INVADERS-2994836.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SPACE INVADERS",
+      "SPACE INVADERS",
       "SPACE INVADERS"
     ],
     "candidates": [
@@ -2739,11 +2999,13 @@
   },
   {
     "nintendoId": "2996489",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SPACE INVADERS PART II",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SPACE-INVADERS-PART-II-2996489.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SPACE INVADERS PART II",
+      "SPACE INVADERS PART II",
       "SPACE INVADERS PART II"
     ],
     "candidates": [
@@ -2831,11 +3093,13 @@
   },
   {
     "nintendoId": "2923748",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 STEEL WORKER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-STEEL-WORKER-2923748.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 STEEL WORKER",
+      "STEEL WORKER",
       "STEEL WORKER"
     ],
     "candidates": [
@@ -2923,11 +3187,13 @@
   },
   {
     "nintendoId": "3232184",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 SWIMMER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-SWIMMER-3232184.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 SWIMMER",
+      "SWIMMER",
       "SWIMMER"
     ],
     "candidates": [
@@ -3015,11 +3281,13 @@
   },
   {
     "nintendoId": "3109639",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 Tatakae! Big Fighter",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-Tatakae-Big-Fighter-3109639.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 Tatakae! Big Fighter",
+      "Tatakae! Big Fighter",
       "Tatakae! Big Fighter"
     ],
     "candidates": [
@@ -3083,11 +3351,13 @@
   },
   {
     "nintendoId": "2957900",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 TOKYO WARS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-TOKYO-WARS-2957900.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 TOKYO WARS",
+      "TOKYO WARS",
       "TOKYO WARS"
     ],
     "candidates": [
@@ -3175,11 +3445,13 @@
   },
   {
     "nintendoId": "3022208",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 TOP SPEED",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-TOP-SPEED-3022208.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 TOP SPEED",
+      "TOP SPEED",
       "TOP SPEED"
     ],
     "candidates": [
@@ -3267,11 +3539,13 @@
   },
   {
     "nintendoId": "3151530",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 TX-1",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-TX-1-3151530.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 TX-1",
+      "TX-1",
       "TX-1"
     ],
     "candidates": [
@@ -3319,11 +3593,13 @@
   },
   {
     "nintendoId": "3174751",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 V'BALL",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-V-BALL-3174751.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 V'BALL",
+      "V'BALL",
       "V'BALL"
     ],
     "candidates": [
@@ -3411,11 +3687,13 @@
   },
   {
     "nintendoId": "2917697",
+    "source": "Nintendo Europe",
     "title": "Arcade Archives 2 VIDEO HUSTLER",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Arcade-Archives-2-VIDEO-HUSTLER-2917697.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Arcade Archives 2 VIDEO HUSTLER",
+      "VIDEO HUSTLER",
       "VIDEO HUSTLER"
     ],
     "candidates": [
@@ -3503,6 +3781,7 @@
   },
   {
     "nintendoId": "2943805",
+    "source": "Nintendo Europe",
     "title": "Atelier Ryza Secret Trilogy Deluxe Pack",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Atelier-Ryza-Secret-Trilogy-Deluxe-Pack-2943805.html",
     "method": "unmatched_or_ambiguous",
@@ -3553,7 +3832,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100104377",
+    "source": "Nintendo of America",
+    "title": "Attack on Titan 3",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/attack-on-titan-3-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Attack on Titan 3"
+    ],
+    "candidates": [
+      {
+        "id": 11019,
+        "title": "Attack on Titan / A.O.T. Wings of Freedom"
+      },
+      {
+        "id": 17085,
+        "title": "Attack on Titan 2"
+      },
+      {
+        "id": 4888797,
+        "title": "Attack on Titan 2 - A.O.T.2 - Demo"
+      },
+      {
+        "id": 5261598,
+        "title": "Attack on Titan Tribute Game"
+      },
+      {
+        "id": 5465129,
+        "title": "Attack on Titan Tribute Game 2"
+      },
+      {
+        "id": 5468693,
+        "title": "Attack on Titan: Humanity in Chains"
+      },
+      {
+        "id": 5468694,
+        "title": "Attack on Titan: Escape From Certain Death"
+      },
+      {
+        "id": 5346697,
+        "title": "Swammys Attack On Titan Fan Game"
+      },
+      {
+        "id": 5310493,
+        "title": "RAoT: Roark's Attack On Titan Fan Game"
+      },
+      {
+        "id": 28206,
+        "title": "Attack on Pearl Harbor"
+      }
+    ]
+  },
+  {
     "nintendoId": "3198129",
+    "source": "Nintendo Europe",
     "title": "Banchou Tactics: Lion Heart",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Banchou-Tactics-Lion-Heart-3198129.html",
     "method": "unmatched_or_ambiguous",
@@ -3605,6 +3937,7 @@
   },
   {
     "nintendoId": "3047115",
+    "source": "Nintendo Europe",
     "title": "BANG! BANG! BANDITS Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/BANG-BANG-BANDITS-Nintendo-Switch-2-Edition-3047115.html",
     "method": "unmatched_or_ambiguous",
@@ -3657,6 +3990,7 @@
   },
   {
     "nintendoId": "3216599",
+    "source": "Nintendo Europe",
     "title": "Battle Spirits Crossover",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Battle-Spirits-Crossover-3216599.html",
     "method": "unmatched_or_ambiguous",
@@ -3708,6 +4042,7 @@
   },
   {
     "nintendoId": "3218745",
+    "source": "Nintendo Europe",
     "title": "Beyond the Dark: Nightwatch",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Beyond-the-Dark-Nightwatch-3218745.html",
     "method": "unmatched_or_ambiguous",
@@ -3759,6 +4094,7 @@
   },
   {
     "nintendoId": "3218651",
+    "source": "Nintendo Europe",
     "title": "Beyond the Dark: Nightwatch Friend's Pass",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Beyond-the-Dark-Nightwatch-Friend-s-Pass-3218651.html",
     "method": "unmatched_or_ambiguous",
@@ -3810,6 +4146,7 @@
   },
   {
     "nintendoId": "3177280",
+    "source": "Nintendo Europe",
     "title": "BioEden",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/BioEden-3177280.html",
     "method": "unmatched_or_ambiguous",
@@ -3820,6 +4157,7 @@
   },
   {
     "nintendoId": "3181502",
+    "source": "Nintendo Europe",
     "title": "Blood Dungeon - Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Blood-Dungeon-Nintendo-Switch-2-Edition-3181502.html",
     "method": "unmatched_or_ambiguous",
@@ -3872,6 +4210,7 @@
   },
   {
     "nintendoId": "3125873",
+    "source": "Nintendo Europe",
     "title": "BLUE REFLECTION Quartet",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/BLUE-REFLECTION-Quartet-3125873.html",
     "method": "unmatched_or_ambiguous",
@@ -3923,6 +4262,7 @@
   },
   {
     "nintendoId": "3148289",
+    "source": "Nintendo Europe",
     "title": "Bluey's Happy Snaps",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Bluey-s-Happy-Snaps-3148289.html",
     "method": "unmatched_or_ambiguous",
@@ -3974,6 +4314,7 @@
   },
   {
     "nintendoId": "2789461",
+    "source": "Nintendo Europe",
     "title": "BRAVELY DEFAULT FLYING FAIRY HD Remaster",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/BRAVELY-DEFAULT-FLYING-FAIRY-HD-Remaster-2789461.html",
     "method": "unmatched_or_ambiguous",
@@ -4025,6 +4366,7 @@
   },
   {
     "nintendoId": "3137766",
+    "source": "Nintendo Europe",
     "title": "BRIGANDINE ABYSS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/BRIGANDINE-ABYSS-3137766.html",
     "method": "unmatched_or_ambiguous",
@@ -4056,6 +4398,7 @@
   },
   {
     "nintendoId": "3152433",
+    "source": "Nintendo Europe",
     "title": "Bubsy 4D + Bubsy in: The Purrfect Collection",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Bubsy-4D-Bubsy-in-The-Purrfect-Collection-3152433.html",
     "method": "unmatched_or_ambiguous",
@@ -4107,6 +4450,7 @@
   },
   {
     "nintendoId": "3184269",
+    "source": "Nintendo Europe",
     "title": "Cairn",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Cairn-3184269.html",
     "method": "unmatched_or_ambiguous",
@@ -4158,6 +4502,7 @@
   },
   {
     "nintendoId": "3079953",
+    "source": "Nintendo Europe",
     "title": "CARD&CASINO",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/CARD-CASINO-3079953.html",
     "method": "unmatched_or_ambiguous",
@@ -4209,6 +4554,7 @@
   },
   {
     "nintendoId": "3199705",
+    "source": "Nintendo Europe",
     "title": "Chit Chat Party!",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Chit-Chat-Party--3199705.html",
     "method": "unmatched_or_ambiguous",
@@ -4224,6 +4570,7 @@
   },
   {
     "nintendoId": "3199668",
+    "source": "Nintendo Europe",
     "title": "Chivalware",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Chivalware-3199668.html",
     "method": "unmatched_or_ambiguous",
@@ -4233,58 +4580,8 @@
     "candidates": []
   },
   {
-    "nintendoId": "3216764",
-    "title": "Cities: Skylines - Expanded Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Cities-Skylines-Expanded-Edition-3216764.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Cities: Skylines - Expanded Edition"
-    ],
-    "candidates": [
-      {
-        "id": 3192,
-        "title": "Cities: Skylines"
-      },
-      {
-        "id": 9831,
-        "title": "Cities: Skylines - Snowfall"
-      },
-      {
-        "id": 5387339,
-        "title": "Cities: Skylines II"
-      },
-      {
-        "id": 1756,
-        "title": "Cities XL 2012"
-      },
-      {
-        "id": 2402,
-        "title": "Cities in Motion 2"
-      },
-      {
-        "id": 2519,
-        "title": "Cities XL Platinum"
-      },
-      {
-        "id": 5069,
-        "title": "Cities XXL"
-      },
-      {
-        "id": 6928,
-        "title": "Cities XL - Limited Edition"
-      },
-      {
-        "id": 6937,
-        "title": "Cities XL"
-      },
-      {
-        "id": 16442,
-        "title": "Cities XL 2011"
-      }
-    ]
-  },
-  {
     "nintendoId": "3031931",
+    "source": "Nintendo Europe",
     "title": "City Hunter",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/City-Hunter-3031931.html",
     "method": "unmatched_or_ambiguous",
@@ -4336,11 +4633,13 @@
   },
   {
     "nintendoId": "3128650",
+    "source": "Nintendo Europe",
     "title": "Console Archives BOKOSUKA WARS",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-BOKOSUKA-WARS-3128650.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives BOKOSUKA WARS",
+      "BOKOSUKA WARS",
       "BOKOSUKA WARS"
     ],
     "candidates": [
@@ -4392,11 +4691,13 @@
   },
   {
     "nintendoId": "3032872",
+    "source": "Nintendo Europe",
     "title": "Console Archives Dezaemon",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Dezaemon-3032872.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Dezaemon",
+      "Dezaemon",
       "Dezaemon"
     ],
     "candidates": [
@@ -4448,11 +4749,13 @@
   },
   {
     "nintendoId": "3151545",
+    "source": "Nintendo Europe",
     "title": "Console Archives Doraemon",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Doraemon-3151545.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Doraemon",
+      "Doraemon",
       "Doraemon"
     ],
     "candidates": [
@@ -4540,11 +4843,13 @@
   },
   {
     "nintendoId": "3114396",
+    "source": "Nintendo Europe",
     "title": "Console Archives Firework Thrower Kantaro's 53 Stations of the Tokaido",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Firework-Thrower-Kantaro-s-53-Stations-of-the-Tokaido-3114396.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Firework Thrower Kantaro's 53 Stations of the Tokaido",
+      "Firework Thrower Kantaro's 53 Stations of the Tokaido",
       "Firework Thrower Kantaro's 53 Stations of the Tokaido"
     ],
     "candidates": [
@@ -4632,11 +4937,13 @@
   },
   {
     "nintendoId": "3109923",
+    "source": "Nintendo Europe",
     "title": "Console Archives Geki-Oh ShienRyu",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Geki-Oh-ShienRyu-3109923.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Geki-Oh ShienRyu",
+      "Geki-Oh ShienRyu",
       "Geki-Oh ShienRyu"
     ],
     "candidates": [
@@ -4700,11 +5007,13 @@
   },
   {
     "nintendoId": "3141587",
+    "source": "Nintendo Europe",
     "title": "Console Archives Hercules no eikou II Taitan no metsubou",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Hercules-no-eikou-II-Taitan-no-metsubou-3141587.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Hercules no eikou II Taitan no metsubou",
+      "Hercules no eikou II Taitan no metsubou",
       "Hercules no eikou II Taitan no metsubou"
     ],
     "candidates": [
@@ -4792,11 +5101,13 @@
   },
   {
     "nintendoId": "3232299",
+    "source": "Nintendo Europe",
     "title": "Console Archives MARL JONG",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-MARL-JONG-3232299.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives MARL JONG",
+      "MARL JONG",
       "MARL JONG"
     ],
     "candidates": [
@@ -4860,11 +5171,13 @@
   },
   {
     "nintendoId": "3100818",
+    "source": "Nintendo Europe",
     "title": "Console Archives Master of Monsters: Disciples of Gaia",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Master-of-Monsters-Disciples-of-Gaia-3100818.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Master of Monsters: Disciples of Gaia",
+      "Master of Monsters: Disciples of Gaia",
       "Master of Monsters: Disciples of Gaia"
     ],
     "candidates": [
@@ -4952,11 +5265,13 @@
   },
   {
     "nintendoId": "3055546",
+    "source": "Nintendo Europe",
     "title": "Console Archives Ninja-Kid II",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Ninja-Kid-II-3055546.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Ninja-Kid II",
+      "Ninja-Kid II",
       "Ninja-Kid II"
     ],
     "candidates": [
@@ -5044,11 +5359,13 @@
   },
   {
     "nintendoId": "3226745",
+    "source": "Nintendo Europe",
     "title": "Console Archives RAIDEN PROJECT",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-RAIDEN-PROJECT-3226745.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives RAIDEN PROJECT",
+      "RAIDEN PROJECT",
       "RAIDEN PROJECT"
     ],
     "candidates": [
@@ -5136,11 +5453,13 @@
   },
   {
     "nintendoId": "3092319",
+    "source": "Nintendo Europe",
     "title": "Console Archives ROHGA: ARMOR FORCE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-ROHGA-ARMOR-FORCE-3092319.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives ROHGA: ARMOR FORCE",
+      "ROHGA: ARMOR FORCE",
       "ROHGA: ARMOR FORCE"
     ],
     "candidates": [
@@ -5188,11 +5507,13 @@
   },
   {
     "nintendoId": "3146715",
+    "source": "Nintendo Europe",
     "title": "Console Archives THE CONVENI",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-THE-CONVENI-3146715.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives THE CONVENI",
+      "THE CONVENI",
       "THE CONVENI"
     ],
     "candidates": [
@@ -5280,11 +5601,13 @@
   },
   {
     "nintendoId": "3189677",
+    "source": "Nintendo Europe",
     "title": "Console Archives THE CONVENI 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-THE-CONVENI-2-3189677.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives THE CONVENI 2",
+      "THE CONVENI 2",
       "THE CONVENI 2"
     ],
     "candidates": [
@@ -5371,12 +5694,108 @@
     ]
   },
   {
+    "nintendoId": "3222569",
+    "source": "Nintendo Europe",
+    "title": "Console Archives THE DRUG STORE",
+    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-THE-DRUG-STORE-3222569.html",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Console Archives THE DRUG STORE",
+      "THE DRUG STORE",
+      "THE DRUG STORE"
+    ],
+    "candidates": [
+      {
+        "id": 5273784,
+        "title": "Console Simulator"
+      },
+      {
+        "id": 5482112,
+        "title": "Console Shop Simulator"
+      },
+      {
+        "id": 5485540,
+        "title": "Console Store Simulator"
+      },
+      {
+        "id": 5508017,
+        "title": "Console War Giant"
+      },
+      {
+        "id": 5517803,
+        "title": "Console Cafe Simulator"
+      },
+      {
+        "id": 5535818,
+        "title": "Console Kingdom"
+      },
+      {
+        "id": 5547561,
+        "title": "Console Space"
+      },
+      {
+        "id": 5551210,
+        "title": "Console Companions"
+      },
+      {
+        "id": 5552081,
+        "title": "console.log"
+      },
+      {
+        "id": 5557701,
+        "title": "Console Repair Simulator"
+      },
+      {
+        "id": 5271760,
+        "title": "NIGHT/SHADE: You're The Drug"
+      },
+      {
+        "id": 5495195,
+        "title": "Cthulhu Stops the Drug Trade in New Heatsing"
+      },
+      {
+        "id": 5516249,
+        "title": "BRAZILIAN DRUG DEALER BEFORE 4: DEMONS FROM THE PORTAL TO HELL I OPENED ARE STILL IN THE FAVELA AND NOW I HAVE TO SAVE MAMADAS FROM RONALDO"
+      },
+      {
+        "id": 5464369,
+        "title": "Brazilian Drug Dealer 3: I Opened a Portal to Hell in the Favela Trying to Revive Mit Aia I Need To Close It"
+      },
+      {
+        "id": 5437587,
+        "title": "'the"
+      },
+      {
+        "id": 27,
+        "title": "The Incredible Adventures of Van Helsing"
+      },
+      {
+        "id": 35,
+        "title": "The Last Story"
+      },
+      {
+        "id": 47,
+        "title": "The Final Fantasy Legend"
+      },
+      {
+        "id": 54,
+        "title": "The Movies"
+      },
+      {
+        "id": 136,
+        "title": "The ScreaMaze"
+      }
+    ]
+  },
+  {
     "nintendoId": "3105810",
+    "source": "Nintendo Europe",
     "title": "Console Archives Toujinmakyouden Hercules no eikou",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-Toujinmakyouden-Hercules-no-eikou-3105810.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives Toujinmakyouden Hercules no eikou",
+      "Toujinmakyouden Hercules no eikou",
       "Toujinmakyouden Hercules no eikou"
     ],
     "candidates": [
@@ -5424,11 +5843,13 @@
   },
   {
     "nintendoId": "3132942",
+    "source": "Nintendo Europe",
     "title": "Console Archives T.R.A.G.: Tactical Rescue Assault Group - Mission of Mercy",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Console-Archives-T-R-A-G-Tactical-Rescue-Assault-Group-Mission-of-Mercy-3132942.html",
     "method": "unmatched_or_ambiguous",
     "queries": [
       "Console Archives T.R.A.G.: Tactical Rescue Assault Group - Mission of Mercy",
+      "T.R.A.G.: Tactical Rescue Assault Group - Mission of Mercy",
       "T.R.A.G.: Tactical Rescue Assault Group - Mission of Mercy"
     ],
     "candidates": [
@@ -5515,58 +5936,8 @@
     ]
   },
   {
-    "nintendoId": "3147357",
-    "title": "Constance",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Constance-3147357.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Constance"
-    ],
-    "candidates": [
-      {
-        "id": 5409439,
-        "title": "Constance"
-      },
-      {
-        "id": 5471876,
-        "title": "ConsTance"
-      },
-      {
-        "id": 5436282,
-        "title": "Rockman No Constancy"
-      },
-      {
-        "id": 3051,
-        "title": "Constant C"
-      },
-      {
-        "id": 5253265,
-        "title": "Constantine"
-      },
-      {
-        "id": 5376799,
-        "title": "Constantine"
-      },
-      {
-        "id": 5472595,
-        "title": "Constantine Scores"
-      },
-      {
-        "id": 5479253,
-        "title": "Constant Pressure"
-      },
-      {
-        "id": 5489869,
-        "title": "Consonance"
-      },
-      {
-        "id": 5498993,
-        "title": "Decay Constant"
-      }
-    ]
-  },
-  {
     "nintendoId": "3217753",
+    "source": "Nintendo Europe",
     "title": "Cotton Reboot!",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Cotton-Reboot--3217753.html",
     "method": "unmatched_or_ambiguous",
@@ -5618,6 +5989,7 @@
   },
   {
     "nintendoId": "3115336",
+    "source": "Nintendo Europe",
     "title": "Cozy Grove: Camp Spirit – Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Cozy-Grove-Camp-Spirit-Nintendo-Switch-2-Edition-3115336.html",
     "method": "unmatched_or_ambiguous",
@@ -5670,6 +6042,7 @@
   },
   {
     "nintendoId": "3199777",
+    "source": "Nintendo Europe",
     "title": "CRYMELIGHT",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/CRYMELIGHT-3199777.html",
     "method": "unmatched_or_ambiguous",
@@ -5684,7 +6057,24 @@
     ]
   },
   {
+    "nintendoId": "noa-7100131847",
+    "source": "Nintendo of America",
+    "title": "CRYMELIGHT - Art & Sound App",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/crymelight-art-and-sound-app-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "CRYMELIGHT - Art & Sound App"
+    ],
+    "candidates": [
+      {
+        "id": 5288486,
+        "title": "CRIMESIGHT"
+      }
+    ]
+  },
+  {
     "nintendoId": "3116877",
+    "source": "Nintendo Europe",
     "title": "Culdcept BEGINS - Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Culdcept-BEGINS-Nintendo-Switch-2-Edition-3116877.html",
     "method": "unmatched_or_ambiguous",
@@ -5716,203 +6106,60 @@
     ]
   },
   {
-    "nintendoId": "3158041",
-    "title": "DayZ: Cool Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/DayZ-Cool-Edition-3158041.html",
+    "nintendoId": "noa-7100135485",
+    "source": "Nintendo of America",
+    "title": "Curse of Resthaven",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/curse-of-resthaven-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "DayZ: Cool Edition"
+      "Curse of Resthaven"
     ],
     "candidates": [
       {
-        "id": 2280,
-        "title": "DayZ"
+        "id": 5969,
+        "title": "Curse of the Assassin"
       },
       {
-        "id": 5250319,
-        "title": "DayZ Experimental Server"
+        "id": 6817,
+        "title": "Curse of Mermos"
       },
       {
-        "id": 5250320,
-        "title": "DayZ Server"
+        "id": 7423,
+        "title": "Curse of the Crescent Isle DX"
       },
       {
-        "id": 5251549,
-        "title": "DayZ Tools"
+        "id": 18852,
+        "title": "Curse of the Great Forest"
       },
       {
-        "id": 5449974,
-        "title": "DayZ Experimental Tools"
+        "id": 23628,
+        "title": "Curse of the Old Gods"
       },
       {
-        "id": 5466173,
-        "title": "22 Dayz"
+        "id": 5246215,
+        "title": "Curse of Enchantia"
       },
       {
-        "id": 2374,
-        "title": "Arma 2: DayZ Mod"
+        "id": 5248985,
+        "title": "Curse of Anabelle"
       },
       {
-        "id": 5400507,
-        "title": "Our Last Dayz"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3127148",
-    "title": "Destroy All Humans!",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Destroy-All-Humans--3127148.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Destroy All Humans!"
-    ],
-    "candidates": [
-      {
-        "id": 5123056,
-        "title": "Destroy All Humans!"
+        "id": 5249573,
+        "title": "Curse of the dungeon"
       },
       {
-        "id": 5291680,
-        "title": "Destroy All Humans!"
+        "id": 5256979,
+        "title": "Curse of the Dead Gods"
       },
       {
-        "id": 39073,
-        "title": "Destroy All Humans! 2"
-      },
-      {
-        "id": 5209435,
-        "title": "Destroy All Humans! Big Willy Unleashed"
-      },
-      {
-        "id": 5209440,
-        "title": "Destroy All Humans! Path of the Furon"
-      },
-      {
-        "id": 5296764,
-        "title": "Destroy All Humans! 2 - Reprobed"
-      },
-      {
-        "id": 5331451,
-        "title": "Destroy All Humans! – Clone Carnage"
-      },
-      {
-        "id": 5289604,
-        "title": "Destroy All The Cubes"
-      },
-      {
-        "id": 5301269,
-        "title": "Destroy All Cars"
-      },
-      {
-        "id": 5396211,
-        "title": "Destroy All Zombies"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3109582",
-    "title": "Devil May Cry 5 Devil Hunter Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Devil-May-Cry-5-Devil-Hunter-Edition-3109582.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Devil May Cry 5 Devil Hunter Edition"
-    ],
-    "candidates": [
-      {
-        "id": 349500,
-        "title": "Devil May Cry 5"
-      },
-      {
-        "id": 5268180,
-        "title": "Devil May Cry 5: Special Edition"
-      },
-      {
-        "id": 36324,
-        "title": "Devil May Cry"
-      },
-      {
-        "id": 5703,
-        "title": "Devil May Cry 4: Special Edition"
-      },
-      {
-        "id": 11303,
-        "title": "Devil May Cry 4"
-      },
-      {
-        "id": 18223,
-        "title": "Devil May Cry HD Collection"
-      },
-      {
-        "id": 18981,
-        "title": "Devil May Cry 3: Dante's Awakening - Special Edition"
-      },
-      {
-        "id": 35153,
-        "title": "Devil May Cry 2"
-      },
-      {
-        "id": 5263704,
-        "title": "Devil May Cry 3: Dante's Awakening"
-      },
-      {
-        "id": 5440950,
-        "title": "Devil May Cry: Peak of Combat"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3196404",
-    "title": "Diablo® IV: Age of Hatred Collection",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Diablo-IV-Age-of-Hatred-Collection-3196404.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Diablo IV: Age of Hatred Collection"
-    ],
-    "candidates": [
-      {
-        "id": 5250133,
-        "title": "Diablo IV"
-      },
-      {
-        "id": 5435390,
-        "title": "Diablo IV: Vessel of Hatred"
-      },
-      {
-        "id": 5512160,
-        "title": "Diablo IV: Lord of Hatred"
-      },
-      {
-        "id": 34237,
-        "title": "Diablo"
-      },
-      {
-        "id": 35619,
-        "title": "Diablo III"
-      },
-      {
-        "id": 37743,
-        "title": "Diablo II"
-      },
-      {
-        "id": 5249279,
-        "title": "Diablo II: Lord of Destruction"
-      },
-      {
-        "id": 5250323,
-        "title": "Diablo: Hellfire"
-      },
-      {
-        "id": 5269529,
-        "title": "Diablo III: Eternal Collection"
-      },
-      {
-        "id": 5271039,
-        "title": "Diablo III: Reaper of Souls"
+        "id": 5259492,
+        "title": "Curse of Eternity"
       }
     ]
   },
   {
     "nintendoId": "2896549",
+    "source": "Nintendo Europe",
     "title": "Disgaea 7 Complete",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Disgaea-7-Complete-2896549.html",
     "method": "unmatched_or_ambiguous",
@@ -5964,6 +6211,7 @@
   },
   {
     "nintendoId": "3157626",
+    "source": "Nintendo Europe",
     "title": "Disney/Pixar Toy Story 3 Complete Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Disney-Pixar-Toy-Story-3-Complete-Edition-3157626.html",
     "method": "unmatched_or_ambiguous",
@@ -6015,6 +6263,7 @@
   },
   {
     "nintendoId": "3169930",
+    "source": "Nintendo Europe",
     "title": "Disney/Pixar Toy Story: Retro Roundup!",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Disney-Pixar-Toy-Story-Retro-Roundup--3169930.html",
     "method": "unmatched_or_ambiguous",
@@ -6066,6 +6315,7 @@
   },
   {
     "nintendoId": "3178966",
+    "source": "Nintendo Europe",
     "title": "Disney/Pixar Toy Story: Retro Roundup! + Toy Story 3 Complete Edition Double Pack",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Disney-Pixar-Toy-Story-Retro-Roundup-Toy-Story-3-Complete-Edition-Double-Pack-3178966.html",
     "method": "unmatched_or_ambiguous",
@@ -6116,59 +6366,8 @@
     ]
   },
   {
-    "nintendoId": "2991427",
-    "title": "Dispatch Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Dispatch-Nintendo-Switch-2-Edition-2991427.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Dispatch Nintendo Switch 2 Edition",
-      "Dispatch"
-    ],
-    "candidates": [
-      {
-        "id": 5253436,
-        "title": "Dispatch"
-      },
-      {
-        "id": 5473466,
-        "title": "Dispatch"
-      },
-      {
-        "id": 5553294,
-        "title": "Dispatch Dash"
-      },
-      {
-        "id": 5558026,
-        "title": "Dispatch Loop"
-      },
-      {
-        "id": 5562234,
-        "title": "Dispatch Center: Bremen"
-      },
-      {
-        "id": 5562373,
-        "title": "Dispatch Simulator"
-      },
-      {
-        "id": 5517848,
-        "title": "REDSTREAM DISPATCH"
-      },
-      {
-        "id": 5535375,
-        "title": "Orbital Dispatch"
-      },
-      {
-        "id": 5536867,
-        "title": "Deadly Dispatch"
-      },
-      {
-        "id": 5557213,
-        "title": "Dirty Dispatch"
-      }
-    ]
-  },
-  {
     "nintendoId": "3052171",
+    "source": "Nintendo Europe",
     "title": "Dosa Divas",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Dosa-Divas-3052171.html",
     "method": "unmatched_or_ambiguous",
@@ -6184,6 +6383,7 @@
   },
   {
     "nintendoId": "2949177",
+    "source": "Nintendo Europe",
     "title": "DRAGON QUEST - HD-2D Erdrick Trilogy Collection",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/DRAGON-QUEST-HD-2D-Erdrick-Trilogy-Collection-2949177.html",
     "method": "unmatched_or_ambiguous",
@@ -6235,6 +6435,7 @@
   },
   {
     "nintendoId": "3184009",
+    "source": "Nintendo Europe",
     "title": "Dragon Quest Heroes: Torneko‘s Mystery Dungeon -Classic HD-",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Dragon-Quest-Heroes-Torneko-s-Mystery-Dungeon-Classic-HD-3184009.html",
     "method": "unmatched_or_ambiguous",
@@ -6286,6 +6487,7 @@
   },
   {
     "nintendoId": "3187785",
+    "source": "Nintendo Europe",
     "title": "DRAGON QUEST MONSTERS: The Withered World",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/DRAGON-QUEST-MONSTERS-The-Withered-World-3187785.html",
     "method": "unmatched_or_ambiguous",
@@ -6337,6 +6539,7 @@
   },
   {
     "nintendoId": "3110779",
+    "source": "Nintendo Europe",
     "title": "Dragon's Dogma 2: Dark Arisen",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Dragon-s-Dogma-2-Dark-Arisen-3110779.html",
     "method": "unmatched_or_ambiguous",
@@ -6388,6 +6591,7 @@
   },
   {
     "nintendoId": "3017154",
+    "source": "Nintendo Europe",
     "title": "Draw King",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Draw-King-3017154.html",
     "method": "unmatched_or_ambiguous",
@@ -6438,58 +6642,60 @@
     ]
   },
   {
-    "nintendoId": "3182771",
-    "title": "EARTH DEFENSE FORCE5 for Nintendo Switch™ 2",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/EARTH-DEFENSE-FORCE5-for-Nintendo-Switch-2-3182771.html",
+    "nintendoId": "noa-7100117685",
+    "source": "Nintendo of America",
+    "title": "Dream Shogi 4K",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/dream-shogi-4k-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "EARTH DEFENSE FORCE5 for Nintendo Switch 2"
+      "Dream Shogi 4K"
     ],
     "candidates": [
       {
-        "id": 2622,
-        "title": "Earth Defense Force: Insect Armageddon"
+        "id": 2481,
+        "title": "Dream"
       },
       {
-        "id": 9447,
-        "title": "EARTH DEFENSE FORCE 4.1  The Shadow of New Despair"
+        "id": 5251129,
+        "title": "Dream"
       },
       {
-        "id": 15989,
-        "title": "EARTH DEFENSE FORCE 4.1  WINGDIVER THE SHOOTER"
+        "id": 5307161,
+        "title": "DREAM"
       },
       {
-        "id": 34613,
-        "title": "Earth Defense Force"
+        "id": 5507496,
+        "title": "DREAM"
       },
       {
-        "id": 5245411,
-        "title": "EARTH DEFENSE FORCE 5"
+        "id": 1052,
+        "title": "Dream Rose"
       },
       {
-        "id": 5249308,
-        "title": "EARTH DEFENSE FORCE: IRON RAIN"
+        "id": 2151,
+        "title": "Dream Pinball 3D"
       },
       {
-        "id": 5284838,
-        "title": "EARTH DEFENSE FORCE: WORLD BROTHERS"
+        "id": 5987,
+        "title": "Dream Of Mirror Online"
       },
       {
-        "id": 5287091,
-        "title": "Earth Defense Force 2025"
+        "id": 6067,
+        "title": "Dream Tale"
       },
       {
-        "id": 5358740,
-        "title": "Earth Defense Force 2: Invaders from Planet Space"
+        "id": 7783,
+        "title": "Dream Chronicles: The Chosen Child"
       },
       {
-        "id": 5433464,
-        "title": "EARTH DEFENSE FORCE ６"
+        "id": 8647,
+        "title": "Dream Chamber"
       }
     ]
   },
   {
     "nintendoId": "3147060",
+    "source": "Nintendo Europe",
     "title": "EA SPORTS FC™ 27",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/EA-SPORTS-FC-27-3147060.html",
     "method": "unmatched_or_ambiguous",
@@ -6540,7 +6746,61 @@
     ]
   },
   {
+    "nintendoId": "noa-7700036530",
+    "source": "Nintendo of America",
+    "title": "EA SPORTS FC™ 27 Ultimate Edition",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/ea-sports-fc-27-ultimate-edition-70070000036530-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "EA SPORTS FC 27 Ultimate Edition",
+      "EA SPORTS FC 27"
+    ],
+    "candidates": [
+      {
+        "id": 5414999,
+        "title": "EA Sports FC 24"
+      },
+      {
+        "id": 5458628,
+        "title": "EA Sports FC 25"
+      },
+      {
+        "id": 5495669,
+        "title": "EA SPORTS FC™ 26"
+      },
+      {
+        "id": 5254845,
+        "title": "EA Sports UFC 2"
+      },
+      {
+        "id": 5254893,
+        "title": "EA Sports UFC"
+      },
+      {
+        "id": 5262608,
+        "title": "EA Sports FIFA 21"
+      },
+      {
+        "id": 5287522,
+        "title": "EA Sports MMA"
+      },
+      {
+        "id": 5343294,
+        "title": "EA Sports Active: More Workouts"
+      },
+      {
+        "id": 5343295,
+        "title": "EA Sports Active: Personal Trainer"
+      },
+      {
+        "id": 5343296,
+        "title": "EA Sports Active 2"
+      }
+    ]
+  },
+  {
     "nintendoId": "3092727",
+    "source": "Nintendo Europe",
     "title": "EA SPORTS™ Madden NFL 27",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/EA-SPORTS-Madden-NFL-27-3092727.html",
     "method": "unmatched_or_ambiguous",
@@ -6591,7 +6851,61 @@
     ]
   },
   {
+    "nintendoId": "noa-7700034128",
+    "source": "Nintendo of America",
+    "title": "EA SPORTS™ Madden NFL 27 Deluxe Edition",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/ea-sports-madden-nfl-27-deluxe-edition-70070000034128-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "EA SPORTS Madden NFL 27 Deluxe Edition",
+      "EA SPORTS Madden NFL 27"
+    ],
+    "candidates": [
+      {
+        "id": 5486389,
+        "title": "EA SPORTS™ Madden NFL 26"
+      },
+      {
+        "id": 5375733,
+        "title": "EA Sports Double Header: EA Hockey / John Madden Football"
+      },
+      {
+        "id": 5254845,
+        "title": "EA Sports UFC 2"
+      },
+      {
+        "id": 5254893,
+        "title": "EA Sports UFC"
+      },
+      {
+        "id": 5262608,
+        "title": "EA Sports FIFA 21"
+      },
+      {
+        "id": 5287522,
+        "title": "EA Sports MMA"
+      },
+      {
+        "id": 5343294,
+        "title": "EA Sports Active: More Workouts"
+      },
+      {
+        "id": 5343295,
+        "title": "EA Sports Active: Personal Trainer"
+      },
+      {
+        "id": 5343296,
+        "title": "EA Sports Active 2"
+      },
+      {
+        "id": 5343297,
+        "title": "EA Sports Active NFL Training Camp"
+      }
+    ]
+  },
+  {
     "nintendoId": "3060035",
+    "source": "Nintendo Europe",
     "title": "eFootball™ Kick-Off!",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/eFootball-Kick-Off--3060035.html",
     "method": "unmatched_or_ambiguous",
@@ -6643,6 +6957,7 @@
   },
   {
     "nintendoId": "3135534",
+    "source": "Nintendo Europe",
     "title": "Escape the Backrooms",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Escape-the-Backrooms-3135534.html",
     "method": "unmatched_or_ambiguous",
@@ -6693,38 +7008,8 @@
     ]
   },
   {
-    "nintendoId": "3172817",
-    "title": "EVERSPACE 2 - Galactic Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/EVERSPACE-2-Galactic-Edition-3172817.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "EVERSPACE 2 - Galactic Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5247168,
-        "title": "EVERSPACE™ 2"
-      },
-      {
-        "id": 8874,
-        "title": "EVERSPACE"
-      },
-      {
-        "id": 571,
-        "title": "Evospace"
-      },
-      {
-        "id": 5258768,
-        "title": "EverGrace"
-      },
-      {
-        "id": 5488784,
-        "title": "Evershade The Forgotten Mansion"
-      }
-    ]
-  },
-  {
     "nintendoId": "3026408",
+    "source": "Nintendo Europe",
     "title": "Exit Lab ~15 Rooms~",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Exit-Lab-15-Rooms--3026408.html",
     "method": "unmatched_or_ambiguous",
@@ -6775,110 +7060,60 @@
     ]
   },
   {
-    "nintendoId": "3016467",
-    "title": "Fallout 4: Anniversary Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Fallout-4-Anniversary-Edition-3016467.html",
+    "nintendoId": "noa-7100131181",
+    "source": "Nintendo of America",
+    "title": "Faraway",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/faraway-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Fallout 4: Anniversary Edition"
+      "Faraway"
     ],
     "candidates": [
       {
-        "id": 7993,
-        "title": "Fallout 4"
+        "id": 5336691,
+        "title": "Faraway"
       },
       {
-        "id": 17490,
-        "title": "Fallout 4 VR"
+        "id": 5473252,
+        "title": "Faraway"
       },
       {
-        "id": 5248350,
-        "title": "Fallout 4 Script Extender (F4SE)"
+        "id": 16089,
+        "title": "Faraway Islands"
       },
       {
-        "id": 5302287,
-        "title": "Fallout 4 VR Script Extender (F4SEVR)"
+        "id": 5261367,
+        "title": "Faraway Lands: Rise of Yokai"
       },
       {
-        "id": 5326353,
-        "title": "Fallout 4: Creation Kit"
+        "id": 5266222,
+        "title": "Faraway: Director's Cut"
       },
       {
-        "id": 2322,
-        "title": "Fallout 3"
+        "id": 5283826,
+        "title": "Faraway Qualia"
       },
       {
-        "id": 2348,
-        "title": "Fallout 3: Game of the Year Edition"
+        "id": 5297399,
+        "title": "Faraway: Jungle Escape"
       },
       {
-        "id": 2352,
-        "title": "Fallout: New Vegas"
+        "id": 5297400,
+        "title": "Faraway: Arctic Escape"
       },
       {
-        "id": 2381,
-        "title": "Fallout: New Vegas PCR"
+        "id": 5349813,
+        "title": "Faraway Proximity"
       },
       {
-        "id": 8280,
-        "title": "Fallout: A Post Nuclear Role Playing Game"
-      }
-    ]
-  },
-  {
-    "nintendoId": "2842900",
-    "title": "FANTASY LIFE i: The Girl Who Steals Time - Nintendo Switch™ 2 Edition Upgrade Pack",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/FANTASY-LIFE-i-The-Girl-Who-Steals-Time-Nintendo-Switch-2-Edition-2842900.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "FANTASY LIFE i: The Girl Who Steals Time - Nintendo Switch 2 Edition Upgrade Pack",
-      "FANTASY LIFE i: The Girl Who Steals Time Upgrade Pack"
-    ],
-    "candidates": [
-      {
-        "id": 5479216,
-        "title": "FANTASY LIFE i: The Girl Who Steals Time"
-      },
-      {
-        "id": 5254519,
-        "title": "Fantasy Life"
-      },
-      {
-        "id": 5340283,
-        "title": "Fastest Fantasy Life Simulator"
-      },
-      {
-        "id": 5309529,
-        "title": "Slice of Life Fantasy"
-      },
-      {
-        "id": 5282404,
-        "title": "Artificial Life 2061 - Fantasy Diva Of The Vrchat⁣world⁣s, Final Tower Project AI-⁣⁣14⁣16"
-      },
-      {
-        "id": 33906,
-        "title": "Final Fantasy: Crystal Chronicles - My Life as a King"
-      },
-      {
-        "id": 35348,
-        "title": "Final Fantasy: Crystal Chronicles - My Life as a Darklord"
-      },
-      {
-        "id": 5430232,
-        "title": "Fantasy"
-      },
-      {
-        "id": 760,
-        "title": "Fantasy Island"
-      },
-      {
-        "id": 3103,
-        "title": "Fantasy Grounds Classic"
+        "id": 5456769,
+        "title": "Faraway: On Lost Isles"
       }
     ]
   },
   {
     "nintendoId": "2933918",
+    "source": "Nintendo Europe",
     "title": "Farming Simulator: Signature Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Farming-Simulator-Signature-Edition-2933918.html",
     "method": "unmatched_or_ambiguous",
@@ -6930,6 +7165,7 @@
   },
   {
     "nintendoId": "3112375",
+    "source": "Nintendo Europe",
     "title": "FINAL FANTASY RESONANCE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/FINAL-FANTASY-RESONANCE-3112375.html",
     "method": "unmatched_or_ambiguous",
@@ -6981,6 +7217,7 @@
   },
   {
     "nintendoId": "3096638",
+    "source": "Nintendo Europe",
     "title": "FZ: Formation Z",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/FZ-Formation-Z-3096638.html",
     "method": "unmatched_or_ambiguous",
@@ -6991,6 +7228,7 @@
   },
   {
     "nintendoId": "3123842",
+    "source": "Nintendo Europe",
     "title": "Gecko Gods",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Gecko-Gods-3123842.html",
     "method": "unmatched_or_ambiguous",
@@ -7042,6 +7280,7 @@
   },
   {
     "nintendoId": "3156165",
+    "source": "Nintendo Europe",
     "title": "Gobliiins Collection",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Gobliiins-Collection-3156165.html",
     "method": "unmatched_or_ambiguous",
@@ -7092,61 +7331,8 @@
     ]
   },
   {
-    "nintendoId": "3017587",
-    "title": "Granblue Fantasy: Relink - Endless Ragnarok",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Granblue-Fantasy-Relink-Endless-Ragnarok-3017587.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Granblue Fantasy: Relink - Endless Ragnarok"
-    ],
-    "candidates": [
-      {
-        "id": 5423743,
-        "title": "Granblue Fantasy: Relink"
-      },
-      {
-        "id": 5252623,
-        "title": "Granblue Fantasy"
-      },
-      {
-        "id": 5257581,
-        "title": "Granblue Fantasy: Versus"
-      },
-      {
-        "id": 5420388,
-        "title": "Granblue Fantasy Versus: Rising"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3182066",
-    "title": "Granblue Fantasy Versus: Rising Legendary Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Granblue-Fantasy-Versus-Rising-Legendary-Edition-3182066.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Granblue Fantasy Versus: Rising Legendary Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5420388,
-        "title": "Granblue Fantasy Versus: Rising"
-      },
-      {
-        "id": 5257581,
-        "title": "Granblue Fantasy: Versus"
-      },
-      {
-        "id": 5252623,
-        "title": "Granblue Fantasy"
-      },
-      {
-        "id": 5423743,
-        "title": "Granblue Fantasy: Relink"
-      }
-    ]
-  },
-  {
     "nintendoId": "2880674",
+    "source": "Nintendo Europe",
     "title": "Handy Hockey",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Handy-Hockey-2880674.html",
     "method": "unmatched_or_ambiguous",
@@ -7197,59 +7383,8 @@
     ]
   },
   {
-    "nintendoId": "3197072",
-    "title": "Harvest Moon®: Echoes of Teradea - Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Harvest-Moon-Echoes-of-Teradea-Nintendo-Switch-2-Edition-3197072.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Harvest Moon: Echoes of Teradea - Nintendo Switch 2 Edition",
-      "Harvest Moon: Echoes of Teradea"
-    ],
-    "candidates": [
-      {
-        "id": 38092,
-        "title": "Harvest Moon"
-      },
-      {
-        "id": 11847,
-        "title": "Harvest Moon: Hero of Leaf Valley"
-      },
-      {
-        "id": 16480,
-        "title": "Harvest Moon: Light of Hope"
-      },
-      {
-        "id": 29870,
-        "title": "Harvest Moon 3 GBC"
-      },
-      {
-        "id": 33681,
-        "title": "Harvest Moon: A Wonderful Life"
-      },
-      {
-        "id": 33882,
-        "title": "Harvest Moon 2 GBC"
-      },
-      {
-        "id": 34714,
-        "title": "Harvest Moon: Magical Melody"
-      },
-      {
-        "id": 35297,
-        "title": "Harvest Moon 64"
-      },
-      {
-        "id": 36156,
-        "title": "Harvest Moon: Frantic Farming"
-      },
-      {
-        "id": 36294,
-        "title": "Harvest Moon: More Friends of Mineral Town"
-      }
-    ]
-  },
-  {
     "nintendoId": "3064397",
+    "source": "Nintendo Europe",
     "title": "Haste",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Haste-3064397.html",
     "method": "unmatched_or_ambiguous",
@@ -7301,6 +7436,7 @@
   },
   {
     "nintendoId": "3139879",
+    "source": "Nintendo Europe",
     "title": "Heave Ho 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Heave-Ho-2-3139879.html",
     "method": "unmatched_or_ambiguous",
@@ -7352,6 +7488,7 @@
   },
   {
     "nintendoId": "3158136",
+    "source": "Nintendo Europe",
     "title": "Heave Ho + Heave Ho 2 Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Heave-Ho-Heave-Ho-2-Bundle-3158136.html",
     "method": "unmatched_or_ambiguous",
@@ -7403,6 +7540,7 @@
   },
   {
     "nintendoId": "3211796",
+    "source": "Nintendo Europe",
     "title": "Hela: of Mice & Magic",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Hela-of-Mice-Magic-3211796.html",
     "method": "unmatched_or_ambiguous",
@@ -7418,6 +7556,7 @@
   },
   {
     "nintendoId": "3147419",
+    "source": "Nintendo Europe",
     "title": "Hello Kitty Party Land",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Hello-Kitty-Party-Land-3147419.html",
     "method": "unmatched_or_ambiguous",
@@ -7468,59 +7607,8 @@
     ]
   },
   {
-    "nintendoId": "3199757",
-    "title": "hololive Treasure Mountain MegaPack – Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/hololive-Treasure-Mountain-MegaPack-Nintendo-Switch-2-Edition-3199757.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "hololive Treasure Mountain MegaPack – Nintendo Switch 2 Edition",
-      "hololive Treasure Mountain MegaPack"
-    ],
-    "candidates": [
-      {
-        "id": 5458685,
-        "title": "Hololive Treasure Mountain"
-      },
-      {
-        "id": 5314183,
-        "title": "Hololive Error"
-      },
-      {
-        "id": 5348771,
-        "title": "hololive ERROR"
-      },
-      {
-        "id": 5398513,
-        "title": "Hololive Room Visitor"
-      },
-      {
-        "id": 5435982,
-        "title": "Hololive CouncilRyS RPG"
-      },
-      {
-        "id": 5476416,
-        "title": "hololive Holo's Hanafuda"
-      },
-      {
-        "id": 5535926,
-        "title": "hololive Dreams"
-      },
-      {
-        "id": 5529729,
-        "title": "HoRoyal 〜Hololive Battle Royal〜"
-      },
-      {
-        "id": 5293781,
-        "title": "Friday Night Funkin' Holofunk (Hololive Funkin')"
-      },
-      {
-        "id": 5519377,
-        "title": "Five Nights at Hololive"
-      }
-    ]
-  },
-  {
     "nintendoId": "3150480",
+    "source": "Nintendo Europe",
     "title": "HOT WHEELS™ Infinite Rush",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/HOT-WHEELS-Infinite-Rush-3150480.html",
     "method": "unmatched_or_ambiguous",
@@ -7571,124 +7659,8 @@
     ]
   },
   {
-    "nintendoId": "3188822",
-    "title": "Hyrule Warriors: Age of Calamity – Definitive Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Hyrule-Warriors-Age-of-Calamity-Definitive-Edition-3188822.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Hyrule Warriors: Age of Calamity – Definitive Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5267007,
-        "title": "Hyrule Warriors: Age of Calamity"
-      },
-      {
-        "id": 5483959,
-        "title": "Hyrule Warriors: Age of Imprisonment"
-      },
-      {
-        "id": 36550,
-        "title": "Hyrule Warriors"
-      },
-      {
-        "id": 5267606,
-        "title": "Hyrule Warriors: Legends"
-      },
-      {
-        "id": 5293704,
-        "title": "Hyrule Warriors: Definitive Edition"
-      },
-      {
-        "id": 5468287,
-        "title": "Hyrule Conquest"
-      },
-      {
-        "id": 5510450,
-        "title": "Dark Hyrule Fantasy"
-      },
-      {
-        "id": 5249586,
-        "title": "Cadence of Hyrule: Crypt of the NecroDancer Featuring The Legend of Zelda"
-      },
-      {
-        "id": 5256147,
-        "title": "The Legend of Zelda: Hyrule Historia"
-      },
-      {
-        "id": 5495861,
-        "title": "CXS Legend of Zelda - Hyrule’s Doom"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3091932",
-    "title": "inKONBINI: One Store. Many Stories",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/inKONBINI-One-Store-Many-Stories-3091932.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "inKONBINI: One Store. Many Stories"
-    ],
-    "candidates": [
-      {
-        "id": 5448124,
-        "title": "inKonbini"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3151510",
-    "title": "Jurassic World Evolution 2: Complete Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Jurassic-World-Evolution-2-Complete-Edition-3151510.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Jurassic World Evolution 2: Complete Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5287379,
-        "title": "Jurassic World Evolution 2"
-      },
-      {
-        "id": 18722,
-        "title": "Jurassic World Evolution"
-      },
-      {
-        "id": 5491541,
-        "title": "Jurassic World Evolution 3"
-      },
-      {
-        "id": 5283913,
-        "title": "Jurassic World: The Game"
-      },
-      {
-        "id": 5364130,
-        "title": "Jurassic World: Aftermath"
-      },
-      {
-        "id": 6825,
-        "title": "LEGO Jurassic World"
-      },
-      {
-        "id": 5402102,
-        "title": "Immersive Jurassic World Roller Coaster VR"
-      },
-      {
-        "id": 5481605,
-        "title": "Pro Dino Hunt VR: Jurassic World Hunting"
-      },
-      {
-        "id": 33667,
-        "title": "The Lost World: Jurassic Park"
-      },
-      {
-        "id": 5444543,
-        "title": "The Lost World: Jurassic Park - Special Edition"
-      }
-    ]
-  },
-  {
     "nintendoId": "3111530",
+    "source": "Nintendo Europe",
     "title": "KINGDOM HEARTS Collection [I～III]",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/KINGDOM-HEARTS-Collection-I-III--3111530.html",
     "method": "unmatched_or_ambiguous",
@@ -7739,58 +7711,8 @@
     ]
   },
   {
-    "nintendoId": "3111446",
-    "title": "KINGDOM HEARTS III + Re Mind (DLC)",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/KINGDOM-HEARTS-III-Re-Mind-DLC--3111446.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "KINGDOM HEARTS III + Re Mind (DLC)"
-    ],
-    "candidates": [
-      {
-        "id": 5282846,
-        "title": "Kingdom Hearts III + Re Mind"
-      },
-      {
-        "id": 5254589,
-        "title": "Kingdom Hearts III"
-      },
-      {
-        "id": 35875,
-        "title": "Kingdom Hearts"
-      },
-      {
-        "id": 29833,
-        "title": "Kingdom Hearts 3D: Dream Drop Distance"
-      },
-      {
-        "id": 34548,
-        "title": "Kingdom Hearts Re:Chain of Memories"
-      },
-      {
-        "id": 36208,
-        "title": "Kingdom Hearts HD 1.5 Remix"
-      },
-      {
-        "id": 36969,
-        "title": "Kingdom Hearts HD 2.5 Remix"
-      },
-      {
-        "id": 37329,
-        "title": "Kingdom Hearts Re:coded"
-      },
-      {
-        "id": 38142,
-        "title": "Kingdom Hearts: Chain of Memories"
-      },
-      {
-        "id": 38653,
-        "title": "Kingdom Hearts II"
-      }
-    ]
-  },
-  {
     "nintendoId": "3150294",
+    "source": "Nintendo Europe",
     "title": "Kinki Spiritual Affairs Bureau",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Kinki-Spiritual-Affairs-Bureau-3150294.html",
     "method": "unmatched_or_ambiguous",
@@ -7842,6 +7764,7 @@
   },
   {
     "nintendoId": "3188542",
+    "source": "Nintendo Europe",
     "title": "Kirby and the World Beyond",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Kirby-and-the-World-Beyond-3188542.html",
     "method": "unmatched_or_ambiguous",
@@ -7893,6 +7816,7 @@
   },
   {
     "nintendoId": "3123835",
+    "source": "Nintendo Europe",
     "title": "KOKUTOTO",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/KOKUTOTO-3123835.html",
     "method": "unmatched_or_ambiguous",
@@ -7903,6 +7827,7 @@
   },
   {
     "nintendoId": "2992862",
+    "source": "Nintendo Europe",
     "title": "Layers of Fear: The Final Masterpiece Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Layers-of-Fear-The-Final-Masterpiece-Edition-2992862.html",
     "method": "unmatched_or_ambiguous",
@@ -7954,6 +7879,7 @@
   },
   {
     "nintendoId": "3181063",
+    "source": "Nintendo Europe",
     "title": "LEGO® Skylines",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/LEGO-Skylines-3181063.html",
     "method": "unmatched_or_ambiguous",
@@ -8004,7 +7930,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100105247",
+    "source": "Nintendo of America",
+    "title": "LEGO® Voyagers Friend’s Pass",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/lego-voyagers-friends-pass-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "LEGO Voyagers Friend’s Pass"
+    ],
+    "candidates": [
+      {
+        "id": 5491531,
+        "title": "LEGO Voyagers"
+      },
+      {
+        "id": 1677,
+        "title": "LEGO Star Wars: The Video Game"
+      },
+      {
+        "id": 1808,
+        "title": "LEGO Harry Potter: Years 5-7"
+      },
+      {
+        "id": 1996,
+        "title": "LEGO Batman: The Videogame"
+      },
+      {
+        "id": 2030,
+        "title": "LEGO Harry Potter: Years 1-4"
+      },
+      {
+        "id": 2034,
+        "title": "LEGO Universe"
+      },
+      {
+        "id": 2083,
+        "title": "LEGO Batman 2: DC Super Heroes"
+      },
+      {
+        "id": 2109,
+        "title": "LEGO The Lord of the Rings"
+      },
+      {
+        "id": 2976,
+        "title": "LEGO Marvel Super Heroes"
+      },
+      {
+        "id": 4028,
+        "title": "LEGO The Hobbit"
+      }
+    ]
+  },
+  {
     "nintendoId": "3171841",
+    "source": "Nintendo Europe",
     "title": "Let's Sing 2027",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Let-s-Sing-2027-3171841.html",
     "method": "unmatched_or_ambiguous",
@@ -8056,6 +8035,7 @@
   },
   {
     "nintendoId": "3171854",
+    "source": "Nintendo Europe",
     "title": "Let´s Sing ABBA",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Let-s-Sing-ABBA-3171854.html",
     "method": "unmatched_or_ambiguous",
@@ -8102,17 +8082,18 @@
     ]
   },
   {
-    "nintendoId": "2935560",
-    "title": "Little Nightmares Enhanced Edition - Complete Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Little-Nightmares-Enhanced-Edition-Complete-Edition-2935560.html",
+    "nintendoId": "noa-7100098297",
+    "source": "Nintendo of America",
+    "title": "Little Nightmares III - Free Trial & Friend's Pass",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/little-nightmares-iii-free-trial-and-friends-pass-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Little Nightmares Enhanced Edition - Complete Edition"
+      "Little Nightmares III - Free Trial & Friend's Pass"
     ],
     "candidates": [
       {
-        "id": 5493339,
-        "title": "Little Nightmares Enhanced Edition"
+        "id": 5423718,
+        "title": "Little Nightmares III"
       },
       {
         "id": 9974,
@@ -8135,57 +8116,6 @@
         "title": "Little Nightmares 2 Deluxe Edition"
       },
       {
-        "id": 5423718,
-        "title": "Little Nightmares III"
-      },
-      {
-        "id": 5296922,
-        "title": "Very Little Nightmares"
-      },
-      {
-        "id": 5546041,
-        "title": "Little Jimmy´s Nightmare"
-      },
-      {
-        "id": 5489799,
-        "title": "My Little Cafe Nightmare"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3110082",
-    "title": "Little Nightmares II Enhanced Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Little-Nightmares-II-Enhanced-Edition-3110082.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Little Nightmares II Enhanced Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5266557,
-        "title": "Little Nightmares II"
-      },
-      {
-        "id": 5273043,
-        "title": "Little Nightmares II - Demo"
-      },
-      {
-        "id": 5423718,
-        "title": "Little Nightmares III"
-      },
-      {
-        "id": 5330439,
-        "title": "Little Nightmares 2 Deluxe Edition"
-      },
-      {
-        "id": 9974,
-        "title": "Little Nightmares"
-      },
-      {
-        "id": 5330438,
-        "title": "Little Nightmares Complete Edition"
-      },
-      {
         "id": 5493339,
         "title": "Little Nightmares Enhanced Edition"
       },
@@ -8200,113 +8130,12 @@
       {
         "id": 5489799,
         "title": "My Little Cafe Nightmare"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3213009",
-    "title": "Mamon King For Nintendo Switch 2",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Mamon-King-For-Nintendo-Switch-2-3213009.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Mamon King For Nintendo Switch 2"
-    ],
-    "candidates": [
-      {
-        "id": 5507062,
-        "title": "Mamon KIng"
-      },
-      {
-        "id": 5268527,
-        "title": "Mason: Building Bricks"
-      },
-      {
-        "id": 5299489,
-        "title": "Mammon: Devil Help"
-      },
-      {
-        "id": 5304746,
-        "title": "Mason and Strings"
-      },
-      {
-        "id": 5346033,
-        "title": "Mamono Musume - Life with a Lamia"
-      },
-      {
-        "id": 5346034,
-        "title": "Mamono Musume - Slime & Scylla"
-      },
-      {
-        "id": 5346035,
-        "title": "Mamono Musume - Spider & Harpy & Cyclops"
-      },
-      {
-        "id": 5476491,
-        "title": "Malón"
-      },
-      {
-        "id": 5485713,
-        "title": "Mamono Hunter Youko: Dai-7 no Keishou"
-      },
-      {
-        "id": 5287473,
-        "title": "Super Mamono Sisters"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3183805",
-    "title": "Marvel's Guardians of the Galaxy: Encore Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Marvel-s-Guardians-of-the-Galaxy-Encore-Edition-3183805.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Marvel's Guardians of the Galaxy: Encore Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5287647,
-        "title": "Marvel's Guardians of the Galaxy"
-      },
-      {
-        "id": 16261,
-        "title": "Marvel's Guardians of the Galaxy: The Telltale Series"
-      },
-      {
-        "id": 5257097,
-        "title": "Marvel's Avengers"
-      },
-      {
-        "id": 5258558,
-        "title": "Marvel's Spider-Man"
-      },
-      {
-        "id": 5273634,
-        "title": "Marvel’s Iron Man VR"
-      },
-      {
-        "id": 5294440,
-        "title": "Marvel's Midnight Suns"
-      },
-      {
-        "id": 5295908,
-        "title": "Marvel's Spider-Man 2"
-      },
-      {
-        "id": 5295909,
-        "title": "Marvel's Wolverine"
-      },
-      {
-        "id": 5335465,
-        "title": "Marvel’s Spider-Man Remastered"
-      },
-      {
-        "id": 5354206,
-        "title": "Marvel's Spider-Man: Miles Morales"
       }
     ]
   },
   {
     "nintendoId": "3188729",
+    "source": "Nintendo Europe",
     "title": "Metroid Ravenous",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Metroid-Ravenous-3188729.html",
     "method": "unmatched_or_ambiguous",
@@ -8357,7 +8186,60 @@
     ]
   },
   {
+    "nintendoId": "noa-128115",
+    "source": "Nintendo of America",
+    "title": "Metroid™ Ravenous Special Edition",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/metroid-ravenous-special-edition-128115/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Metroid Ravenous Special Edition"
+    ],
+    "candidates": [
+      {
+        "id": 12911,
+        "title": "Metroid"
+      },
+      {
+        "id": 85,
+        "title": "Metroid: Zero Mission"
+      },
+      {
+        "id": 33587,
+        "title": "Metroid II: Return of Samus"
+      },
+      {
+        "id": 34541,
+        "title": "Metroid Prime: Hunters"
+      },
+      {
+        "id": 36244,
+        "title": "Metroid Prime 2: Echoes"
+      },
+      {
+        "id": 36566,
+        "title": "Metroid Prime Trilogy"
+      },
+      {
+        "id": 37371,
+        "title": "Metroid Fusion"
+      },
+      {
+        "id": 37462,
+        "title": "Metroid: Other M"
+      },
+      {
+        "id": 37532,
+        "title": "Metroid Prime 3: Corruption"
+      },
+      {
+        "id": 37640,
+        "title": "Metroid Prime"
+      }
+    ]
+  },
+  {
     "nintendoId": "3205382",
+    "source": "Nintendo Europe",
     "title": "Middle-earth™: Shadow Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Middle-earth-Shadow-Bundle-3205382.html",
     "method": "unmatched_or_ambiguous",
@@ -8408,109 +8290,8 @@
     ]
   },
   {
-    "nintendoId": "3205907",
-    "title": "Middle-earth™: Shadow of Mordor™ Game of the Year Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Middle-earth-Shadow-of-Mordor-Game-of-the-Year-Edition-3205907.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Middle-earth: Shadow of Mordor Game of the Year Edition"
-    ],
-    "candidates": [
-      {
-        "id": 2774,
-        "title": "Middle-earth: Shadow of Mordor"
-      },
-      {
-        "id": 6995,
-        "title": "Middle-earth: Shadow of War"
-      },
-      {
-        "id": 1298,
-        "title": "Guardians of Middle-earth"
-      },
-      {
-        "id": 233,
-        "title": "The Lord of the Rings: Journeys in Middle-earth"
-      },
-      {
-        "id": 36140,
-        "title": "The Lord of the Rings: The Battle for Middle-earth II"
-      },
-      {
-        "id": 38525,
-        "title": "The Lord of the Rings: The Battle for Middle-earth"
-      },
-      {
-        "id": 38566,
-        "title": "The Lord of the Rings: The Battle for Middle-earth II - The Rise of the Witch-King"
-      },
-      {
-        "id": 957,
-        "title": "Middle Ages Hero"
-      },
-      {
-        "id": 5276067,
-        "title": "Middle Age Conquest"
-      },
-      {
-        "id": 5303597,
-        "title": "Middle Ages Jigsaw Puzzles"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3205919",
-    "title": "Middle-earth™: Shadow of War™: Definitive Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Middle-earth-Shadow-of-War-Definitive-Edition-3205919.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Middle-earth: Shadow of War: Definitive Edition"
-    ],
-    "candidates": [
-      {
-        "id": 6995,
-        "title": "Middle-earth: Shadow of War"
-      },
-      {
-        "id": 2774,
-        "title": "Middle-earth: Shadow of Mordor"
-      },
-      {
-        "id": 1298,
-        "title": "Guardians of Middle-earth"
-      },
-      {
-        "id": 233,
-        "title": "The Lord of the Rings: Journeys in Middle-earth"
-      },
-      {
-        "id": 36140,
-        "title": "The Lord of the Rings: The Battle for Middle-earth II"
-      },
-      {
-        "id": 38525,
-        "title": "The Lord of the Rings: The Battle for Middle-earth"
-      },
-      {
-        "id": 38566,
-        "title": "The Lord of the Rings: The Battle for Middle-earth II - The Rise of the Witch-King"
-      },
-      {
-        "id": 957,
-        "title": "Middle Ages Hero"
-      },
-      {
-        "id": 5276067,
-        "title": "Middle Age Conquest"
-      },
-      {
-        "id": 5303597,
-        "title": "Middle Ages Jigsaw Puzzles"
-      }
-    ]
-  },
-  {
     "nintendoId": "3182322",
+    "source": "Nintendo Europe",
     "title": "Mind Diver",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Mind-Diver-3182322.html",
     "method": "unmatched_or_ambiguous",
@@ -8561,45 +8342,30 @@
     ]
   },
   {
-    "nintendoId": "3037912",
-    "title": "Minishoot' Adventures – Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Minishoot-Adventures-Nintendo-Switch-2-Edition-3037912.html",
+    "nintendoId": "noa-7100131538",
+    "source": "Nintendo of America",
+    "title": "MODEL Debut3 #nicola",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/model-debut3-nicola-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Minishoot' Adventures – Nintendo Switch 2 Edition",
-      "Minishoot' Adventures"
+      "MODEL Debut3 #nicola"
     ],
     "candidates": [
       {
-        "id": 5286056,
-        "title": "Minishoot' Adventure"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3182224",
-    "title": "Model Debut4",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Model-Debut4-3182224.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Model Debut4"
-    ],
-    "candidates": [
+        "id": 5492465,
+        "title": "MODEL Debut3 #nicola"
+      },
       {
         "id": 5531123,
         "title": "Model Debut4 #nicola／モデルデビュー4 ニコラ"
-      },
-      {
-        "id": 5434220,
-        "title": "Model Debut 2 #nicola"
       },
       {
         "id": 5477246,
         "title": "Model Debut 3 #nicola"
       },
       {
-        "id": 5492465,
-        "title": "MODEL Debut3 #nicola"
+        "id": 5434220,
+        "title": "Model Debut 2 #nicola"
       },
       {
         "id": 5248851,
@@ -8629,6 +8395,7 @@
   },
   {
     "nintendoId": "3091256",
+    "source": "Nintendo Europe",
     "title": "Monopoly: Star Wars™ Heroes vs. Villains",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Monopoly-Star-Wars-Heroes-vs-Villains-3091256.html",
     "method": "unmatched_or_ambiguous",
@@ -8680,6 +8447,7 @@
   },
   {
     "nintendoId": "3131570",
+    "source": "Nintendo Europe",
     "title": "Moss: The Forgotten Relic",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Moss-The-Forgotten-Relic-3131570.html",
     "method": "unmatched_or_ambiguous",
@@ -8731,6 +8499,7 @@
   },
   {
     "nintendoId": "3064712",
+    "source": "Nintendo Europe",
     "title": "MotoGP™26",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/MotoGP-26-3064712.html",
     "method": "unmatched_or_ambiguous",
@@ -8741,6 +8510,7 @@
   },
   {
     "nintendoId": "2968054",
+    "source": "Nintendo Europe",
     "title": "NBA 2K26 x WWE 2K25 Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/NBA-2K26-x-WWE-2K25-Bundle-2968054.html",
     "method": "unmatched_or_ambiguous",
@@ -8791,7 +8561,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100137909",
+    "source": "Nintendo of America",
+    "title": "Ninja Baseball League-Man: Bases Loaded",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/ninja-baseball-league-man-bases-loaded-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Ninja Baseball League-Man: Bases Loaded"
+    ],
+    "candidates": [
+      {
+        "id": 5252898,
+        "title": "Ninja Baseball Bat Man"
+      },
+      {
+        "id": 437,
+        "title": "Ninja?"
+      },
+      {
+        "id": 5434825,
+        "title": "Ninja"
+      },
+      {
+        "id": 5473830,
+        "title": "Ninja"
+      },
+      {
+        "id": 82,
+        "title": "Ninja Kid"
+      },
+      {
+        "id": 1419,
+        "title": "Ninja Reflex: Steamworks Edition"
+      },
+      {
+        "id": 3333,
+        "title": "Ninja Cats vs Samurai Dogs"
+      },
+      {
+        "id": 5322,
+        "title": "Ninja Pizza Girl"
+      },
+      {
+        "id": 6242,
+        "title": "Ninja Guy"
+      },
+      {
+        "id": 7660,
+        "title": "Ninja Blade"
+      }
+    ]
+  },
+  {
     "nintendoId": "3115652",
+    "source": "Nintendo Europe",
     "title": "Nintendo Switch Sports Resort",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Nintendo-Switch-Sports-Resort-3115652.html",
     "method": "unmatched_or_ambiguous",
@@ -8842,58 +8665,8 @@
     ]
   },
   {
-    "nintendoId": "2833444",
-    "title": "NOBUNAGA'S AMBITION: Awakening Complete Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/NOBUNAGA-S-AMBITION-Awakening-Complete-Edition-2833444.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "NOBUNAGA'S AMBITION: Awakening Complete Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5323146,
-        "title": "Nobunga's Ambition: Awakening"
-      },
-      {
-        "id": 14769,
-        "title": "Nobunaga's Ambition"
-      },
-      {
-        "id": 4129,
-        "title": "NOBUNAGA'S AMBITION: Souzou with Power Up Kit"
-      },
-      {
-        "id": 4303,
-        "title": "NOBUNAGA'S AMBITION: Souzou"
-      },
-      {
-        "id": 7316,
-        "title": "NOBUNAGA'S AMBITION: Kakushin with Power Up Kit"
-      },
-      {
-        "id": 7318,
-        "title": "NOBUNAGA'S AMBITION: Tendou with Power Up Kit"
-      },
-      {
-        "id": 7699,
-        "title": "NOBUNAGA'S AMBITION: Tenshouki with Power Up Kit HD Version"
-      },
-      {
-        "id": 7922,
-        "title": "NOBUNAGA'S AMBITION: Sphere of Influence - Ascension"
-      },
-      {
-        "id": 8687,
-        "title": "NOBUNAGA'S AMBITION: Sphere of Influence"
-      },
-      {
-        "id": 13870,
-        "title": "NOBUNAGA'S AMBITION: Sengoku Gunyuuden"
-      }
-    ]
-  },
-  {
     "nintendoId": "3017028",
+    "source": "Nintendo Europe",
     "title": "Novel Rogue Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Novel-Rogue-Nintendo-Switch-2-Edition-3017028.html",
     "method": "unmatched_or_ambiguous",
@@ -8946,6 +8719,7 @@
   },
   {
     "nintendoId": "3135142",
+    "source": "Nintendo Europe",
     "title": "OCTOPATH TRAVELER + OCTOPATH TRAVELER II Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/OCTOPATH-TRAVELER-OCTOPATH-TRAVELER-II-Bundle-3135142.html",
     "method": "unmatched_or_ambiguous",
@@ -8973,6 +8747,7 @@
   },
   {
     "nintendoId": "3110869",
+    "source": "Nintendo Europe",
     "title": "ONE PIECE: Grand Gourmet",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/ONE-PIECE-Grand-Gourmet-3110869.html",
     "method": "unmatched_or_ambiguous",
@@ -9023,7 +8798,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100119630",
+    "source": "Nintendo of America",
+    "title": "Orbitals: Global Friend's Pass",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/orbitals-global-friends-pass-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Orbitals: Global Friend's Pass"
+    ],
+    "candidates": [
+      {
+        "id": 5531596,
+        "title": "G.O.D. Global Orbital Defense"
+      },
+      {
+        "id": 5257594,
+        "title": "Orbitals"
+      },
+      {
+        "id": 5512618,
+        "title": "Orbitals"
+      },
+      {
+        "id": 4498,
+        "title": "Orbital Gear"
+      },
+      {
+        "id": 12592,
+        "title": "Orbital Strike: Arena"
+      },
+      {
+        "id": 13225,
+        "title": "ORBITAL"
+      },
+      {
+        "id": 13612,
+        "title": "Orbital X"
+      },
+      {
+        "id": 16580,
+        "title": "Orbital Injection"
+      },
+      {
+        "id": 22250,
+        "title": "Orbital Racer"
+      },
+      {
+        "id": 5248195,
+        "title": "Orbital Shipyards"
+      }
+    ]
+  },
+  {
     "nintendoId": "3184538",
+    "source": "Nintendo Europe",
     "title": "Order of the Sinking Star",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Order-of-the-Sinking-Star-3184538.html",
     "method": "unmatched_or_ambiguous",
@@ -9074,22 +8902,60 @@
     ]
   },
   {
-    "nintendoId": "3145987",
-    "title": "Parkasaurus: Dinoluxe Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Parkasaurus-Dinoluxe-Edition-3145987.html",
+    "nintendoId": "noa-7100115859",
+    "source": "Nintendo of America",
+    "title": "Out of Words",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/out-of-words-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Parkasaurus: Dinoluxe Edition"
+      "Out of Words"
     ],
     "candidates": [
       {
-        "id": 16720,
-        "title": "Parkasaurus"
+        "id": 5352863,
+        "title": "Out of the Woods"
+      },
+      {
+        "id": 5476118,
+        "title": "Get Out Of The Woods"
+      },
+      {
+        "id": 1569,
+        "title": "Out of the Park Baseball 9"
+      },
+      {
+        "id": 3444,
+        "title": "Out of the Park Baseball 14"
+      },
+      {
+        "id": 3702,
+        "title": "Out of the Park Baseball 15"
+      },
+      {
+        "id": 5617,
+        "title": "Out of Reach"
+      },
+      {
+        "id": 5892,
+        "title": "Out of the Park Baseball 16"
+      },
+      {
+        "id": 9029,
+        "title": "Out of Space"
+      },
+      {
+        "id": 9117,
+        "title": "Out of the Park Baseball 17"
+      },
+      {
+        "id": 11090,
+        "title": "Out of Ammo"
       }
     ]
   },
   {
     "nintendoId": "3136105",
+    "source": "Nintendo Europe",
     "title": "PAW Patrol™: Dino World",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/PAW-Patrol-Dino-World-3136105.html",
     "method": "unmatched_or_ambiguous",
@@ -9140,59 +9006,112 @@
     ]
   },
   {
-    "nintendoId": "3188744",
-    "title": "Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Pikmin-4-Nintendo-Switch-2-Edition-Dandori-Academy-3188744.html",
+    "nintendoId": "noa-7100101030",
+    "source": "Nintendo of America",
+    "title": "Persona 3 Reload: Digital Artbook",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/persona-3-reload-digital-artbook-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy",
-      "Pikmin 4 + Dandori Academy"
+      "Persona 3 Reload: Digital Artbook"
     ],
     "candidates": [
       {
-        "id": 5352185,
-        "title": "Pikmin 4"
+        "id": 5423841,
+        "title": "Persona 3 Reload"
       },
       {
-        "id": 5443082,
-        "title": "Pikmin 2 4 Player"
+        "id": 5252716,
+        "title": "Persona 3: Dancing in Moonlight"
       },
       {
-        "id": 21114,
-        "title": "Pikmin"
+        "id": 5438623,
+        "title": "Persona 3 Portable: The Shadow Hour"
       },
       {
-        "id": 35063,
-        "title": "Pikmin 3"
+        "id": 35402,
+        "title": "Shin Megami Tensei: Persona 3 FES"
       },
       {
-        "id": 36006,
-        "title": "Pikmin 2"
+        "id": 37280,
+        "title": "Shin Megami Tensei: Persona 3 Portable"
       },
       {
-        "id": 5256127,
-        "title": "Pikmin Short Movies HD"
+        "id": 38990,
+        "title": "Shin Megami Tensei: Persona 3"
       },
       {
-        "id": 5256581,
-        "title": "Pikmin 3 (Trial)"
+        "id": 5449557,
+        "title": "G-Mode Archives+: Persona 3 Aegis - The First Mission"
       },
       {
-        "id": 5260254,
-        "title": "Pikmin 251"
+        "id": 5463025,
+        "title": "Fitness Boxing 3: Your Personal Trainer"
       },
       {
-        "id": 5268445,
-        "title": "Pikmin 3 Deluxe"
+        "id": 34575,
+        "title": "Persona 2: Eternal Punishment"
       },
       {
-        "id": 5292718,
-        "title": "Pikmin Wars"
+        "id": 34618,
+        "title": "Persona 4 Arena Ultimax"
+      }
+    ]
+  },
+  {
+    "nintendoId": "noa-7100101035",
+    "source": "Nintendo of America",
+    "title": "Persona 3 Reload: Digital Soundtrack",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/persona-3-reload-digital-soundtrack-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Persona 3 Reload: Digital Soundtrack"
+    ],
+    "candidates": [
+      {
+        "id": 5423841,
+        "title": "Persona 3 Reload"
+      },
+      {
+        "id": 5252716,
+        "title": "Persona 3: Dancing in Moonlight"
+      },
+      {
+        "id": 5438623,
+        "title": "Persona 3 Portable: The Shadow Hour"
+      },
+      {
+        "id": 35402,
+        "title": "Shin Megami Tensei: Persona 3 FES"
+      },
+      {
+        "id": 37280,
+        "title": "Shin Megami Tensei: Persona 3 Portable"
+      },
+      {
+        "id": 38990,
+        "title": "Shin Megami Tensei: Persona 3"
+      },
+      {
+        "id": 5449557,
+        "title": "G-Mode Archives+: Persona 3 Aegis - The First Mission"
+      },
+      {
+        "id": 5463025,
+        "title": "Fitness Boxing 3: Your Personal Trainer"
+      },
+      {
+        "id": 34575,
+        "title": "Persona 2: Eternal Punishment"
+      },
+      {
+        "id": 34618,
+        "title": "Persona 4 Arena Ultimax"
       }
     ]
   },
   {
     "nintendoId": "3110623",
+    "source": "Nintendo Europe",
     "title": "Pikuniku 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Pikuniku-2-3110623.html",
     "method": "unmatched_or_ambiguous",
@@ -9208,6 +9127,7 @@
   },
   {
     "nintendoId": "3139935",
+    "source": "Nintendo Europe",
     "title": "Pit Panic",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Pit-Panic-3139935.html",
     "method": "unmatched_or_ambiguous",
@@ -9258,59 +9178,8 @@
     ]
   },
   {
-    "nintendoId": "3043028",
-    "title": "Planet of Lana II: Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Planet-of-Lana-II-Nintendo-Switch-2-Edition-3043028.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Planet of Lana II: Nintendo Switch 2 Edition",
-      "Planet of Lana II"
-    ],
-    "candidates": [
-      {
-        "id": 5491708,
-        "title": "Planet of Lana 2"
-      },
-      {
-        "id": 5287385,
-        "title": "Planet of Lana"
-      },
-      {
-        "id": 6756,
-        "title": "Planet of the Eyes"
-      },
-      {
-        "id": 17138,
-        "title": "Planet of Mubu"
-      },
-      {
-        "id": 25110,
-        "title": "Planet of the Apes: Last Frontier"
-      },
-      {
-        "id": 37058,
-        "title": "Planet of the Apes"
-      },
-      {
-        "id": 5413232,
-        "title": "Planet of War: The Legend of Fu"
-      },
-      {
-        "id": 5458877,
-        "title": "Planet of Carrots"
-      },
-      {
-        "id": 5476282,
-        "title": "Planet of the Ants"
-      },
-      {
-        "id": 5516000,
-        "title": "Planet of Lava – Save the Planet"
-      }
-    ]
-  },
-  {
     "nintendoId": "3039100",
+    "source": "Nintendo Europe",
     "title": "Pokémon Waves",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Pokemon-Waves-3039100.html",
     "method": "unmatched_or_ambiguous",
@@ -9362,6 +9231,7 @@
   },
   {
     "nintendoId": "3009687",
+    "source": "Nintendo Europe",
     "title": "POOL ROOM BILLIARD",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/POOL-ROOM-BILLIARD-3009687.html",
     "method": "unmatched_or_ambiguous",
@@ -9413,6 +9283,7 @@
   },
   {
     "nintendoId": "2970103",
+    "source": "Nintendo Europe",
     "title": "PUNYAN for Nintendo Switch 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/PUNYAN-for-Nintendo-Switch-2-2970103.html",
     "method": "unmatched_or_ambiguous",
@@ -9435,58 +9306,8 @@
     ]
   },
   {
-    "nintendoId": "3227368",
-    "title": "RACCOIN: Chaos Max Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/RACCOIN-Chaos-Max-Edition-3227368.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "RACCOIN: Chaos Max Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5498758,
-        "title": "Raccoin: Coin Pusher Roguelike"
-      },
-      {
-        "id": 5253174,
-        "title": "Raccoon: The Orc Invasion"
-      },
-      {
-        "id": 5254683,
-        "title": "Raccoon Hero: Under The Sea"
-      },
-      {
-        "id": 5255535,
-        "title": "Raccoon The Miner"
-      },
-      {
-        "id": 5268259,
-        "title": "Raccoon Roller"
-      },
-      {
-        "id": 5275694,
-        "title": "Raccoon Lagoon"
-      },
-      {
-        "id": 5281606,
-        "title": "Raccoon Arrival"
-      },
-      {
-        "id": 5323308,
-        "title": "Raccoon Crafts Factory"
-      },
-      {
-        "id": 5326607,
-        "title": "Raccoon Tales"
-      },
-      {
-        "id": 5343436,
-        "title": "Raccoon Run"
-      }
-    ]
-  },
-  {
     "nintendoId": "3110638",
+    "source": "Nintendo Europe",
     "title": "Rayman Legends Retold",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Rayman-Legends-Retold-3110638.html",
     "method": "unmatched_or_ambiguous",
@@ -9537,22 +9358,8 @@
     ]
   },
   {
-    "nintendoId": "2925081",
-    "title": "Relayer Advanced Definitive Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Relayer-Advanced-Definitive-Edition-2925081.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Relayer Advanced Definitive Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5357741,
-        "title": "Relayer Advanced"
-      }
-    ]
-  },
-  {
     "nintendoId": "3202733",
+    "source": "Nintendo Europe",
     "title": "Remothered: Red Nun's Legacy",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Remothered-Red-Nun-s-Legacy-3202733.html",
     "method": "unmatched_or_ambiguous",
@@ -9579,111 +9386,8 @@
     ]
   },
   {
-    "nintendoId": "3183632",
-    "title": "Resident Evil 2 Deluxe Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-2-Deluxe-Edition-3183632.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Resident Evil 2 Deluxe Edition",
-      "Resident Evil 2"
-    ],
-    "candidates": [
-      {
-        "id": 25577,
-        "title": "Resident Evil 2"
-      },
-      {
-        "id": 29143,
-        "title": "Resident Evil 2"
-      },
-      {
-        "id": 32193,
-        "title": "Resident Evil 2: 1-Shot Demo"
-      },
-      {
-        "id": 34680,
-        "title": "Resident Evil 2: Dual Shock Ver."
-      },
-      {
-        "id": 5253480,
-        "title": "Resident Evil 2: R.P.D. Demo"
-      },
-      {
-        "id": 5442539,
-        "title": "Resident Evil 2: Source"
-      },
-      {
-        "id": 5465779,
-        "title": "Resident Evil 2: Seamless HD Project"
-      },
-      {
-        "id": 4098,
-        "title": "Resident Evil Revelations 2"
-      },
-      {
-        "id": 34929,
-        "title": "Resident Evil Survivor 2 Code: Veronica"
-      },
-      {
-        "id": 35697,
-        "title": "Resident Evil Outbreak File #2"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3183693",
-    "title": "Resident Evil 4 Gold Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-4-Gold-Edition-3183693.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Resident Evil 4 Gold Edition",
-      "Resident Evil 4"
-    ],
-    "candidates": [
-      {
-        "id": 3168,
-        "title": "Resident Evil 4"
-      },
-      {
-        "id": 5332120,
-        "title": "Resident Evil 4"
-      },
-      {
-        "id": 5306701,
-        "title": "Resident Evil 4: Otome Edition"
-      },
-      {
-        "id": 5309362,
-        "title": "Resident Evil 4 Wii Edition"
-      },
-      {
-        "id": 5325929,
-        "title": "Resident Evil 4 VR"
-      },
-      {
-        "id": 5432194,
-        "title": "Resident Evil 4 Chainsaw Demo"
-      },
-      {
-        "id": 5519751,
-        "title": "Resident Evil 4: Mobile Edition"
-      },
-      {
-        "id": 4793,
-        "title": "Resident Evil"
-      },
-      {
-        "id": 33861,
-        "title": "Resident Evil"
-      },
-      {
-        "id": 1957,
-        "title": "Resident Evil: Operation Raccoon City"
-      }
-    ]
-  },
-  {
     "nintendoId": "3062571",
+    "source": "Nintendo Europe",
     "title": "Resident Evil 7 Gold Edition & Village Gold Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-7-Gold-Edition-Village-Gold-Edition-3062571.html",
     "method": "unmatched_or_ambiguous",
@@ -9734,7 +9438,61 @@
     ]
   },
   {
+    "nintendoId": "3221688",
+    "source": "Nintendo Europe",
+    "title": "Reverie in the Moonlight – Nintendo Switch™ 2 Edition",
+    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Reverie-in-the-Moonlight-Nintendo-Switch-2-Edition-3221688.html",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Reverie in the Moonlight – Nintendo Switch 2 Edition",
+      "Reverie in the Moonlight"
+    ],
+    "candidates": [
+      {
+        "id": 5431203,
+        "title": "Born In Reverie"
+      },
+      {
+        "id": 5463002,
+        "title": "CrossAbout: Crosswords In Reverse"
+      },
+      {
+        "id": 5263680,
+        "title": "I'm a love interest in my childhood friend's reverse harem!!!"
+      },
+      {
+        "id": 21597,
+        "title": "Reverie"
+      },
+      {
+        "id": 5409197,
+        "title": "Reverie"
+      },
+      {
+        "id": 5455713,
+        "title": "Reverie"
+      },
+      {
+        "id": 5457268,
+        "title": "Reverie"
+      },
+      {
+        "id": 5464915,
+        "title": "Reverie"
+      },
+      {
+        "id": 5492807,
+        "title": "Reverie"
+      },
+      {
+        "id": 5554237,
+        "title": "Reverie"
+      }
+    ]
+  },
+  {
     "nintendoId": "3108749",
+    "source": "Nintendo Europe",
     "title": "RIICHI MAHJONG",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/RIICHI-MAHJONG-3108749.html",
     "method": "unmatched_or_ambiguous",
@@ -9753,110 +9511,8 @@
     ]
   },
   {
-    "nintendoId": "3109152",
-    "title": "Rise of the Tomb Raider: 20 Year Celebration",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Rise-of-the-Tomb-Raider-20-Year-Celebration-3109152.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Rise of the Tomb Raider: 20 Year Celebration"
-    ],
-    "candidates": [
-      {
-        "id": 8619,
-        "title": "Rise of the Tomb Raider"
-      },
-      {
-        "id": 1407,
-        "title": "Rise of the Argonauts"
-      },
-      {
-        "id": 2185,
-        "title": "Rise of the Triad"
-      },
-      {
-        "id": 7106,
-        "title": "Rise of the Triad: Dark War"
-      },
-      {
-        "id": 12254,
-        "title": "Rise of the Ancients"
-      },
-      {
-        "id": 21038,
-        "title": "Rise of the Third Power"
-      },
-      {
-        "id": 28665,
-        "title": "Rise of the Titan"
-      },
-      {
-        "id": 31776,
-        "title": "Rise of the Pirates"
-      },
-      {
-        "id": 34843,
-        "title": "Rise of the Robots"
-      },
-      {
-        "id": 36721,
-        "title": "Rise of the Dragon"
-      }
-    ]
-  },
-  {
-    "nintendoId": "2882156",
-    "title": "Romancing SaGa 2: Revenge of the Seven – Nintendo Switch 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Romancing-SaGa-2-Revenge-of-the-Seven-Nintendo-Switch-2-Edition-2882156.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Romancing SaGa 2: Revenge of the Seven – Nintendo Switch 2 Edition",
-      "Romancing SaGa 2: Revenge of the Seven"
-    ],
-    "candidates": [
-      {
-        "id": 5455468,
-        "title": "Romancing Saga 2: Revenge of Seven"
-      },
-      {
-        "id": 17320,
-        "title": "Romancing SaGa 2"
-      },
-      {
-        "id": 36873,
-        "title": "Romancing SaGa"
-      },
-      {
-        "id": 37694,
-        "title": "Romancing SaGa 3"
-      },
-      {
-        "id": 5352448,
-        "title": "Romancing SaGa -Minstrel Song- Remastered"
-      },
-      {
-        "id": 5548944,
-        "title": "Romancing SaGa 3: Destinies United"
-      },
-      {
-        "id": 29452,
-        "title": "Romancing Monarchy"
-      },
-      {
-        "id": 5358186,
-        "title": "Romancing The Kingdom"
-      },
-      {
-        "id": 5463176,
-        "title": "Romancing Kanon: Eien no Shoujo Densetsu"
-      },
-      {
-        "id": 5466615,
-        "title": "Romancing Jan"
-      }
-    ]
-  },
-  {
     "nintendoId": "3046067",
+    "source": "Nintendo Europe",
     "title": "Royal Revolt Survivors",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Royal-Revolt-Survivors-3046067.html",
     "method": "unmatched_or_ambiguous",
@@ -9908,6 +9564,7 @@
   },
   {
     "nintendoId": "3203903",
+    "source": "Nintendo Europe",
     "title": "Rudolph the Red-Nosed Reindeer - Holiday Play Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Rudolph-the-Red-Nosed-Reindeer-Holiday-Play-Edition-3203903.html",
     "method": "unmatched_or_ambiguous",
@@ -9927,6 +9584,7 @@
   },
   {
     "nintendoId": "3013516",
+    "source": "Nintendo Europe",
     "title": "\"Run for Money\": Hunter VS Runner! Which Side Will You Win With!?",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/-Run-for-Money-Hunter-VS-Runner-Which-Side-Will-You-Win-With--3013516.html",
     "method": "unmatched_or_ambiguous",
@@ -9936,58 +9594,8 @@
     "candidates": []
   },
   {
-    "nintendoId": "3016827",
-    "title": "Shadow Tactics: Blades of the Shogun Ultimate Bundle",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Shadow-Tactics-Blades-of-the-Shogun-Ultimate-Bundle-3016827.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Shadow Tactics: Blades of the Shogun Ultimate Bundle"
-    ],
-    "candidates": [
-      {
-        "id": 9765,
-        "title": "Shadow Tactics: Blades of the Shogun"
-      },
-      {
-        "id": 5280707,
-        "title": "Shadow Tactics: Blades of the Shogun - Aiko's Choice"
-      },
-      {
-        "id": 5439185,
-        "title": "SHADOW"
-      },
-      {
-        "id": 5471323,
-        "title": "SHADOW"
-      },
-      {
-        "id": 86,
-        "title": "Shadow of the Colossus"
-      },
-      {
-        "id": 153,
-        "title": "Shadow Of the Groundhog"
-      },
-      {
-        "id": 898,
-        "title": "Shadow Corridor"
-      },
-      {
-        "id": 2392,
-        "title": "Shadow Warrior Classic Redux"
-      },
-      {
-        "id": 2555,
-        "title": "Shadow Warrior"
-      },
-      {
-        "id": 2688,
-        "title": "Shadow Warrior Classic"
-      }
-    ]
-  },
-  {
     "nintendoId": "3201505",
+    "source": "Nintendo Europe",
     "title": "Shape of Dreams",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Shape-of-Dreams-3201505.html",
     "method": "unmatched_or_ambiguous",
@@ -10038,7 +9646,112 @@
     ]
   },
   {
+    "nintendoId": "noa-7100115236",
+    "source": "Nintendo of America",
+    "title": "SHINOBI: Art of Vengeance - Digital Art Book and Soundtrack",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/shinobi-art-of-vengeance-digital-art-book-and-soundtrack-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "SHINOBI: Art of Vengeance - Digital Art Book and Soundtrack"
+    ],
+    "candidates": [
+      {
+        "id": 5479053,
+        "title": "SHINOBI: Art of Vengeance"
+      },
+      {
+        "id": 36578,
+        "title": "Shinobi"
+      },
+      {
+        "id": 5291826,
+        "title": "Shinobi"
+      },
+      {
+        "id": 4591,
+        "title": "Shinobi Legions"
+      },
+      {
+        "id": 24922,
+        "title": "Shinobi Bad Buddies"
+      },
+      {
+        "id": 36280,
+        "title": "Shinobi III : Return of the Ninja Master"
+      },
+      {
+        "id": 5245940,
+        "title": "Shinobi Spirits S Legend of Heroes/忍スピリッツS 真田獣勇士伝"
+      },
+      {
+        "id": 5257370,
+        "title": "Shinobi no Okite"
+      },
+      {
+        "id": 5279256,
+        "title": "Shinobi II: The Silent Fury"
+      },
+      {
+        "id": 5284894,
+        "title": "Shinobi's Way - a jigsaw chess tale"
+      }
+    ]
+  },
+  {
+    "nintendoId": "noa-7100101621",
+    "source": "Nintendo of America",
+    "title": "Shrek 2 Remastered",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/shrek-2-remastered-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Shrek 2 Remastered"
+    ],
+    "candidates": [
+      {
+        "id": 35453,
+        "title": "Shrek 2"
+      },
+      {
+        "id": 38475,
+        "title": "Shrek 2: Beg for Mercy!"
+      },
+      {
+        "id": 5249187,
+        "title": "Shrek 2: Team Action"
+      },
+      {
+        "id": 5329069,
+        "title": "2-In-1 Fun Pack: Madagascar / Shrek 2"
+      },
+      {
+        "id": 5329589,
+        "title": "2 in 1 Game Pack: Shark Tale / Shrek 2"
+      },
+      {
+        "id": 5329070,
+        "title": "2-In-1 Fun Pack: Madagascar: Operation Penguin / Shrek 2"
+      },
+      {
+        "id": 5332754,
+        "title": "2-in-1 Party Pack: Shrek's Carnival Craze / Madagascar Kartz"
+      },
+      {
+        "id": 10023,
+        "title": "Shrek Forever After "
+      },
+      {
+        "id": 21173,
+        "title": "Shrek the Third"
+      },
+      {
+        "id": 34219,
+        "title": "Shrek: Reekin' Havoc"
+      }
+    ]
+  },
+  {
     "nintendoId": "3199805",
+    "source": "Nintendo Europe",
     "title": "Sniper Dan",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Sniper-Dan-3199805.html",
     "method": "unmatched_or_ambiguous",
@@ -10089,27 +9802,13 @@
     ]
   },
   {
-    "nintendoId": "3216776",
-    "title": "SNØ: Ultimate Freeriding",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/SN-Ultimate-Freeriding-3216776.html",
+    "nintendoId": "noa-7100118311",
+    "source": "Nintendo of America",
+    "title": "Sonic Frontiers - Definitive Edition: Digital Art Book with Mini Digital Soundtrack",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/sonic-frontiers-definitive-edition-digital-art-book-with-mini-digital-soundtrack-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "SNØ: Ultimate Freeriding"
-    ],
-    "candidates": [
-      {
-        "id": 5451372,
-        "title": "SNØ"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3127150",
-    "title": "Sonic Frontiers - Definitive Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Sonic-Frontiers-Definitive-Edition-3127150.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Sonic Frontiers - Definitive Edition"
+      "Sonic Frontiers - Definitive Edition: Digital Art Book with Mini Digital Soundtrack"
     ],
     "candidates": [
       {
@@ -10156,6 +9855,7 @@
   },
   {
     "nintendoId": "3226349",
+    "source": "Nintendo Europe",
     "title": "Spirit Crossing",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Spirit-Crossing-3226349.html",
     "method": "unmatched_or_ambiguous",
@@ -10206,7 +9906,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100095422",
+    "source": "Nintendo of America",
+    "title": "Split Fiction - Friend's Pass",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/split-fiction-friends-pass-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Split Fiction - Friend's Pass"
+    ],
+    "candidates": [
+      {
+        "id": 5473464,
+        "title": "Split Fiction"
+      },
+      {
+        "id": 10775,
+        "title": "Split"
+      },
+      {
+        "id": 23055,
+        "title": "Split"
+      },
+      {
+        "id": 5325844,
+        "title": "SPLIT"
+      },
+      {
+        "id": 4478,
+        "title": "Split/Second"
+      },
+      {
+        "id": 10999,
+        "title": "SPLIT BULLET"
+      },
+      {
+        "id": 16704,
+        "title": "Split Of Knight"
+      },
+      {
+        "id": 5248903,
+        "title": "Split or Steal"
+      },
+      {
+        "id": 5254338,
+        "title": "Split Signal"
+      },
+      {
+        "id": 5293694,
+        "title": "Split Drive"
+      }
+    ]
+  },
+  {
     "nintendoId": "3201053",
+    "source": "Nintendo Europe",
     "title": "Sp(L/R)ite",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Sp-L-R-ite-3201053.html",
     "method": "unmatched_or_ambiguous",
@@ -10258,6 +10011,7 @@
   },
   {
     "nintendoId": "3145904",
+    "source": "Nintendo Europe",
     "title": "Spooky Spirit Shooting Gallery for Nintendo Switch™ 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Spooky-Spirit-Shooting-Gallery-for-Nintendo-Switch-2-3145904.html",
     "method": "unmatched_or_ambiguous",
@@ -10309,6 +10063,7 @@
   },
   {
     "nintendoId": "3179449",
+    "source": "Nintendo Europe",
     "title": "Sports Camp: A 35-Game Adventure",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Sports-Camp-A-35-Game-Adventure-3179449.html",
     "method": "unmatched_or_ambiguous",
@@ -10360,6 +10115,7 @@
   },
   {
     "nintendoId": "3172120",
+    "source": "Nintendo Europe",
     "title": "SPRAWL zero",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/SPRAWL-zero-3172120.html",
     "method": "unmatched_or_ambiguous",
@@ -10395,6 +10151,7 @@
   },
   {
     "nintendoId": "3139943",
+    "source": "Nintendo Europe",
     "title": "STARBITES - Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/STARBITES-Nintendo-Switch-2-Edition-3139943.html",
     "method": "unmatched_or_ambiguous",
@@ -10443,6 +10200,7 @@
   },
   {
     "nintendoId": "2998254",
+    "source": "Nintendo Europe",
     "title": "Suika Game Planet",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Suika-Game-Planet-2998254.html",
     "method": "unmatched_or_ambiguous",
@@ -10493,58 +10251,28 @@
     ]
   },
   {
-    "nintendoId": "2808569",
-    "title": "Suikoden I&II HD Remaster for Nintendo Switch™ 2 Gate Rune and Dunan Unification Wars",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Suikoden-I-II-HD-Remaster-for-Nintendo-Switch-2-Gate-Rune-and-Dunan-Unification-Wars-2808569.html",
+    "nintendoId": "noa-7100125707",
+    "source": "Nintendo of America",
+    "title": "Sumikkogurashi Welcome to Poka Poka Onsen",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/sumikkogurashi-welcome-to-poka-poka-onsen-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "Suikoden I&II HD Remaster for Nintendo Switch 2 Gate Rune and Dunan Unification Wars"
+      "Sumikkogurashi Welcome to Poka Poka Onsen"
     ],
     "candidates": [
       {
-        "id": 5352802,
-        "title": "Suikoden I & II HD Remaster: Gate Rune and Dunan Unification Wars"
+        "id": 5371712,
+        "title": "Sumikko Gurashi: Omise Hajimerun desu"
       },
       {
-        "id": 5494649,
-        "title": "Genso Suikoden I & II"
-      },
-      {
-        "id": 37270,
-        "title": "Suikoden II"
-      },
-      {
-        "id": 38746,
-        "title": "Suikoden III"
-      },
-      {
-        "id": 35017,
-        "title": "Suikoden: Tierkreis"
-      },
-      {
-        "id": 35734,
-        "title": "Suikoden Tactics"
-      },
-      {
-        "id": 38126,
-        "title": "Suikoden"
-      },
-      {
-        "id": 38512,
-        "title": "Suikoden IV"
-      },
-      {
-        "id": 38884,
-        "title": "Suikoden V"
-      },
-      {
-        "id": 5492122,
-        "title": "Suikoden STAR LEAP"
+        "id": 5371713,
+        "title": "Sumikko Gurashi: Mura wo Tsukurun desu"
       }
     ]
   },
   {
     "nintendoId": "3039018",
+    "source": "Nintendo Europe",
     "title": "SUSHI BAR MOEBIUS for Nintendo Switch™ 2",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/SUSHI-BAR-MOEBIUS-for-Nintendo-Switch-2-3039018.html",
     "method": "unmatched_or_ambiguous",
@@ -10595,58 +10323,60 @@
     ]
   },
   {
-    "nintendoId": "2983574",
-    "title": "System Shock",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/System-Shock-2983574.html",
+    "nintendoId": "noa-7100138582",
+    "source": "Nintendo of America",
+    "title": "Tales from Toyotoki: Arrival of the Witch",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/tales-from-toyotoki-arrival-of-the-witch-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "System Shock"
+      "Tales from Toyotoki: Arrival of the Witch"
     ],
     "candidates": [
       {
-        "id": 12164,
-        "title": "System Shock"
+        "id": 1879,
+        "title": "Tales from Space: Mutant Blobs Attack"
       },
       {
-        "id": 34907,
-        "title": "System Shock"
+        "id": 3790,
+        "title": "Tales From The Dragon Mountain 2: The Lair"
       },
       {
-        "id": 2693,
-        "title": "System Shock 2"
+        "id": 3808,
+        "title": "Tales From The Dragon Mountain: The Strix"
       },
       {
-        "id": 9465,
-        "title": "System Shock: Classic"
+        "id": 5762,
+        "title": "Tales from the Borderlands"
       },
       {
-        "id": 9466,
-        "title": "System Shock: Enhanced Edition"
+        "id": 9798,
+        "title": "Tales from the Void"
       },
       {
-        "id": 5464196,
-        "title": "System Shock Infinite"
+        "id": 19427,
+        "title": "Tales from Candlekeep: Tomb of Annihilation"
       },
       {
-        "id": 5480303,
-        "title": "System Shock 2: 25th Anniversary Remaster"
+        "id": 28797,
+        "title": "Tales From Windy Meadow"
       },
       {
-        "id": 5542502,
-        "title": "System Shock VR"
+        "id": 33189,
+        "title": "Tales From Galaxy 34"
       },
       {
-        "id": 29649,
-        "title": "ELECTRONIC STOCK TRADING SYSTEM "
+        "id": 5249424,
+        "title": "Tales From Off-Peak City Vol. 1"
       },
       {
-        "id": 12143,
-        "title": "System Crash"
+        "id": 5263088,
+        "title": "Tales From The Unending Void"
       }
     ]
   },
   {
     "nintendoId": "3155275",
+    "source": "Nintendo Europe",
     "title": "Tales of Eternia Remastered",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Tales-of-Eternia-Remastered-3155275.html",
     "method": "unmatched_or_ambiguous",
@@ -10697,58 +10427,8 @@
     ]
   },
   {
-    "nintendoId": "3184205",
-    "title": "Teenage Mutant Ninja Turtles Arcade: Wrath of The Mutants - Ninja Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Teenage-Mutant-Ninja-Turtles-Arcade-Wrath-of-The-Mutants-Ninja-Edition-3184205.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Teenage Mutant Ninja Turtles Arcade: Wrath of The Mutants - Ninja Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5447839,
-        "title": "Teenage Mutant Ninja Turtles Arcade: Wrath of the Mutants"
-      },
-      {
-        "id": 36380,
-        "title": "Teenage Mutant Ninja Turtles (Arcade)"
-      },
-      {
-        "id": 5284347,
-        "title": "Teenage Mutant Ninja Turtles: Arcade Attack"
-      },
-      {
-        "id": 35388,
-        "title": "Teenage Mutant Ninja Turtles: Turtles in Time (Arcade)"
-      },
-      {
-        "id": 36488,
-        "title": "Teenage Mutant Ninja Turtles II: The Arcade Game"
-      },
-      {
-        "id": 5256611,
-        "title": "Teenage Mutant Ninja Turtles"
-      },
-      {
-        "id": 5270513,
-        "title": "Teenage Mutant Ninja Turtles"
-      },
-      {
-        "id": 5333877,
-        "title": "Teenage Mutant Ninja Turtles"
-      },
-      {
-        "id": 5333941,
-        "title": "Teenage Mutant Ninja Turtles"
-      },
-      {
-        "id": 2471,
-        "title": "Teenage Mutant Ninja Turtles: Out of the Shadows"
-      }
-    ]
-  },
-  {
     "nintendoId": "3037036",
+    "source": "Nintendo Europe",
     "title": "The Elder Scrolls V: Skyrim Anniversary Edition + Fallout 4: Anniversary Edition Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Elder-Scrolls-V-Skyrim-Anniversary-Edition-Fallout-4-Anniversary-Edition-Bundle-3037036.html",
     "method": "unmatched_or_ambiguous",
@@ -10800,6 +10480,7 @@
   },
   {
     "nintendoId": "3037228",
+    "source": "Nintendo Europe",
     "title": "The Fox's Way Home – Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/The-Fox-s-Way-Home-Nintendo-Switch-2-Edition-3037228.html",
     "method": "unmatched_or_ambiguous",
@@ -10852,6 +10533,7 @@
   },
   {
     "nintendoId": "3152896",
+    "source": "Nintendo Europe",
     "title": "The Immortal John Triptych",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Immortal-John-Triptych-3152896.html",
     "method": "unmatched_or_ambiguous",
@@ -10903,6 +10585,7 @@
   },
   {
     "nintendoId": "3199054",
+    "source": "Nintendo Europe",
     "title": "The Legend of Heroes: Trails from Zero / The Legend of Heroes: Trails to Azure",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Legend-of-Heroes-Trails-from-Zero-The-Legend-of-Heroes-Trails-to-Azure-3199054.html",
     "method": "unmatched_or_ambiguous",
@@ -10953,58 +10636,8 @@
     ]
   },
   {
-    "nintendoId": "3177346",
-    "title": "The Lord of the Rings: War in the North™ - Legacy Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Lord-of-the-Rings-War-in-the-North-Legacy-Edition-3177346.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "The Lord of the Rings: War in the North - Legacy Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5660,
-        "title": "The Lord of the Rings: War in the North"
-      },
-      {
-        "id": 5252349,
-        "title": "The Lord of the Rings: War of the Ring"
-      },
-      {
-        "id": 233,
-        "title": "The Lord of the Rings: Journeys in Middle-earth"
-      },
-      {
-        "id": 1338,
-        "title": "The Lord of the Rings: The Third Age"
-      },
-      {
-        "id": 2068,
-        "title": "The Lord of the Rings Online"
-      },
-      {
-        "id": 13339,
-        "title": "The Lord of the Rings: Adventure Card Game - Definitive Edition"
-      },
-      {
-        "id": 34246,
-        "title": "The Lord of the Rings: Conquest"
-      },
-      {
-        "id": 34940,
-        "title": "The Lord of the Rings: The Return of the King"
-      },
-      {
-        "id": 36140,
-        "title": "The Lord of the Rings: The Battle for Middle-earth II"
-      },
-      {
-        "id": 36485,
-        "title": "The Lord of the Rings: The Two Towers"
-      }
-    ]
-  },
-  {
     "nintendoId": "3137751",
+    "source": "Nintendo Europe",
     "title": "The Mermaid Mask",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Mermaid-Mask-3137751.html",
     "method": "unmatched_or_ambiguous",
@@ -11055,110 +10688,60 @@
     ]
   },
   {
-    "nintendoId": "3078769",
-    "title": "The Prince of Tennis Sweet School Festival ~♡-40 and more...~ Nintendo Switch™ 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/The-Prince-of-Tennis-Sweet-School-Festival-40-and-more-Nintendo-Switch-2-Edition-3078769.html",
+    "nintendoId": "noa-7100136988",
+    "source": "Nintendo of America",
+    "title": "The Spectrum Retreat: Redux",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/the-spectrum-retreat-redux-switch-2/",
     "method": "unmatched_or_ambiguous",
     "queries": [
-      "The Prince of Tennis Sweet School Festival ~♡-40 and more...~ Nintendo Switch 2 Edition",
-      "The Prince of Tennis Sweet School Festival ~♡-40 and more...~"
+      "The Spectrum Retreat: Redux"
     ],
     "candidates": [
       {
-        "id": 5502828,
-        "title": "The Prince of Tennis Sweet School Festival 0-40 and more..."
+        "id": 23948,
+        "title": "The Spectrum Retreat"
       },
       {
-        "id": 5502829,
-        "title": "The Prince of Tennis Doki Doki Survival eternal passion"
+        "id": 30628,
+        "title": "Navyblue and the Spectrum Killers"
       },
       {
-        "id": 5295662,
-        "title": "The Prince of Landis"
+        "id": 5457399,
+        "title": "The Slaughter Spectrum"
       },
       {
-        "id": 5245590,
-        "title": "Farrealm: The Prince of Winds"
+        "id": 5356000,
+        "title": "Prophecy of The Color Spectrum"
       },
       {
-        "id": 5311448,
-        "title": "Ikkarus and the Prince of Sin"
+        "id": 15187,
+        "title": "Pale Spectrum - Part Two of the Book of Gray Magic"
       },
       {
-        "id": 5519497,
-        "title": "The Villainess is Adored by the Prince of the Neighbor Kingdom"
+        "id": 5479023,
+        "title": "Phantom Mansion: Spectrum of Souls - Chapter 1: The Red Chamber"
       },
       {
-        "id": 5448943,
-        "title": "The Rogue Prince of Persia"
+        "id": 5479024,
+        "title": "Phantom Mansion: Spectrum of Souls - Chapter 2: The Orange Library"
       },
       {
-        "id": 36394,
-        "title": "Dizzy Prince of the Yolkfolk"
+        "id": 5437587,
+        "title": "'the"
       },
       {
-        "id": 5506394,
-        "title": "Arm of the Prince"
+        "id": 27,
+        "title": "The Incredible Adventures of Van Helsing"
       },
       {
-        "id": 5450764,
-        "title": "The Adventures of Prince Shiratama ~Climb the mountains~"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3213021",
-    "title": "The Relic: First Guardian",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Relic-First-Guardian-3213021.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "The Relic: First Guardian"
-    ],
-    "candidates": [
-      {
-        "id": 5450064,
-        "title": "The Relic: The First Guardian"
-      },
-      {
-        "id": 5504868,
-        "title": "TROFR: The Relic of Forgotten Realm"
-      },
-      {
-        "id": 5537270,
-        "title": "Gaslamp Cases 8: Quest for the Relic"
-      },
-      {
-        "id": 5269854,
-        "title": "The Last Relic"
-      },
-      {
-        "id": 5338303,
-        "title": "Nix: The Paradox Relic"
-      },
-      {
-        "id": 5554822,
-        "title": "Dana: The Cyber Relic"
-      },
-      {
-        "id": 14871,
-        "title": "Happy Empire 2 – The Lost Relic"
-      },
-      {
-        "id": 25610,
-        "title": "Frogger's Journey: The Forgotten Relic"
-      },
-      {
-        "id": 5416638,
-        "title": "JurassicDragon and the Binary Relic"
-      },
-      {
-        "id": 5480209,
-        "title": "Tomb of the Golden Relic"
+        "id": 35,
+        "title": "The Last Story"
       }
     ]
   },
   {
     "nintendoId": "2920940",
+    "source": "Nintendo Europe",
     "title": "The Touryst Deluxe",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Touryst-Deluxe-2920940.html",
     "method": "unmatched_or_ambiguous",
@@ -11210,6 +10793,7 @@
   },
   {
     "nintendoId": "3155140",
+    "source": "Nintendo Europe",
     "title": "The Walking Dead: Streets of Survival",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Walking-Dead-Streets-of-Survival-3155140.html",
     "method": "unmatched_or_ambiguous",
@@ -11261,6 +10845,7 @@
   },
   {
     "nintendoId": "3182096",
+    "source": "Nintendo Europe",
     "title": "The Witcher 3: Wild Hunt — Remastered",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Witcher-3-Wild-Hunt-Remastered-3182096.html",
     "method": "unmatched_or_ambiguous",
@@ -11312,6 +10897,7 @@
   },
   {
     "nintendoId": "3016780",
+    "source": "Nintendo Europe",
     "title": "TOKYO SCRAMBLE",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/TOKYO-SCRAMBLE-3016780.html",
     "method": "unmatched_or_ambiguous",
@@ -11362,77 +10948,8 @@
     ]
   },
   {
-    "nintendoId": "2976667",
-    "title": "Tombi! 2: The Evil Swine Return Special Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Tombi-2-The-Evil-Swine-Return-Special-Edition-2976667.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Tombi! 2: The Evil Swine Return Special Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5507781,
-        "title": "Tomba! 2: The Evil Swine Return Special Edition"
-      },
-      {
-        "id": 36291,
-        "title": "Tomba! 2: The Evil Swine Return"
-      },
-      {
-        "id": 5336800,
-        "title": "Tombi! 2"
-      },
-      {
-        "id": 5336799,
-        "title": "Tombi!"
-      },
-      {
-        "id": 34124,
-        "title": "Tomba!"
-      },
-      {
-        "id": 5453537,
-        "title": "Tomba! Special Edition"
-      }
-    ]
-  },
-  {
-    "nintendoId": "2997411",
-    "title": "Tombi! Special Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Tombi-Special-Edition-2997411.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Tombi! Special Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5453537,
-        "title": "Tomba! Special Edition"
-      },
-      {
-        "id": 5507781,
-        "title": "Tomba! 2: The Evil Swine Return Special Edition"
-      },
-      {
-        "id": 5336799,
-        "title": "Tombi!"
-      },
-      {
-        "id": 5336800,
-        "title": "Tombi! 2"
-      },
-      {
-        "id": 34124,
-        "title": "Tomba!"
-      },
-      {
-        "id": 36291,
-        "title": "Tomba! 2: The Evil Swine Return"
-      }
-    ]
-  },
-  {
     "nintendoId": "3226241",
+    "source": "Nintendo Europe",
     "title": "Tomb Raider: Definitive Survivor Trilogy",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Tomb-Raider-Definitive-Survivor-Trilogy-3226241.html",
     "method": "unmatched_or_ambiguous",
@@ -11483,58 +11000,8 @@
     ]
   },
   {
-    "nintendoId": "3077674",
-    "title": "Total Chaos",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Total-Chaos-3077674.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Total Chaos"
-    ],
-    "candidates": [
-      {
-        "id": 5262517,
-        "title": "Total Chaos"
-      },
-      {
-        "id": 5449667,
-        "title": "Total Chaos"
-      },
-      {
-        "id": 5262516,
-        "title": "Total Chaos: Directors Cut"
-      },
-      {
-        "id": 5440392,
-        "title": "Die total verrückte Rallye / Dr. Drago's Madcap Chase"
-      },
-      {
-        "id": 1212,
-        "title": "Total War: Empire - Definitive Edition"
-      },
-      {
-        "id": 2126,
-        "title": "Total War: Rome II - Emperor Edition"
-      },
-      {
-        "id": 2181,
-        "title": "Total War Battles: SHOGUN"
-      },
-      {
-        "id": 4482,
-        "title": "Total Annihilation"
-      },
-      {
-        "id": 4638,
-        "title": "Total War Battles: KINGDOM"
-      },
-      {
-        "id": 4918,
-        "title": "Total Pro Golf 3"
-      }
-    ]
-  },
-  {
     "nintendoId": "3193552",
+    "source": "Nintendo Europe",
     "title": "Touhou Koumakyou: New Classic Soundtrack Player",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Touhou-Koumakyou-New-Classic-Soundtrack-Player-3193552.html",
     "method": "unmatched_or_ambiguous",
@@ -11586,6 +11053,7 @@
   },
   {
     "nintendoId": "3104815",
+    "source": "Nintendo Europe",
     "title": "Touhou Yukkuri Mountain – Nintendo Switch™ 2 Edition",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Touhou-Yukkuri-Mountain-Nintendo-Switch-2-Edition-3104815.html",
     "method": "unmatched_or_ambiguous",
@@ -11637,7 +11105,60 @@
     ]
   },
   {
+    "nintendoId": "noa-7100115287",
+    "source": "Nintendo of America",
+    "title": "Trine 6: Together in Time",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/trine-6-together-in-time-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "Trine 6: Together in Time"
+    ],
+    "candidates": [
+      {
+        "id": 7037,
+        "title": "Trine"
+      },
+      {
+        "id": 1765,
+        "title": "Trine 2 Beta"
+      },
+      {
+        "id": 5339,
+        "title": "Trine 3: The Artifacts of Power"
+      },
+      {
+        "id": 7043,
+        "title": "Trine 2"
+      },
+      {
+        "id": 86797,
+        "title": "Trine 4: The Nightmare Prince"
+      },
+      {
+        "id": 5394552,
+        "title": "Trine 5: A Clockwork Conspiracy"
+      },
+      {
+        "id": 9804,
+        "title": "Trino"
+      },
+      {
+        "id": 13183,
+        "title": "Tribe Of Pok"
+      },
+      {
+        "id": 4889052,
+        "title": "Tribe: Primitive Builder"
+      },
+      {
+        "id": 5341554,
+        "title": "Tribe War"
+      }
+    ]
+  },
+  {
     "nintendoId": "3197179",
+    "source": "Nintendo Europe",
     "title": "Trinity Trigger DX",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Trinity-Trigger-DX-3197179.html",
     "method": "unmatched_or_ambiguous",
@@ -11689,6 +11210,7 @@
   },
   {
     "nintendoId": "3197194",
+    "source": "Nintendo Europe",
     "title": "Truck-kun is Supporting Me From Another World?!",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Truck-kun-is-Supporting-Me-From-Another-World--3197194.html",
     "method": "unmatched_or_ambiguous",
@@ -11739,58 +11261,8 @@
     ]
   },
   {
-    "nintendoId": "3189080",
-    "title": "Two Point Hospital: Full Health Collection",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Two-Point-Hospital-Full-Health-Collection-3189080.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Two Point Hospital: Full Health Collection"
-    ],
-    "candidates": [
-      {
-        "id": 14438,
-        "title": "Two Point Hospital"
-      },
-      {
-        "id": 5287390,
-        "title": "Two Point Campus"
-      },
-      {
-        "id": 5461508,
-        "title": "Two Point Museum"
-      },
-      {
-        "id": 5480852,
-        "title": "Two Point Museum: Modding SDK"
-      },
-      {
-        "id": 5554368,
-        "title": "In Two The Paint"
-      },
-      {
-        "id": 832,
-        "title": "Two Clusters: Kain"
-      },
-      {
-        "id": 1610,
-        "title": "Two Worlds"
-      },
-      {
-        "id": 1612,
-        "title": "Two Worlds: Epic Edition"
-      },
-      {
-        "id": 3304,
-        "title": "Two Brothers"
-      },
-      {
-        "id": 7669,
-        "title": "Two Steps Back"
-      }
-    ]
-  },
-  {
     "nintendoId": "3051280",
+    "source": "Nintendo Europe",
     "title": "Under Par Golf Architect",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Under-Par-Golf-Architect-3051280.html",
     "method": "unmatched_or_ambiguous",
@@ -11842,6 +11314,7 @@
   },
   {
     "nintendoId": "3005913",
+    "source": "Nintendo Europe",
     "title": "UNDERWARD: LASTBOSS, Genius Gyaru Doctor",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/UNDERWARD-LASTBOSS-Genius-Gyaru-Doctor-3005913.html",
     "method": "unmatched_or_ambiguous",
@@ -11893,6 +11366,7 @@
   },
   {
     "nintendoId": "3140928",
+    "source": "Nintendo Europe",
     "title": "Valkyrie Saga",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Valkyrie-Saga-3140928.html",
     "method": "unmatched_or_ambiguous",
@@ -11943,7 +11417,19 @@
     ]
   },
   {
+    "nintendoId": "noa-7100114651",
+    "source": "Nintendo of America",
+    "title": "VF5 R.E.V.O. World Stage 30th Anniversary Edition Bonus: Pre-Production Artwork + Soundtrack Collection",
+    "sourceUrl": "https://www.nintendo.com/us/store/products/vf5-r-e-v-o-world-stage-30th-anniversary-edition-bonus-pre-production-artwork-plus-soundtrack-collection-switch-2/",
+    "method": "unmatched_or_ambiguous",
+    "queries": [
+      "VF5 R.E.V.O. World Stage 30th Anniversary Edition Bonus: Pre-Production Artwork + Soundtrack Collection"
+    ],
+    "candidates": []
+  },
+  {
     "nintendoId": "3171181",
+    "source": "Nintendo Europe",
     "title": "Village in the Shade",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Village-in-the-Shade-3171181.html",
     "method": "unmatched_or_ambiguous",
@@ -11994,74 +11480,8 @@
     ]
   },
   {
-    "nintendoId": "3201421",
-    "title": "Viractal: Will You Trust Your Party? Nintendo Switch 2 Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Viractal-Will-You-Trust-Your-Party-Nintendo-Switch-2-Edition-3201421.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Viractal: Will You Trust Your Party? Nintendo Switch 2 Edition",
-      "Viractal: Will You Trust Your Party?"
-    ],
-    "candidates": [
-      {
-        "id": 5486829,
-        "title": "VIractal"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3017179",
-    "title": "Virtua Fighter 5 R.E.V.O. World Stage",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Virtua-Fighter-5-R-E-V-O-World-Stage-3017179.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Virtua Fighter 5 R.E.V.O. World Stage"
-    ],
-    "candidates": [
-      {
-        "id": 5471457,
-        "title": "Virtua Fighter 5 R.E.V.O."
-      },
-      {
-        "id": 5294238,
-        "title": "Virtua Fighter 5 R"
-      },
-      {
-        "id": 5275321,
-        "title": "Virtua Fighter 5"
-      },
-      {
-        "id": 38563,
-        "title": "Virtua Fighter 5: Final Showdown"
-      },
-      {
-        "id": 5286513,
-        "title": "Virtua Fighter 5: Ultimate Showdown"
-      },
-      {
-        "id": 5364614,
-        "title": "Virtua Fighter 5: Live Arena"
-      },
-      {
-        "id": 35610,
-        "title": "Virtua Fighter"
-      },
-      {
-        "id": 35963,
-        "title": "Virtua Fighter 4: Evolution"
-      },
-      {
-        "id": 36148,
-        "title": "Virtua Fighter 2"
-      },
-      {
-        "id": 36788,
-        "title": "Virtua Fighter 3tb"
-      }
-    ]
-  },
-  {
     "nintendoId": "3186554",
+    "source": "Nintendo Europe",
     "title": "Warrior Cats: Clans of the Forest",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Warrior-Cats-Clans-of-the-Forest-3186554.html",
     "method": "unmatched_or_ambiguous",
@@ -12112,160 +11532,8 @@
     ]
   },
   {
-    "nintendoId": "3144155",
-    "title": "Wo Long: Fallen Dynasty Complete Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Wo-Long-Fallen-Dynasty-Complete-Edition-3144155.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "Wo Long: Fallen Dynasty Complete Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5335618,
-        "title": "Wo Long: Fallen Dynasty"
-      },
-      {
-        "id": 5532343,
-        "title": "Wo Long 2: Wings of Ember"
-      },
-      {
-        "id": 5520457,
-        "title": "After-State:WoLong\\灵界奇谈：卧龙"
-      },
-      {
-        "id": 18394,
-        "title": "Wo Yao Da"
-      },
-      {
-        "id": 5504898,
-        "title": "Wo Bist Du?"
-      },
-      {
-        "id": 5320949,
-        "title": "Hitodzuma wo Ecchi de Kudoku Houhou"
-      },
-      {
-        "id": 5331971,
-        "title": "Atama wo Kitaete Asobu Taisen Yajirushi Puzzle: Puppynu Vector 1"
-      },
-      {
-        "id": 5332870,
-        "title": "Eigo wo Taberu Fushigi na Ikimono: Marsh"
-      },
-      {
-        "id": 5338949,
-        "title": "Yowami wo Nigitte Hitodzuma to Sono Musume wo Pakotte Mita"
-      },
-      {
-        "id": 5367351,
-        "title": "Ace wo Nerae!"
-      }
-    ]
-  },
-  {
-    "nintendoId": "2864726",
-    "title": "WWE 2K25 Standard Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/WWE-2K25-Standard-Edition-2864726.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "WWE 2K25 Standard Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5474936,
-        "title": "WWE 2K25"
-      },
-      {
-        "id": 1705,
-        "title": "WWE Survivor Series"
-      },
-      {
-        "id": 2745,
-        "title": "WWE 2K15"
-      },
-      {
-        "id": 8376,
-        "title": "WWE 2K16"
-      },
-      {
-        "id": 13395,
-        "title": "WWE 2K17"
-      },
-      {
-        "id": 17046,
-        "title": "WWE Day of Reckoning 2"
-      },
-      {
-        "id": 19463,
-        "title": "WWE 2K18"
-      },
-      {
-        "id": 26390,
-        "title": "WWE 2K19"
-      },
-      {
-        "id": 34908,
-        "title": "WWE Crush Hour"
-      },
-      {
-        "id": 35852,
-        "title": "WWE Road to WrestleMania X8"
-      }
-    ]
-  },
-  {
-    "nintendoId": "3018249",
-    "title": "WWE 2K26 Standard Edition",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/WWE-2K26-Standard-Edition-3018249.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "WWE 2K26 Standard Edition"
-    ],
-    "candidates": [
-      {
-        "id": 5516291,
-        "title": "WWE 2K26"
-      },
-      {
-        "id": 1705,
-        "title": "WWE Survivor Series"
-      },
-      {
-        "id": 2745,
-        "title": "WWE 2K15"
-      },
-      {
-        "id": 8376,
-        "title": "WWE 2K16"
-      },
-      {
-        "id": 13395,
-        "title": "WWE 2K17"
-      },
-      {
-        "id": 17046,
-        "title": "WWE Day of Reckoning 2"
-      },
-      {
-        "id": 19463,
-        "title": "WWE 2K18"
-      },
-      {
-        "id": 26390,
-        "title": "WWE 2K19"
-      },
-      {
-        "id": 34908,
-        "title": "WWE Crush Hour"
-      },
-      {
-        "id": 35852,
-        "title": "WWE Road to WrestleMania X8"
-      }
-    ]
-  },
-  {
     "nintendoId": "3116253",
+    "source": "Nintendo Europe",
     "title": "Xenoblade Genesis",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Xenoblade-Genesis-3116253.html",
     "method": "unmatched_or_ambiguous",
@@ -12312,22 +11580,8 @@
     ]
   },
   {
-    "nintendoId": "3140915",
-    "title": "XENOTILT: HOSTILE PINBALL ACTION",
-    "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/XENOTILT-HOSTILE-PINBALL-ACTION-3140915.html",
-    "method": "unmatched_or_ambiguous",
-    "queries": [
-      "XENOTILT: HOSTILE PINBALL ACTION"
-    ],
-    "candidates": [
-      {
-        "id": 5379869,
-        "title": "XENOTILT"
-      }
-    ]
-  },
-  {
     "nintendoId": "2924801",
+    "source": "Nintendo Europe",
     "title": "Yakuza Kiwami & Yakuza Kiwami 2 Bundle",
     "sourceUrl": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/Yakuza-Kiwami-Yakuza-Kiwami-2-Bundle-2924801.html",
     "method": "unmatched_or_ambiguous",

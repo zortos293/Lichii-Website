@@ -1,50 +1,238 @@
 {
-  "scope": "Nintendo Europe English index; not worldwide",
-  "completeForQuery": true,
-  "reportedTotal": 692,
-  "uniqueRecords": 692,
-  "pages": [
+  "scope": "Nintendo Europe and Nintendo of America English indexes; not worldwide",
+  "sources": [
     {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=0&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 0,
-      "returned": 100,
-      "total": 692
+      "source": "Nintendo Europe",
+      "scope": "Nintendo Europe English index; not worldwide",
+      "query": "type:GAME AND system_type:nintendoswitch2",
+      "completeForQuery": true,
+      "reportedTotal": 699,
+      "uniqueRecords": 699,
+      "processedRecords": 699,
+      "pages": [
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=0&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 0,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=100&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 100,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=200&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 200,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=300&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 300,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=400&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 400,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=500&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 500,
+          "returned": 100,
+          "total": 699
+        },
+        {
+          "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=600&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
+          "start": 600,
+          "returned": 99,
+          "total": 699
+        }
+      ]
     },
     {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=100&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 100,
-      "returned": 100,
-      "total": 692
-    },
-    {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=200&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 200,
-      "returned": 100,
-      "total": 692
-    },
-    {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=300&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 300,
-      "returned": 100,
-      "total": 692
-    },
-    {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=400&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 400,
-      "returned": 100,
-      "total": 692
-    },
-    {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=500&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 500,
-      "returned": 100,
-      "total": 692
-    },
-    {
-      "url": "https://search.nintendo-europe.com/en/select?q=%2A&fq=type%3AGAME+AND+system_type%3Anintendoswitch2&rows=100&start=600&sort=sorting_title+asc%2Cfs_id+asc&wt=json",
-      "start": 600,
-      "returned": 92,
-      "total": 692
+      "source": "Nintendo of America",
+      "scope": "Nintendo of America US English store index; not worldwide",
+      "query": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+      "completeForQuery": true,
+      "reportedTotal": 770,
+      "uniqueRecords": 770,
+      "overlapWithEuropeByNormalizedTitle": 685,
+      "processedRecords": 85,
+      "pages": [
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 0,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 0,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 1,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 1,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 2,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 2,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 3,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 3,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 4,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 4,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 5,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 5,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 6,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 6,
+          "returned": 100,
+          "total": 770
+        },
+        {
+          "url": "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/store_game_en_us/query",
+          "body": {
+            "query": "",
+            "filters": "corePlatforms:\"Nintendo Switch 2\" AND NOT editions:DLC AND NOT editions:\"Upgrade pack\" AND NOT dlcType:\"ROM Bundle\"",
+            "hitsPerPage": 100,
+            "page": 7,
+            "attributesToRetrieve": [
+              "title",
+              "url",
+              "nsuid",
+              "corePlatforms",
+              "releaseDate",
+              "releaseDateDisplay",
+              "softwarePublisher"
+            ]
+          },
+          "page": 7,
+          "returned": 70,
+          "total": 770
+        }
+      ]
     }
   ]
 }
