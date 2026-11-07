@@ -4,7 +4,7 @@ A standalone Switch 2 community report site. All application files live at the r
 
 Imported from `zortos293/Eglantine` commit `7ab95d7028291da9b1cda3d3793d69dea1b718b4`, taking only the contents of `website/` without emulator files or history. To verify the import against a checkout of that source, run `node scripts/verify-migration.mjs /path/to/Eglantine/website`. Only this README changes from the source snapshot; the verification script is new.
 
-The launch follows the [dark Paper design](https://app.paper.design/file/01M6GQ17RX2F3XN1N9H2Z01KMA/p-2-0), using self-hosted [Paper Mono](https://paper.design/mono) throughout. The font comes from [paper-design/paper-mono at e6eaece](https://github.com/paper-design/paper-mono/tree/e6eaeceaef02e77e3db997711e07a16378de2bd7) under the SIL Open Font License 1.1, included at `public/fonts/OFL.txt`. The database starts with **465 catalog entries and zero reports**. Every title is untested until a real report is submitted. There are no generated players, statistics, performance figures or log files.
+The launch follows the [dark Paper design](https://app.paper.design/file/01M6GQ17RX2F3XN1N9H2Z01KMA/p-2-0), using Paper's typography: Inter Tight for text and JetBrains Mono for numbers and labels. Both are self-hosted from the `@fontsource/inter-tight` and `@fontsource/jetbrains-mono` packages under the SIL Open Font License 1.1, included at `public/fonts/OFL.txt`. Vite emits every font as its own file (`assetsInlineLimit: 0`), because the CSP allows fonts only from `'self'`. The database starts with **465 catalog entries and zero reports**. Every title is untested until a real report is submitted. There are no generated players, statistics, performance figures or log files.
 
 ## Run locally
 
