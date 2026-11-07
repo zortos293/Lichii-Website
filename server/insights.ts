@@ -14,6 +14,12 @@ const factRow = z.object({
   build: z.string(), os: z.string(), cpu: z.string(), gpu: z.string(), graphics_api: z.string(), game_version: z.string(), title: z.string(), summary: z.string(),
 });
 
+export function groupByGame(facts: readonly ReportFact[]) {
+  const groups = new Map<number, ReportFact[]>();
+  for (const fact of facts) groups.set(fact.gameId, [...groups.get(fact.gameId) ?? [], fact]);
+  return groups;
+}
+
 export async function loadFacts(sql: Database, gameId?: number): Promise<ReportFact[]> {
   const rows = await sql`SELECT r.id, r.game_id, r.created_at, r.fields->>'outcome' AS outcome, r.fields->>'build' AS build, r.fields->>'os' AS os,
     r.fields->>'cpu' AS cpu, r.fields->>'gpu' AS gpu, r.fields->>'graphicsApi' AS graphics_api, r.fields->>'gameVersion' AS game_version,

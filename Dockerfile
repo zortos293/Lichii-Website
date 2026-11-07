@@ -14,6 +14,7 @@ COPY --from=build --chown=node:node /app/dist ./dist
 COPY --from=build --chown=node:node /app/server ./server
 COPY --from=build --chown=node:node /app/shared ./shared
 COPY --from=build --chown=node:node /app/data ./data
+COPY --from=build --chown=node:node /app/docs ./docs
 USER node
 EXPOSE 3000
 CMD ["node", "--import", "tsx", "server/index.ts"]
