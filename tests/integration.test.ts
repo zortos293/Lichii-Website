@@ -85,7 +85,7 @@ test('malicious uploads, invalid forms, CSRF, request size and wrong MIME are re
 
 test('all privileged endpoints reject anonymous, forged, expired and non-allowlisted sessions', async () => {
   const id = '00000000-0000-4000-8000-000000000000';
-  for (const [method, url] of [['GET', '/api/maintainer/reports'], ['GET', `/api/maintainer/reports/${id}/log`], ['PATCH', `/api/maintainer/reports/${id}`], ['DELETE', `/api/maintainer/reports/${id}/log`]] satisfies ['GET' | 'PATCH' | 'DELETE', string][]) {
+  for (const [method, url] of [['GET', '/api/maintainer/reports'], ['GET', `/api/maintainer/reports/${id}`], ['GET', `/api/maintainer/reports/${id}/log`], ['PATCH', `/api/maintainer/reports/${id}`], ['DELETE', `/api/maintainer/reports/${id}/log`]] satisfies ['GET' | 'PATCH' | 'DELETE', string][]) {
     const response = await app.inject({ method, url, headers: headers(), ...(method !== 'GET' ? { payload: {} } : {}) });
     assert.equal(response.statusCode, 401);
   }

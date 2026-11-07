@@ -3,6 +3,8 @@ import { platforms } from './compat.ts';
 
 export const outcomes = ['Perfect', 'Playable', 'Runs', 'Loads', 'Unplayable'] as const;
 export const statuses = [...outcomes, 'Untested'] as const;
+export const triageStates = ['new', 'reviewed', 'needs-info', 'hidden'] as const;
+export type TriageState = (typeof triageStates)[number];
 export const outcomeDescriptions: Record<(typeof outcomes)[number], string> = {
   Perfect: 'No issues found during your test.',
   Playable: 'Can be finished with minor issues.',
@@ -55,7 +57,7 @@ export const gameSchema = catalogEntrySchema.extend({
 export type Game = z.infer<typeof gameSchema>;
 export const publicReportSchema = reportFieldsSchema.extend({
   id: z.uuid(), createdAt: z.string(), gameTitle: z.string(), gameSlug: z.string(), gameCoverPath: localArt.default(null),
-  triage: z.enum(['new', 'reviewed', 'needs-info', 'hidden']),
+  triage: z.enum(triageStates),
 });
 export type PublicReport = z.infer<typeof publicReportSchema>;
 export const pageSchema = z.object({ page: z.number(), pageCount: z.number(), total: z.number() });
@@ -70,6 +72,8 @@ export const summaryResponseSchema = z.object({
 });
 export type Summary = z.infer<typeof summaryResponseSchema>;
 export const reportsResponseSchema = pageSchema.extend({ reports: z.array(publicReportSchema) });
-export const maintainerReportSchema = publicReportSchema.extend({ internalNote: z.string(), hasLog: z.boolean() });
-export const maintainerResponseSchema = pageSchema.extend({ reports: z.array(maintainerReportSchema) });
-export const triageSchema = z.object({ triage: z.enum(['new', 'reviewed', 'needs-info', 'hidden']), internalNote: z.string().trim().max(6000) }).strict();
+export const maintainerReportSchema = publicReportSchema.extend({ internalNote: z.string(), hasLog: z.boolean(), logExpiresAt: z.string().nullable() });
+export type MaintainerReport = z.infer<typeof maintainerReportSchema>;
+export const maintainerResponseSchema = pageSchema.extend({ reports: z.array(maintainerReportSchema), counts: z.record(z.enum(triageStates), z.number().int().nonnegative()) });
+export const triageSchema = z.object({ triage: z.enum(triageStates).optional(), internalNote: z.string().trim().max(6000).optional() }).strict()
+  .refine(value => value.triage !== undefined || value.internalNote !== undefined, { message: 'Send a triage state, an internal note, or both.' });
