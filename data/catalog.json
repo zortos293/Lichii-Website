@@ -44,6 +44,17 @@
     "publisher": "Dotemu"
   },
   {
+    "sgdbId": 5494464,
+    "slug": "adorable-adventures-5494464",
+    "title": "Adorable Adventures",
+    "coverPath": "/art/5494464-cover.webp",
+    "heroPath": "/art/5494464-hero.webp",
+    "artworkCredit": "Cover: marfupial / SteamGridDB; Hero: Old Games Player / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5494464",
+    "releaseDate": "2026-11-12",
+    "publisher": "PQube"
+  },
+  {
     "sgdbId": 5488036,
     "slug": "afl-26-5488036",
     "title": "AFL 26",
@@ -108,6 +119,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5257345",
     "releaseDate": "2026-04-30",
     "publisher": "Abylight"
+  },
+  {
+    "sgdbId": 14445,
+    "slug": "ancestors-the-humankind-odyssey-14445",
+    "title": "Ancestors: The Humankind Odyssey",
+    "coverPath": "/art/14445-cover.webp",
+    "heroPath": "/art/14445-hero.webp",
+    "artworkCredit": "Cover: JCAMAR0 / SteamGridDB; Hero: SuperG70 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/14445",
+    "releaseDate": "2026-12-08",
+    "publisher": "Fictions"
   },
   {
     "sgdbId": 5472890,
@@ -176,6 +198,17 @@
     "publisher": "HAMSTER"
   },
   {
+    "sgdbId": 5435269,
+    "slug": "arcade-archives-2-ace-driver-victory-lap-5435269",
+    "title": "Arcade Archives 2 ACE DRIVER VICTORY LAP",
+    "coverPath": "/art/5435269-cover.webp",
+    "heroPath": "/art/5435269-hero.webp",
+    "artworkCredit": "Cover: sairuk / SteamGridDB; Hero: locobaton53 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5435269",
+    "releaseDate": "2026-10-22",
+    "publisher": "HAMSTER"
+  },
+  {
     "sgdbId": 38374,
     "slug": "arcade-archives-2-arkanoid-38374",
     "title": "Arcade Archives 2 ARKANOID",
@@ -239,6 +272,28 @@
     "artworkCredit": "Cover: Besli / SteamGridDB; Hero: Besli / SteamGridDB",
     "artworkSource": "https://www.steamgriddb.com/game/5358371",
     "releaseDate": "2026-08-06",
+    "publisher": "HAMSTER"
+  },
+  {
+    "sgdbId": 38596,
+    "slug": "arcade-archives-2-elevator-action-38596",
+    "title": "Arcade Archives 2 ELEVATOR ACTION",
+    "coverPath": "/art/38596-cover.webp",
+    "heroPath": "/art/38596-hero.webp",
+    "artworkCredit": "Cover: Timidius / SteamGridDB; Hero: Timidius / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/38596",
+    "releaseDate": "2026-11-05",
+    "publisher": "HAMSTER"
+  },
+  {
+    "sgdbId": 5494337,
+    "slug": "arcade-archives-2-exzisus-5494337",
+    "title": "Arcade Archives 2 EXZISUS",
+    "coverPath": "/art/5494337-cover.webp",
+    "heroPath": "/art/5494337-hero.webp",
+    "artworkCredit": "Cover: tulip811 / SteamGridDB; Hero: tulip811 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5494337",
+    "releaseDate": "2026-11-05",
     "publisher": "HAMSTER"
   },
   {
@@ -319,6 +374,17 @@
     "publisher": "HAMSTER"
   },
   {
+    "sgdbId": 37953,
+    "slug": "arcade-archives-2-stinger-37953",
+    "title": "Arcade Archives 2 STINGER",
+    "coverPath": "/art/37953-cover.webp",
+    "heroPath": "/art/37953-hero.webp",
+    "artworkCredit": "Cover: logic / SteamGridDB; Hero: DIGGRID / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/37953",
+    "releaseDate": "2026-10-15",
+    "publisher": "HAMSTER"
+  },
+  {
     "sgdbId": 5336825,
     "slug": "arcade-archives-2-syvalion-5336825",
     "title": "Arcade Archives 2 SYVALION",
@@ -363,6 +429,17 @@
     "publisher": "HAMSTER"
   },
   {
+    "sgdbId": 34294,
+    "slug": "arcade-archives-2-thundercade-34294",
+    "title": "Arcade Archives 2 THUNDERCADE",
+    "coverPath": "/art/34294-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: ariesps80 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/34294",
+    "releaseDate": "2026-10-15",
+    "publisher": "HAMSTER"
+  },
+  {
     "sgdbId": 5277822,
     "slug": "arcade-archives-2-wiz-5277822",
     "title": "Arcade Archives 2 Wiz",
@@ -383,6 +460,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5283184",
     "releaseDate": "2026-09-24",
     "publisher": "HAMSTER"
+  },
+  {
+    "sgdbId": 5509536,
+    "slug": "armatus-5509536",
+    "title": "Armatus",
+    "coverPath": "/art/5509536-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: Eclyptyc / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5509536",
+    "releaseDate": "2027-01-07",
+    "publisher": "Fictions"
   },
   {
     "sgdbId": 5536478,
@@ -471,6 +559,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5464423",
     "releaseDate": "2026-06-09",
     "publisher": "KOEI TECMO EUROPE"
+  },
+  {
+    "sgdbId": 5371467,
+    "slug": "a-tower-full-of-cats-5371467",
+    "title": "A Tower Full Of Cats",
+    "coverPath": "/art/5371467-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: Xavy / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5371467",
+    "releaseDate": "2026-10-28",
+    "publisher": "Alchemy Games"
   },
   {
     "sgdbId": 5300463,
@@ -660,6 +759,17 @@
     "publisher": "Thekla"
   },
   {
+    "sgdbId": 5508939,
+    "slug": "brew-dash-5508939",
+    "title": "Brew & Dash",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-12-11",
+    "publisher": "Alchemy Games"
+  },
+  {
     "sgdbId": 5425849,
     "slug": "broken-sword-shadow-of-the-templars-reforged-nintendo-switch-2-edition-5425849",
     "title": "Broken Sword - Shadow of the Templars: Reforged - Nintendo Switch 2 Edition",
@@ -704,6 +814,17 @@
     "publisher": "Kairosoft"
   },
   {
+    "sgdbId": 5452938,
+    "slug": "burggeist-for-nintendo-switch-2-5452938",
+    "title": "BURGGEIST for Nintendo Switch 2",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-27",
+    "publisher": "GHRIAN STUDIO"
+  },
+  {
     "sgdbId": 5530763,
     "slug": "call-of-duty-modern-warfare-4-5530763",
     "title": "Call of Duty: Modern Warfare 4",
@@ -746,6 +867,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5519388",
     "releaseDate": "2026-02-06",
     "publisher": "34BigThings"
+  },
+  {
+    "sgdbId": 5482284,
+    "slug": "castlebound-5482284",
+    "title": "Castlebound",
+    "coverPath": "/art/5482284-cover.webp",
+    "heroPath": "/art/5482284-hero.webp",
+    "artworkCredit": "Cover: RatSewer / SteamGridDB; Hero: RatSewer / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5482284",
+    "releaseDate": "2026-11-11",
+    "publisher": "Ogre Pixel"
   },
   {
     "sgdbId": 5477695,
@@ -803,6 +935,17 @@
     "publisher": "Abylight"
   },
   {
+    "sgdbId": 3192,
+    "slug": "cities-skylines-expanded-edition-3192",
+    "title": "Cities: Skylines - Expanded Edition",
+    "coverPath": "/art/3192-cover.webp",
+    "heroPath": "/art/3192-hero.webp",
+    "artworkCredit": "Cover: ONS0L / SteamGridDB; Hero: XOJaca / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/3192",
+    "releaseDate": "2026-10-28",
+    "publisher": "ParadoxInteractive"
+  },
+  {
     "sgdbId": 5407569,
     "slug": "citizen-sleeper-2-starward-vector-nintendo-switch-2-edition-5407569",
     "title": "Citizen Sleeper 2: Starward Vector – Nintendo Switch 2 Edition",
@@ -856,6 +999,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5463038",
     "releaseDate": "2026-05-21",
     "publisher": "Chorus Worldwide Games"
+  },
+  {
+    "sgdbId": 5491624,
+    "slug": "colorbound-nintendo-switch-2-edition-5491624",
+    "title": "Colorbound – Nintendo Switch 2 Edition",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-12",
+    "publisher": "Whitethorn Games"
   },
   {
     "sgdbId": 38001,
@@ -979,6 +1133,17 @@
     "publisher": "HAMSTER"
   },
   {
+    "sgdbId": 38302,
+    "slug": "console-archives-nobunagas-ambition-ii-38302",
+    "title": "Console Archives NOBUNAGA’S AMBITION II",
+    "coverPath": "/art/38302-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: Xunkar / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/38302",
+    "releaseDate": "2026-09-10",
+    "publisher": "HAMSTER"
+  },
+  {
     "sgdbId": 34189,
     "slug": "console-archives-rhapsody-a-musical-adventure-34189",
     "title": "Console Archives Rhapsody: A Musical Adventure",
@@ -1078,6 +1243,17 @@
     "publisher": "HAMSTER"
   },
   {
+    "sgdbId": 5409439,
+    "slug": "constance-5409439",
+    "title": "Constance",
+    "coverPath": "/art/5409439-cover.webp",
+    "heroPath": "/art/5409439-hero.webp",
+    "artworkCredit": "Cover: IamGlitch / SteamGridDB; Hero: MassiveGoods / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5409439",
+    "releaseDate": "2026-07-30",
+    "publisher": "btf"
+  },
+  {
     "sgdbId": 5448263,
     "slug": "content-warning-5448263",
     "title": "Content Warning",
@@ -1131,6 +1307,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5467939",
     "releaseDate": "2025-09-05",
     "publisher": "Bloober Team"
+  },
+  {
+    "sgdbId": 5294443,
+    "slug": "cult-of-the-lamb-nintendo-switch-2-edition-5294443",
+    "title": "Cult of the Lamb – Nintendo Switch 2 Edition",
+    "coverPath": "/art/5294443-cover.webp",
+    "heroPath": "/art/5294443-hero.webp",
+    "artworkCredit": "Cover: Windoki / SteamGridDB; Hero: Pisces Iscλriøt / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5294443",
+    "releaseDate": "2026-10-22",
+    "publisher": "Devolver Digital"
   },
   {
     "sgdbId": 5209422,
@@ -1197,6 +1384,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5325005",
     "releaseDate": "2025-11-06",
     "publisher": "Mintrocket"
+  },
+  {
+    "sgdbId": 2280,
+    "slug": "dayz-cool-edition-2280",
+    "title": "DayZ: Cool Edition",
+    "coverPath": "/art/2280-cover.webp",
+    "heroPath": "/art/2280-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: Deadlywere / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/2280",
+    "releaseDate": "2026-08-20",
+    "publisher": "Bohemia Interactive"
   },
   {
     "sgdbId": 5252803,
@@ -1331,6 +1529,17 @@
     "publisher": "The Quantum Astrophysicists Guild"
   },
   {
+    "sgdbId": 5123056,
+    "slug": "destroy-all-humans-5123056",
+    "title": "Destroy All Humans!",
+    "coverPath": "/art/5123056-cover.webp",
+    "heroPath": "/art/5123056-hero.webp",
+    "artworkCredit": "Cover: yst / SteamGridDB; Hero: Ludus Aurea / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5123056",
+    "releaseDate": "2026-06-23",
+    "publisher": "THQ Nordic"
+  },
+  {
     "sgdbId": 5296764,
     "slug": "destroy-all-humans-2-reprobed-5296764",
     "title": "Destroy All Humans! 2 - Reprobed",
@@ -1340,6 +1549,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5296764",
     "releaseDate": "2026-09-15",
     "publisher": "THQ Nordic"
+  },
+  {
+    "sgdbId": 349500,
+    "slug": "devil-may-cry-5-devil-hunter-edition-349500",
+    "title": "Devil May Cry 5 Devil Hunter Edition",
+    "coverPath": "/art/349500-cover.webp",
+    "heroPath": "/art/349500-hero.webp",
+    "artworkCredit": "Cover: The Duality System / SteamGridDB; Hero: NightSkye / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/349500",
+    "releaseDate": "2026-06-23",
+    "publisher": "CAPCOM"
+  },
+  {
+    "sgdbId": 5250133,
+    "slug": "diablo-iv-age-of-hatred-collection-5250133",
+    "title": "Diablo IV: Age of Hatred Collection",
+    "coverPath": "/art/5250133-cover.webp",
+    "heroPath": "/art/5250133-hero.webp",
+    "artworkCredit": "Cover: TUFKAC / SteamGridDB; Hero: Morente / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5250133",
+    "releaseDate": "2026-09-15",
+    "publisher": "Blizzard Entertainment"
   },
   {
     "sgdbId": 5509573,
@@ -1417,6 +1648,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5329234",
     "releaseDate": "2026-07-15",
     "publisher": "Gameloft"
+  },
+  {
+    "sgdbId": 5473466,
+    "slug": "dispatch-nintendo-switch-2-edition-5473466",
+    "title": "Dispatch Nintendo Switch 2 Edition",
+    "coverPath": "/art/5473466-cover.webp",
+    "heroPath": "/art/5473466-hero.webp",
+    "artworkCredit": "Cover: Maki_Makii / SteamGridDB; Hero: BigHungryChicken / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5473466",
+    "releaseDate": "2026-01-29",
+    "publisher": "AdHoc Studio"
   },
   {
     "sgdbId": 10425,
@@ -1584,6 +1826,17 @@
     "publisher": "KOEI TECMO EUROPE"
   },
   {
+    "sgdbId": 5245411,
+    "slug": "earth-defense-force5-for-nintendo-switch-2-5245411",
+    "title": "EARTH DEFENSE FORCE5 for Nintendo Switch 2",
+    "coverPath": "/art/5245411-cover.webp",
+    "heroPath": "/art/5245411-hero.webp",
+    "artworkCredit": "Cover: ThatExplo / SteamGridDB; Hero: dirtywhirlwind / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5245411",
+    "releaseDate": "2026-10-08",
+    "publisher": "D3PUBLISHER"
+  },
+  {
     "sgdbId": 5495669,
     "slug": "ea-sports-fc-26-5495669",
     "title": "EA SPORTS FC 26",
@@ -1638,6 +1891,17 @@
     "publisher": "Devolver Digital"
   },
   {
+    "sgdbId": 5247168,
+    "slug": "everspace-2-galactic-edition-5247168",
+    "title": "EVERSPACE 2 - Galactic Edition",
+    "coverPath": "/art/5247168-cover.webp",
+    "heroPath": "/art/5247168-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: Krissmed / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5247168",
+    "releaseDate": "2026-08-12",
+    "publisher": "ROCKFISH Games"
+  },
+  {
     "sgdbId": 5526285,
     "slug": "exstetra-5526285",
     "title": "EXSTETRA",
@@ -1669,6 +1933,39 @@
     "artworkSource": "https://www.steamgriddb.com/game/5491629",
     "releaseDate": "2026-09-17",
     "publisher": "New Tales"
+  },
+  {
+    "sgdbId": 7993,
+    "slug": "fallout-4-anniversary-edition-7993",
+    "title": "Fallout 4: Anniversary Edition",
+    "coverPath": "/art/7993-cover.webp",
+    "heroPath": "/art/7993-hero.webp",
+    "artworkCredit": "Cover: Future / SteamGridDB; Hero: timik1946 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/7993",
+    "releaseDate": "2026-02-24",
+    "publisher": "Bethesda"
+  },
+  {
+    "sgdbId": 5458888,
+    "slug": "fangtopia-5458888",
+    "title": "Fangtopia",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-26",
+    "publisher": "Secret Mode"
+  },
+  {
+    "sgdbId": 5479216,
+    "slug": "fantasy-life-i-the-girl-who-steals-time-nintendo-switch-2-edition-upgrade-pack-5479216",
+    "title": "FANTASY LIFE i: The Girl Who Steals Time - Nintendo Switch 2 Edition Upgrade Pack",
+    "coverPath": "/art/5479216-cover.webp",
+    "heroPath": "/art/5479216-hero.webp",
+    "artworkCredit": "Cover: ColinValentine / SteamGridDB; Hero: Orion1189 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5479216",
+    "releaseDate": "2025-06-05",
+    "publisher": "LEVEL5"
   },
   {
     "sgdbId": 5492474,
@@ -1891,6 +2188,17 @@
     "publisher": "Nacon"
   },
   {
+    "sgdbId": 5539347,
+    "slug": "glow-box-5539347",
+    "title": "Glow Box",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-29",
+    "publisher": "Waku Waku Games"
+  },
+  {
     "sgdbId": 5336702,
     "slug": "goat-simulator-3-5336702",
     "title": "Goat Simulator 3",
@@ -1933,6 +2241,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5508413",
     "releaseDate": "2025-11-11",
     "publisher": "Skybound Games"
+  },
+  {
+    "sgdbId": 5423743,
+    "slug": "granblue-fantasy-relink-endless-ragnarok-5423743",
+    "title": "Granblue Fantasy: Relink - Endless Ragnarok",
+    "coverPath": "/art/5423743-cover.webp",
+    "heroPath": "/art/5423743-hero.webp",
+    "artworkCredit": "Cover: garo10966 / SteamGridDB; Hero: Orion1189 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5423743",
+    "releaseDate": "2026-07-09",
+    "publisher": "Cygames"
+  },
+  {
+    "sgdbId": 5420388,
+    "slug": "granblue-fantasy-versus-rising-legendary-edition-5420388",
+    "title": "Granblue Fantasy Versus: Rising Legendary Edition",
+    "coverPath": "/art/5420388-cover.webp",
+    "heroPath": "/art/5420388-hero.webp",
+    "artworkCredit": "Cover: kistral / SteamGridDB; Hero: kistral / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5420388",
+    "releaseDate": "2026-09-17",
+    "publisher": "Cygames"
   },
   {
     "sgdbId": 5524099,
@@ -1999,6 +2329,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5376530",
     "releaseDate": "2025-09-25",
     "publisher": "Supergiant Games"
+  },
+  {
+    "sgdbId": 30806,
+    "slug": "harold-halibut-30806",
+    "title": "Harold Halibut",
+    "coverPath": "/art/30806-cover.webp",
+    "heroPath": "/art/30806-hero.webp",
+    "artworkCredit": "Cover: dang_um / SteamGridDB; Hero: Storbfall / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/30806",
+    "releaseDate": "2026-11-12",
+    "publisher": "Slow Bros."
+  },
+  {
+    "sgdbId": 5558275,
+    "slug": "harvest-moon-echoes-of-teradea-nintendo-switch-2-edition-5558275",
+    "title": "Harvest Moon: Echoes of Teradea - Nintendo Switch 2 Edition",
+    "coverPath": "/art/5558275-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: eumexmop / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5558275",
+    "releaseDate": "2026-09-14",
+    "publisher": "Natsume Inc."
   },
   {
     "sgdbId": 5543814,
@@ -2132,6 +2484,17 @@
     "publisher": "Team Cherry"
   },
   {
+    "sgdbId": 5458685,
+    "slug": "hololive-treasure-mountain-megapack-nintendo-switch-2-edition-5458685",
+    "title": "hololive Treasure Mountain MegaPack – Nintendo Switch 2 Edition",
+    "coverPath": "/art/5458685-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: waku waku / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5458685",
+    "releaseDate": "2026-09-17",
+    "publisher": "CCMC"
+  },
+  {
     "sgdbId": 5496588,
     "slug": "holovillage-our-cozy-days-5496588",
     "title": "holoVillage: Our Cozy Days",
@@ -2165,6 +2528,17 @@
     "publisher": "Curve Digital"
   },
   {
+    "sgdbId": 5267007,
+    "slug": "hyrule-warriors-age-of-calamity-definitive-edition-5267007",
+    "title": "Hyrule Warriors: Age of Calamity – Definitive Edition",
+    "coverPath": "/art/5267007-cover.webp",
+    "heroPath": "/art/5267007-hero.webp",
+    "artworkCredit": "Cover: Magnus69 / SteamGridDB; Hero: ivanproff / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5267007",
+    "releaseDate": "2027-02-25",
+    "publisher": "Nintendo"
+  },
+  {
     "sgdbId": 5483959,
     "slug": "hyrule-warriors-age-of-imprisonment-5483959",
     "title": "Hyrule Warriors: Age of Imprisonment",
@@ -2174,6 +2548,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5483959",
     "releaseDate": "2025-11-06",
     "publisher": "Nintendo"
+  },
+  {
+    "sgdbId": 5454542,
+    "slug": "i-am-your-beast-5454542",
+    "title": "I Am Your Beast",
+    "coverPath": "/art/5454542-cover.webp",
+    "heroPath": "/art/5454542-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: The guy / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5454542",
+    "releaseDate": "2026-10-20",
+    "publisher": "Strange Scaffold"
   },
   {
     "sgdbId": 5458415,
@@ -2196,6 +2581,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5441885",
     "releaseDate": "2026-05-12",
     "publisher": "Bethesda"
+  },
+  {
+    "sgdbId": 5254933,
+    "slug": "industria-5254933",
+    "title": "Industria",
+    "coverPath": "/art/5254933-cover.webp",
+    "heroPath": "/art/5254933-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: Luckspeare / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5254933",
+    "releaseDate": "2026-10-19",
+    "publisher": "Headup Games"
+  },
+  {
+    "sgdbId": 5448124,
+    "slug": "inkonbini-one-store-many-stories-5448124",
+    "title": "inKONBINI: One Store. Many Stories",
+    "coverPath": "/art/5448124-cover.webp",
+    "heroPath": "/art/5448124-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: JukeBoX87 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5448124",
+    "releaseDate": "2026-04-30",
+    "publisher": "Beep"
   },
   {
     "sgdbId": 5281721,
@@ -2253,6 +2660,17 @@
     "publisher": "Electronic Arts"
   },
   {
+    "sgdbId": 5509061,
+    "slug": "jaden-industries-cozy-automation-puzzler-5509061",
+    "title": "Jaden Industries: Cozy Automation Puzzler",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-11-23",
+    "publisher": "PUSHKA INTERACTIVE SOFTWARE"
+  },
+  {
     "sgdbId": 5337,
     "slug": "jenny-leclue-detectivu-5337",
     "title": "Jenny LeClue - Detectivu",
@@ -2308,6 +2726,17 @@
     "publisher": "Stormcloud Games"
   },
   {
+    "sgdbId": 5287379,
+    "slug": "jurassic-world-evolution-2-complete-edition-5287379",
+    "title": "Jurassic World Evolution 2: Complete Edition",
+    "coverPath": "/art/5287379-cover.webp",
+    "heroPath": "/art/5287379-hero.webp",
+    "artworkCredit": "Cover: JustMartin / SteamGridDB; Hero: r_dsgnd / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5287379",
+    "releaseDate": "2026-07-30",
+    "publisher": "FRONTIER"
+  },
+  {
     "sgdbId": 5267310,
     "slug": "kena-bridge-of-spirits-5267310",
     "title": "Kena: Bridge of Spirits",
@@ -2348,6 +2777,17 @@
     "heroPath": "/art/5246710-hero.webp",
     "artworkCredit": "Cover: Varimarthas / SteamGridDB; Hero: Varimarthas / SteamGridDB",
     "artworkSource": "https://www.steamgriddb.com/game/5246710",
+    "releaseDate": "2026-10-08",
+    "publisher": "SQUARE ENIX"
+  },
+  {
+    "sgdbId": 5282846,
+    "slug": "kingdom-hearts-iii-re-mind-dlc-5282846",
+    "title": "KINGDOM HEARTS III + Re Mind (DLC)",
+    "coverPath": "/art/5282846-cover.webp",
+    "heroPath": "/art/5282846-hero.webp",
+    "artworkCredit": "Cover: Toadstein / SteamGridDB; Hero: Naxshe / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5282846",
     "releaseDate": "2026-10-08",
     "publisher": "SQUARE ENIX"
   },
@@ -2472,6 +2912,39 @@
     "publisher": "NEOWIZ"
   },
   {
+    "sgdbId": 5486252,
+    "slug": "listen-up-we-tried-to-make-those-games-even-more-extreme-some-things-have-to-be-learned-the-hard-way-5486252",
+    "title": "LISTEN UP! WE TRIED TO MAKE “THOSE GAMES” EVEN MORE EXTREME! SOME THINGS HAVE TO BE LEARNED THE HARD WAY!",
+    "coverPath": "/art/5486252-cover.webp",
+    "heroPath": "/art/5486252-hero.webp",
+    "artworkCredit": "Cover: Sleyk / SteamGridDB; Hero: nykouu / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5486252",
+    "releaseDate": "2026-12-03",
+    "publisher": "D3PUBLISHER"
+  },
+  {
+    "sgdbId": 5493339,
+    "slug": "little-nightmares-enhanced-edition-complete-edition-5493339",
+    "title": "Little Nightmares Enhanced Edition - Complete Edition",
+    "coverPath": "/art/5493339-cover.webp",
+    "heroPath": "/art/5493339-hero.webp",
+    "artworkCredit": "Cover: increasing / SteamGridDB; Hero: Snakerov / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5493339",
+    "releaseDate": "2025-10-10",
+    "publisher": "BANDAI NAMCO Entertainment"
+  },
+  {
+    "sgdbId": 5266557,
+    "slug": "little-nightmares-ii-enhanced-edition-5266557",
+    "title": "Little Nightmares II Enhanced Edition",
+    "coverPath": "/art/5266557-cover.webp",
+    "heroPath": "/art/5266557-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: ABH20 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5266557",
+    "releaseDate": "2026-05-29",
+    "publisher": "BANDAI NAMCO Entertainment"
+  },
+  {
     "sgdbId": 5423718,
     "slug": "little-nightmares-iii-5423718",
     "title": "Little Nightmares III",
@@ -2503,6 +2976,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5460008",
     "releaseDate": "2026-05-28",
     "publisher": "Dragami Games"
+  },
+  {
+    "sgdbId": 5482713,
+    "slug": "look-outside-5482713",
+    "title": "Look Outside",
+    "coverPath": "/art/5482713-cover.webp",
+    "heroPath": "/art/5482713-hero.webp",
+    "artworkCredit": "Cover: PixelTea / SteamGridDB; Hero: Mister Familiar / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5482713",
+    "releaseDate": "2026-10-30",
+    "publisher": "Devolver Digital"
   },
   {
     "sgdbId": 5532089,
@@ -2570,6 +3054,28 @@
     "publisher": "Inti Creates"
   },
   {
+    "sgdbId": 5507062,
+    "slug": "mamon-king-for-nintendo-switch-2-5507062",
+    "title": "Mamon King For Nintendo Switch 2",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-08",
+    "publisher": "LiTMUS"
+  },
+  {
+    "sgdbId": 5502982,
+    "slug": "manairons-nintendo-switch-2-edition-5502982",
+    "title": "Manairons - Nintendo Switch 2 Edition",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-10-29",
+    "publisher": "JanduSoft"
+  },
+  {
     "sgdbId": 5483943,
     "slug": "mario-kart-world-5483943",
     "title": "Mario Kart World",
@@ -2614,6 +3120,28 @@
     "publisher": "Dotemu"
   },
   {
+    "sgdbId": 5287647,
+    "slug": "marvel-s-guardians-of-the-galaxy-encore-edition-5287647",
+    "title": "Marvel's Guardians of the Galaxy: Encore Edition",
+    "coverPath": "/art/5287647-cover.webp",
+    "heroPath": "/art/5287647-hero.webp",
+    "artworkCredit": "Cover: CluckenDip / SteamGridDB; Hero: CluckenDip / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5287647",
+    "releaseDate": "2026-11-05",
+    "publisher": "CDE Entertainment"
+  },
+  {
+    "sgdbId": 5529099,
+    "slug": "meccha-chameleon-5529099",
+    "title": "Meccha Chameleon",
+    "coverPath": "/art/5529099-cover.webp",
+    "heroPath": "/art/5529099-hero.webp",
+    "artworkCredit": "Cover: Potanull / SteamGridDB; Hero: TIMBOVILL / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5529099",
+    "releaseDate": "2026-09-09",
+    "publisher": "LEMORION"
+  },
+  {
     "sgdbId": 5526502,
     "slug": "memory-of-memorie-a-chill-story-nintendo-switch-2-edition-5526502",
     "title": "Memory of Memorie : A Chill Story – Nintendo Switch 2 Edition",
@@ -2643,6 +3171,17 @@
     "heroPath": "/art/5517614-hero.webp",
     "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: NightSkye / SteamGridDB",
     "artworkSource": "https://www.steamgriddb.com/game/5517614",
+    "releaseDate": "2026-08-27",
+    "publisher": "KONAMI"
+  },
+  {
+    "sgdbId": 5517799,
+    "slug": "metal-gear-solid-master-collection-vol-2-bonus-content-5517799",
+    "title": "METAL GEAR SOLID: MASTER COLLECTION Vol.2 BONUS CONTENT",
+    "coverPath": "/art/5517799-cover.webp",
+    "heroPath": "/art/5517799-hero.webp",
+    "artworkCredit": "Cover: hiddenjem / SteamGridDB; Hero: hiddenjem / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5517799",
     "releaseDate": "2026-08-27",
     "publisher": "KONAMI"
   },
@@ -2691,6 +3230,28 @@
     "publisher": "Nicalis"
   },
   {
+    "sgdbId": 2774,
+    "slug": "middle-earth-shadow-of-mordor-game-of-the-year-edition-2774",
+    "title": "Middle-earth: Shadow of Mordor Game of the Year Edition",
+    "coverPath": "/art/2774-cover.webp",
+    "heroPath": "/art/2774-hero.webp",
+    "artworkCredit": "Cover: Calarand / SteamGridDB; Hero: klepp0906 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/2774",
+    "releaseDate": "2026-09-30",
+    "publisher": "Aspyr"
+  },
+  {
+    "sgdbId": 6995,
+    "slug": "middle-earth-shadow-of-war-definitive-edition-6995",
+    "title": "Middle-earth: Shadow of War: Definitive Edition",
+    "coverPath": "/art/6995-cover.webp",
+    "heroPath": "/art/6995-hero.webp",
+    "artworkCredit": "Cover: Potanull / SteamGridDB; Hero: Morente / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/6995",
+    "releaseDate": "2026-09-30",
+    "publisher": "Aspyr"
+  },
+  {
     "sgdbId": 5318843,
     "slug": "mina-the-hollower-nintendo-switch-2-edition-5318843",
     "title": "Mina the Hollower - Nintendo Switch 2 Edition",
@@ -2724,6 +3285,17 @@
     "publisher": "Mojang"
   },
   {
+    "sgdbId": 5286056,
+    "slug": "minishoot-adventures-nintendo-switch-2-edition-5286056",
+    "title": "Minishoot' Adventures – Nintendo Switch 2 Edition",
+    "coverPath": "/art/5286056-cover.webp",
+    "heroPath": "/art/5286056-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: toogee / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5286056",
+    "releaseDate": "2026-03-03",
+    "publisher": "Seaven Studio"
+  },
+  {
     "sgdbId": 5455449,
     "slug": "mio-memories-in-orbit-5455449",
     "title": "MIO: Memories in Orbit",
@@ -2744,6 +3316,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5454522",
     "releaseDate": "2026-05-07",
     "publisher": "Annapurna Interactive"
+  },
+  {
+    "sgdbId": 5531123,
+    "slug": "model-debut4-5531123",
+    "title": "Model Debut4",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-08-26",
+    "publisher": "FURYU Corporation"
   },
   {
     "sgdbId": 5438143,
@@ -2867,6 +3450,17 @@
     "publisher": "PlaySide"
   },
   {
+    "sgdbId": 5292407,
+    "slug": "my-friendly-neighborhood-5292407",
+    "title": "My Friendly Neighborhood",
+    "coverPath": "/art/5292407-cover.webp",
+    "heroPath": "/art/5292407-hero.webp",
+    "artworkCredit": "Cover: Kurikuo 青汁 / SteamGridDB; Hero: TheGameSquid / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5292407",
+    "releaseDate": "2026-10-22",
+    "publisher": "DreadXP"
+  },
+  {
     "sgdbId": 5494110,
     "slug": "my-hero-academia-alls-justice-5494110",
     "title": "MY HERO ACADEMIA: All’s Justice",
@@ -2942,6 +3536,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5484010",
     "releaseDate": "2025-06-05",
     "publisher": "Nintendo"
+  },
+  {
+    "sgdbId": 5323146,
+    "slug": "nobunaga-s-ambition-awakening-complete-edition-5323146",
+    "title": "NOBUNAGA'S AMBITION: Awakening Complete Edition",
+    "coverPath": "/art/5323146-cover.webp",
+    "heroPath": "/art/5323146-hero.webp",
+    "artworkCredit": "Cover: Besli / SteamGridDB; Hero: kurfotg / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5323146",
+    "releaseDate": "2025-06-05",
+    "publisher": "KOEI TECMO EUROPE"
   },
   {
     "sgdbId": 3779,
@@ -3153,6 +3758,17 @@
     "publisher": "Atari"
   },
   {
+    "sgdbId": 5266004,
+    "slug": "ova-magica-5266004",
+    "title": "OVA MAGICA",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-11-10",
+    "publisher": "Top Hat Studios"
+  },
+  {
     "sgdbId": 22508,
     "slug": "overcooked-2-nintendo-switch-2-edition-22508",
     "title": "Overcooked! 2 – Nintendo Switch 2 Edition",
@@ -3195,6 +3811,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5497188",
     "releaseDate": "2025-09-26",
     "publisher": "Bandai Namco Entertainment"
+  },
+  {
+    "sgdbId": 16720,
+    "slug": "parkasaurus-dinoluxe-edition-16720",
+    "title": "Parkasaurus: Dinoluxe Edition",
+    "coverPath": "/art/16720-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: SeeDborg / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/16720",
+    "releaseDate": "2026-08-05",
+    "publisher": "Atari"
   },
   {
     "sgdbId": 5469192,
@@ -3263,6 +3890,17 @@
     "publisher": "2K"
   },
   {
+    "sgdbId": 5352185,
+    "slug": "pikmin-4-nintendo-switch-2-edition-dandori-academy-5352185",
+    "title": "Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy",
+    "coverPath": "/art/5352185-cover.webp",
+    "heroPath": "/art/5352185-hero.webp",
+    "artworkCredit": "Cover: Viator_ / SteamGridDB; Hero: Raybeano99 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5352185",
+    "releaseDate": "2026-11-12",
+    "publisher": "Nintendo"
+  },
+  {
     "sgdbId": 5447043,
     "slug": "pipistrello-and-the-cursed-yoyo-nintendo-switch-2-edition-5447043",
     "title": "Pipistrello and the Cursed Yoyo – Nintendo Switch 2 Edition",
@@ -3272,6 +3910,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5447043",
     "releaseDate": "2026-08-20",
     "publisher": "PM Studios"
+  },
+  {
+    "sgdbId": 5491708,
+    "slug": "planet-of-lana-ii-nintendo-switch-2-edition-5491708",
+    "title": "Planet of Lana II: Nintendo Switch 2 Edition",
+    "coverPath": "/art/5491708-cover.webp",
+    "heroPath": "/art/5491708-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: r_dsgnd / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5491708",
+    "releaseDate": "2026-03-05",
+    "publisher": "Thunderful"
   },
   {
     "sgdbId": 5497121,
@@ -3361,6 +4010,17 @@
     "publisher": "CAPCOM"
   },
   {
+    "sgdbId": 5537644,
+    "slug": "prinny-party-going-overboard-nintendo-switch-2-edition-5537644",
+    "title": "Prinny Party: Going Overboard! – Nintendo Switch 2 Edition",
+    "coverPath": "/art/5537644-cover.webp",
+    "heroPath": "/art/5537644-hero.webp",
+    "artworkCredit": "Cover: RatSewer / SteamGridDB; Hero: RatSewer / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5537644",
+    "releaseDate": "2026-11-11",
+    "publisher": "NIS America"
+  },
+  {
     "sgdbId": 5497120,
     "slug": "pritto-prisoner-nintendo-switch-2-edition-5497120",
     "title": "PRITTO PRISONER - Nintendo Switch 2 Edition",
@@ -3416,6 +4076,17 @@
     "publisher": "Flyhigh Works"
   },
   {
+    "sgdbId": 5498758,
+    "slug": "raccoin-chaos-max-edition-5498758",
+    "title": "RACCOIN: Chaos Max Edition",
+    "coverPath": "/art/5498758-cover.webp",
+    "heroPath": "/art/5498758-hero.webp",
+    "artworkCredit": "Cover: ElManoGrande / SteamGridDB; Hero: Arky / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5498758",
+    "releaseDate": "2026-11-10",
+    "publisher": "Playstack"
+  },
+  {
     "sgdbId": 5483319,
     "slug": "raidou-remastered-the-mystery-of-the-soulless-army-5483319",
     "title": "RAIDOU Remastered: The Mystery of the Soulless Army",
@@ -3460,6 +4131,39 @@
     "publisher": "ROCKSTAR GAMES"
   },
   {
+    "sgdbId": 5470581,
+    "slug": "reel-fishing-days-of-summer-nintendo-switch-2-edition-5470581",
+    "title": "Reel Fishing: Days of Summer - Nintendo Switch 2 Edition",
+    "coverPath": "/art/5470581-cover.webp",
+    "heroPath": "/art/5470581-hero.webp",
+    "artworkCredit": "Cover: Besli / SteamGridDB; Hero: Besli / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5470581",
+    "releaseDate": "2026-10-22",
+    "publisher": "Natsume Inc."
+  },
+  {
+    "sgdbId": 5357741,
+    "slug": "relayer-advanced-definitive-edition-5357741",
+    "title": "Relayer Advanced Definitive Edition",
+    "coverPath": null,
+    "heroPath": "/art/5357741-hero.webp",
+    "artworkCredit": "Hero: NotJadlp / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5357741",
+    "releaseDate": "2025-09-25",
+    "publisher": "Dragami Games"
+  },
+  {
+    "sgdbId": 29143,
+    "slug": "resident-evil-2-deluxe-edition-29143",
+    "title": "Resident Evil 2 Deluxe Edition",
+    "coverPath": "/art/29143-cover.webp",
+    "heroPath": "/art/29143-hero.webp",
+    "artworkCredit": "Cover: JustMartin / SteamGridDB; Hero: Greez / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/29143",
+    "releaseDate": "2026-10-16",
+    "publisher": "CAPCOM"
+  },
+  {
     "sgdbId": 5253703,
     "slug": "resident-evil-3-5253703",
     "title": "Resident Evil 3",
@@ -3467,6 +4171,17 @@
     "heroPath": "/art/5253703-hero.webp",
     "artworkCredit": "Cover: Orange / SteamGridDB; Hero: CluckenDip / SteamGridDB",
     "artworkSource": "https://www.steamgriddb.com/game/5253703",
+    "releaseDate": "2026-10-16",
+    "publisher": "CAPCOM"
+  },
+  {
+    "sgdbId": 5332120,
+    "slug": "resident-evil-4-gold-edition-5332120",
+    "title": "Resident Evil 4 Gold Edition",
+    "coverPath": "/art/5332120-cover.webp",
+    "heroPath": "/art/5332120-hero.webp",
+    "artworkCredit": "Cover: Guztavsky / SteamGridDB; Hero: RAZELIGHT / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5332120",
     "releaseDate": "2026-10-16",
     "publisher": "CAPCOM"
   },
@@ -3525,6 +4240,17 @@
     "publisher": "SUNSOFT"
   },
   {
+    "sgdbId": 8619,
+    "slug": "rise-of-the-tomb-raider-20-year-celebration-8619",
+    "title": "Rise of the Tomb Raider: 20 Year Celebration",
+    "coverPath": "/art/8619-cover.webp",
+    "heroPath": "/art/8619-hero.webp",
+    "artworkCredit": "Cover: Morente / SteamGridDB; Hero: CluckenDip / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/8619",
+    "releaseDate": "2026-06-09",
+    "publisher": "Aspyr"
+  },
+  {
     "sgdbId": 20402,
     "slug": "rollercoaster-tycoon-classic-nintendo-switch-2-edition-20402",
     "title": "RollerCoaster Tycoon Classic – Nintendo Switch 2 Edition",
@@ -3534,6 +4260,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/20402",
     "releaseDate": "2026-05-28",
     "publisher": "Atari"
+  },
+  {
+    "sgdbId": 5455468,
+    "slug": "romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-5455468",
+    "title": "Romancing SaGa 2: Revenge of the Seven – Nintendo Switch 2 Edition",
+    "coverPath": "/art/5455468-cover.webp",
+    "heroPath": "/art/5455468-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: finnsmoke / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5455468",
+    "releaseDate": "2025-07-31",
+    "publisher": "SQUARE ENIX"
   },
   {
     "sgdbId": 5548944,
@@ -3657,6 +4394,17 @@
     "publisher": "Annapurna Interactive"
   },
   {
+    "sgdbId": 5436533,
+    "slug": "schrodinger-s-call-5436533",
+    "title": "Schrödinger's Call",
+    "coverPath": "/art/5436533-cover.webp",
+    "heroPath": "/art/5436533-hero.webp",
+    "artworkCredit": "Cover: zeroone0101 / SteamGridDB; Hero: CreamNeapolitan / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5436533",
+    "releaseDate": "2026-10-28",
+    "publisher": "SHUEISHA GAMES"
+  },
+  {
     "sgdbId": 5491540,
     "slug": "scott-pilgrim-ex-5491540",
     "title": "Scott Pilgrim EX",
@@ -3712,6 +4460,17 @@
     "publisher": "Bandai Namco Entertainment"
   },
   {
+    "sgdbId": 23411,
+    "slug": "shadow-of-the-tomb-raider-definitive-edition-23411",
+    "title": "Shadow Of The Tomb Raider: Definitive Edition",
+    "coverPath": "/art/23411-cover.webp",
+    "heroPath": "/art/23411-hero.webp",
+    "artworkCredit": "Cover: TUFKAC / SteamGridDB; Hero: CluckenDip / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/23411",
+    "releaseDate": "2026-10-22",
+    "publisher": "Aspyr"
+  },
+  {
     "sgdbId": 9765,
     "slug": "shadow-tactics-blades-of-the-shogun-9765",
     "title": "Shadow Tactics: Blades of the Shogun",
@@ -3743,6 +4502,17 @@
     "artworkSource": null,
     "releaseDate": "2025-09-17",
     "publisher": "Asobism"
+  },
+  {
+    "sgdbId": 5549073,
+    "slug": "shelterra-the-skyworld-nintendo-switch-2-edition-5549073",
+    "title": "Shelterra the Skyworld - Nintendo Switch 2 Edition",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-11-05",
+    "publisher": "KEMCO"
   },
   {
     "sgdbId": 5479053,
@@ -3877,6 +4647,17 @@
     "publisher": "Focus Entertainment"
   },
   {
+    "sgdbId": 5451372,
+    "slug": "sn-ultimate-freeriding-5451372",
+    "title": "SNØ: Ultimate Freeriding",
+    "coverPath": "/art/5451372-cover.webp",
+    "heroPath": "/art/5451372-hero.webp",
+    "artworkCredit": "Cover: PrinzSalamander / SteamGridDB; Hero: masterx0202 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5451372",
+    "releaseDate": "2026-10-28",
+    "publisher": "AMATA"
+  },
+  {
     "sgdbId": 5321497,
     "slug": "solarpunk-5321497",
     "title": "Solarpunk",
@@ -3897,6 +4678,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/3931",
     "releaseDate": "2026-07-23",
     "publisher": "Abylight"
+  },
+  {
+    "sgdbId": 5309245,
+    "slug": "sonic-frontiers-definitive-edition-5309245",
+    "title": "Sonic Frontiers - Definitive Edition",
+    "coverPath": "/art/5309245-cover.webp",
+    "heroPath": "/art/5309245-hero.webp",
+    "artworkCredit": "Cover: ralsei / SteamGridDB; Hero: BROHONKY / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5309245",
+    "releaseDate": "2026-06-23",
+    "publisher": "SEGA"
   },
   {
     "sgdbId": 5479054,
@@ -3985,6 +4777,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5497356",
     "releaseDate": "2025-11-18",
     "publisher": "THQ Nordic"
+  },
+  {
+    "sgdbId": 5531802,
+    "slug": "spyder-agent-8-5531802",
+    "title": "Spyder: Agent 8",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2027-02-11",
+    "publisher": "PQube"
   },
   {
     "sgdbId": 5532321,
@@ -4184,6 +4987,28 @@
     "publisher": "Unknown Worlds Entertainment"
   },
   {
+    "sgdbId": 5352802,
+    "slug": "suikoden-i-ii-hd-remaster-for-nintendo-switch-2-gate-rune-and-dunan-unification-wars-5352802",
+    "title": "Suikoden I&II HD Remaster for Nintendo Switch 2 Gate Rune and Dunan Unification Wars",
+    "coverPath": "/art/5352802-cover.webp",
+    "heroPath": "/art/5352802-hero.webp",
+    "artworkCredit": "Cover: MassiveGoods / SteamGridDB; Hero: try_again / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5352802",
+    "releaseDate": "2025-06-05",
+    "publisher": "KONAMI"
+  },
+  {
+    "sgdbId": 5379300,
+    "slug": "sulfur-5379300",
+    "title": "SULFUR",
+    "coverPath": "/art/5379300-cover.webp",
+    "heroPath": "/art/5379300-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: atotheb / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5379300",
+    "releaseDate": "2026-10-28",
+    "publisher": "Perfect Random"
+  },
+  {
     "sgdbId": 5521591,
     "slug": "super-bomberman-collection-nintendo-switch-2-edition-5521591",
     "title": "SUPER BOMBERMAN COLLECTION - Nintendo Switch 2 Edition",
@@ -4217,6 +5042,17 @@
     "publisher": "Nintendo"
   },
   {
+    "sgdbId": 5435201,
+    "slug": "supermarket-simulator-5435201",
+    "title": "Supermarket Simulator",
+    "coverPath": "/art/5435201-cover.webp",
+    "heroPath": "/art/5435201-hero.webp",
+    "artworkCredit": "Cover: isaiahlion / SteamGridDB; Hero: NeVoJP / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5435201",
+    "releaseDate": "2026-11-12",
+    "publisher": "Silver Lining"
+  },
+  {
     "sgdbId": 5491712,
     "slug": "super-meat-boy-3d-5491712",
     "title": "Super Meat Boy 3D",
@@ -4248,6 +5084,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5405157",
     "releaseDate": "2026-10-29",
     "publisher": "Fictions"
+  },
+  {
+    "sgdbId": 12164,
+    "slug": "system-shock-12164",
+    "title": "System Shock",
+    "coverPath": "/art/12164-cover.webp",
+    "heroPath": "/art/12164-hero.webp",
+    "artworkCredit": "Cover: increasing / SteamGridDB; Hero: CluckenDip / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/12164",
+    "releaseDate": "2025-12-18",
+    "publisher": "Atari"
   },
   {
     "sgdbId": 5480303,
@@ -4316,6 +5163,17 @@
     "publisher": "OPNeon Games"
   },
   {
+    "sgdbId": 5447839,
+    "slug": "teenage-mutant-ninja-turtles-arcade-wrath-of-the-mutants-ninja-edition-5447839",
+    "title": "Teenage Mutant Ninja Turtles Arcade: Wrath of The Mutants - Ninja Edition",
+    "coverPath": "/art/5447839-cover.webp",
+    "heroPath": "/art/5447839-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: lim3y / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5447839",
+    "releaseDate": "2026-10-09",
+    "publisher": "Trailmark Games"
+  },
+  {
     "sgdbId": 5457859,
     "slug": "teenage-mutant-ninja-turtles-splintered-fate-nintendo-switch-2-edition-5457859",
     "title": "Teenage Mutant Ninja Turtles: Splintered Fate – Nintendo Switch 2 Edition",
@@ -4347,6 +5205,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5510270",
     "releaseDate": "2026-06-18",
     "publisher": "SQUARE ENIX"
+  },
+  {
+    "sgdbId": 5260192,
+    "slug": "the-ascent-ultimate-edition-5260192",
+    "title": "THE ASCENT ULTIMATE EDITION",
+    "coverPath": "/art/5260192-cover.webp",
+    "heroPath": "/art/5260192-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: yst / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5260192",
+    "releaseDate": "2026-12-02",
+    "publisher": "KRAFTON"
   },
   {
     "sgdbId": 5280394,
@@ -4524,6 +5393,17 @@
     "publisher": "Nintendo"
   },
   {
+    "sgdbId": 5660,
+    "slug": "the-lord-of-the-rings-war-in-the-north-legacy-edition-5660",
+    "title": "The Lord of the Rings: War in the North - Legacy Edition",
+    "coverPath": "/art/5660-cover.webp",
+    "heroPath": "/art/5660-hero.webp",
+    "artworkCredit": "Cover: sardonicWarrior / SteamGridDB; Hero: Antilles / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5660",
+    "releaseDate": "2026-08-18",
+    "publisher": "Aspyr"
+  },
+  {
     "sgdbId": 5465977,
     "slug": "the-midnight-walk-5465977",
     "title": "The Midnight Walk",
@@ -4557,6 +5437,39 @@
     "publisher": "Genius Sonority"
   },
   {
+    "sgdbId": 5262204,
+    "slug": "the-outlast-trials-5262204",
+    "title": "The Outlast Trials",
+    "coverPath": "/art/5262204-cover.webp",
+    "heroPath": "/art/5262204-hero.webp",
+    "artworkCredit": "Cover: Naymarak / SteamGridDB; Hero: Akela / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5262204",
+    "releaseDate": "2026-10-27",
+    "publisher": "Red Barrels"
+  },
+  {
+    "sgdbId": 5502829,
+    "slug": "the-prince-of-tennis-doki-doki-survival-eternal-passion-tie-break-game-nintendo-switch-2-edition-5502829",
+    "title": "The Prince of Tennis Doki Doki Survival ~eternal passion! Tie break ♡ game~ Nintendo Switch 2 Edition",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-07-30",
+    "publisher": "KONAMI"
+  },
+  {
+    "sgdbId": 5502828,
+    "slug": "the-prince-of-tennis-sweet-school-festival-40-and-more-nintendo-switch-2-edition-5502828",
+    "title": "The Prince of Tennis Sweet School Festival ~♡-40 and more...~ Nintendo Switch 2 Edition",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-07-30",
+    "publisher": "KONAMI"
+  },
+  {
     "sgdbId": 5322635,
     "slug": "the-ramen-sensei-nintendo-switch-2-edition-5322635",
     "title": "The Ramen Sensei – Nintendo Switch 2 Edition",
@@ -4566,6 +5479,17 @@
     "artworkSource": null,
     "releaseDate": "2026-09-02",
     "publisher": "Kairosoft"
+  },
+  {
+    "sgdbId": 5450064,
+    "slug": "the-relic-first-guardian-5450064",
+    "title": "The Relic: First Guardian",
+    "coverPath": "/art/5450064-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: ludo199 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5450064",
+    "releaseDate": "2026-10-09",
+    "publisher": "Perpetual Europe"
   },
   {
     "sgdbId": 5448943,
@@ -4623,6 +5547,17 @@
     "publisher": "Suncrest Games"
   },
   {
+    "sgdbId": 5532320,
+    "slug": "thief-the-dark-project-remastered-nintendo-switch-2-edition-5532320",
+    "title": "Thief: The Dark Project Remastered: Nintendo Switch 2 Edition",
+    "coverPath": "/art/5532320-cover.webp",
+    "heroPath": "/art/5532320-hero.webp",
+    "artworkCredit": "Cover: increasing / SteamGridDB; Hero: ImDatDude07 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5532320",
+    "releaseDate": "2026-12-03",
+    "publisher": "Atari"
+  },
+  {
     "sgdbId": 5526730,
     "slug": "titanium-court-5526730",
     "title": "Titanium Court",
@@ -4654,6 +5589,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5473158",
     "releaseDate": "2026-09-29",
     "publisher": "Something We Made"
+  },
+  {
+    "sgdbId": 5507781,
+    "slug": "tombi-2-the-evil-swine-return-special-edition-5507781",
+    "title": "Tombi! 2: The Evil Swine Return Special Edition",
+    "coverPath": "/art/5507781-cover.webp",
+    "heroPath": "/art/5507781-hero.webp",
+    "artworkCredit": "Cover: KStrat2258 / SteamGridDB; Hero: KStrat2258 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5507781",
+    "releaseDate": "2025-12-14",
+    "publisher": "Limited Run Games"
+  },
+  {
+    "sgdbId": 5453537,
+    "slug": "tombi-special-edition-5453537",
+    "title": "Tombi! Special Edition",
+    "coverPath": "/art/5453537-cover.webp",
+    "heroPath": "/art/5453537-hero.webp",
+    "artworkCredit": "Cover: crystalpepsi / SteamGridDB; Hero: KStrat2258 / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5453537",
+    "releaseDate": "2026-01-05",
+    "publisher": "Limited Run Games"
   },
   {
     "sgdbId": 5480095,
@@ -4711,6 +5668,28 @@
     "publisher": "PQube"
   },
   {
+    "sgdbId": 5449667,
+    "slug": "total-chaos-5449667",
+    "title": "Total Chaos",
+    "coverPath": "/art/5449667-cover.webp",
+    "heroPath": "/art/5449667-hero.webp",
+    "artworkCredit": "Cover: Snakerov / SteamGridDB; Hero: Snakerov / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5449667",
+    "releaseDate": "2026-04-29",
+    "publisher": "Atari"
+  },
+  {
+    "sgdbId": 5532574,
+    "slug": "touhou-koumakyou-new-classic-the-embodiment-of-scarlet-devil-5532574",
+    "title": "Touhou Koumakyou: New Classic - the Embodiment of Scarlet Devil",
+    "coverPath": "/art/5532574-cover.webp",
+    "heroPath": "/art/5532574-hero.webp",
+    "artworkCredit": "Cover: moefang / SteamGridDB; Hero: makiligon / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5532574",
+    "releaseDate": "2026-09-09",
+    "publisher": "Alliance Arts"
+  },
+  {
     "sgdbId": 5474311,
     "slug": "trails-in-the-sky-1st-chapter-nintendo-switch-2-edition-5474311",
     "title": "Trails in the Sky 1st Chapter: Nintendo Switch 2 Edition",
@@ -4763,6 +5742,17 @@
     "artworkSource": "https://www.steamgriddb.com/game/5328612",
     "releaseDate": "2026-09-17",
     "publisher": "refint/games"
+  },
+  {
+    "sgdbId": 14438,
+    "slug": "two-point-hospital-full-health-collection-14438",
+    "title": "Two Point Hospital: Full Health Collection",
+    "coverPath": "/art/14438-cover.webp",
+    "heroPath": "/art/14438-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: r_dsgnd / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/14438",
+    "releaseDate": "2026-09-16",
+    "publisher": "SEGA"
   },
   {
     "sgdbId": 5461508,
@@ -4829,6 +5819,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5509535",
     "releaseDate": "2026-04-21",
     "publisher": "poncle"
+  },
+  {
+    "sgdbId": 5486829,
+    "slug": "viractal-will-you-trust-your-party-nintendo-switch-2-edition-5486829",
+    "title": "Viractal: Will You Trust Your Party? Nintendo Switch 2 Edition",
+    "coverPath": "/art/5486829-cover.webp",
+    "heroPath": "/art/5486829-hero.webp",
+    "artworkCredit": "Cover: TehMustard / SteamGridDB; Hero: TehMustard / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5486829",
+    "releaseDate": "2026-10-01",
+    "publisher": "Sting"
+  },
+  {
+    "sgdbId": 5471457,
+    "slug": "virtua-fighter-5-r-e-v-o-world-stage-5471457",
+    "title": "Virtua Fighter 5 R.E.V.O. World Stage",
+    "coverPath": "/art/5471457-cover.webp",
+    "heroPath": "/art/5471457-hero.webp",
+    "artworkCredit": "Cover: KitKatarama / SteamGridDB; Hero: Underkex / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5471457",
+    "releaseDate": "2026-03-26",
+    "publisher": "SEGA"
   },
   {
     "sgdbId": 5444305,
@@ -4908,6 +5920,17 @@
     "publisher": "Making Port"
   },
   {
+    "sgdbId": 5547898,
+    "slug": "where-the-seeds-fall-5547898",
+    "title": "Where the Seeds Fall",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-11-05",
+    "publisher": "Cygames"
+  },
+  {
     "sgdbId": 5511684,
     "slug": "wild-hearts-s-5511684",
     "title": "WILD HEARTS S",
@@ -4951,6 +5974,17 @@
     "publisher": "Curve Digital"
   },
   {
+    "sgdbId": 5335618,
+    "slug": "wo-long-fallen-dynasty-complete-edition-5335618",
+    "title": "Wo Long: Fallen Dynasty Complete Edition",
+    "coverPath": "/art/5335618-cover.webp",
+    "heroPath": "/art/5335618-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: ItsFreakinJesus / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5335618",
+    "releaseDate": "2026-09-03",
+    "publisher": "KOEI TECMO EUROPE"
+  },
+  {
     "sgdbId": 5425824,
     "slug": "woodo-nintendo-switch-2-edition-5425824",
     "title": "Woodo – Nintendo Switch 2 Edition",
@@ -4960,6 +5994,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5425824",
     "releaseDate": "2026-09-16",
     "publisher": "Daedalic Entertainment"
+  },
+  {
+    "sgdbId": 5474936,
+    "slug": "wwe-2k25-standard-edition-5474936",
+    "title": "WWE 2K25 Standard Edition",
+    "coverPath": "/art/5474936-cover.webp",
+    "heroPath": "/art/5474936-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: r_dsgnd / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5474936",
+    "releaseDate": "2025-07-23",
+    "publisher": "2K"
+  },
+  {
+    "sgdbId": 5516291,
+    "slug": "wwe-2k26-standard-edition-5516291",
+    "title": "WWE 2K26 Standard Edition",
+    "coverPath": "/art/5516291-cover.webp",
+    "heroPath": "/art/5516291-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: r_dsgnd / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5516291",
+    "releaseDate": "2026-03-06",
+    "publisher": "2K"
   },
   {
     "sgdbId": 5248288,
@@ -5006,6 +6062,17 @@
     "publisher": "Nintendo"
   },
   {
+    "sgdbId": 5379869,
+    "slug": "xenotilt-hostile-pinball-action-5379869",
+    "title": "XENOTILT: HOSTILE PINBALL ACTION",
+    "coverPath": "/art/5379869-cover.webp",
+    "heroPath": "/art/5379869-hero.webp",
+    "artworkCredit": "Cover: Dycedarg / SteamGridDB; Hero: toogee / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5379869",
+    "releaseDate": "2026-07-16",
+    "publisher": "FLARB"
+  },
+  {
     "sgdbId": 5488551,
     "slug": "yakuza-0-directors-cut-5488551",
     "title": "Yakuza 0 Director’s Cut",
@@ -5048,6 +6115,28 @@
     "artworkSource": "https://www.steamgriddb.com/game/5503254",
     "releaseDate": "2026-02-12",
     "publisher": "SEGA"
+  },
+  {
+    "sgdbId": 5416393,
+    "slug": "yeah-you-want-those-games-right-so-here-you-go-now-let-s-see-you-clear-them-5416393",
+    "title": "YEAH! YOU WANT \"THOSE GAMES,\" RIGHT? SO HERE YOU GO! NOW, LET'S SEE YOU CLEAR THEM!",
+    "coverPath": "/art/5416393-cover.webp",
+    "heroPath": null,
+    "artworkCredit": "Cover: KerFicii / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5416393",
+    "releaseDate": "2026-12-03",
+    "publisher": "D3PUBLISHER"
+  },
+  {
+    "sgdbId": 5458629,
+    "slug": "yeah-you-want-those-games-right-so-here-you-go-now-let-s-see-you-clear-them-2-5458629",
+    "title": "YEAH! YOU WANT \"THOSE GAMES,\" RIGHT? SO HERE YOU GO! NOW, LET'S SEE YOU CLEAR THEM! 2",
+    "coverPath": null,
+    "heroPath": null,
+    "artworkCredit": null,
+    "artworkSource": null,
+    "releaseDate": "2026-12-03",
+    "publisher": "D3PUBLISHER"
   },
   {
     "sgdbId": 5454176,
@@ -5103,5 +6192,16 @@
     "artworkSource": "https://www.steamgriddb.com/game/5548947",
     "releaseDate": "2027-02-16",
     "publisher": "KONAMI"
+  },
+  {
+    "sgdbId": 5499348,
+    "slug": "zero-parades-director-s-cut-5499348",
+    "title": "ZERO PARADES: Director's Cut",
+    "coverPath": "/art/5499348-cover.webp",
+    "heroPath": "/art/5499348-hero.webp",
+    "artworkCredit": "Cover: r_dsgnd / SteamGridDB; Hero: Yoshi Nakamoto / SteamGridDB",
+    "artworkSource": "https://www.steamgriddb.com/game/5499348",
+    "releaseDate": "2026-11-03",
+    "publisher": "ZA/UM"
   }
 ]

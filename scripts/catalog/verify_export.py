@@ -16,8 +16,9 @@ def main():
     artwork = json.loads((ROOT / 'artwork-provenance.json').read_text())
     assert len({g['sgdbId'] for g in catalog}) == len(catalog)
     assert len({g['slug'] for g in catalog}) == len(catalog)
-    assert source['reportedTotal'] == source['uniqueRecords'] == coverage['nintendoRecordsProcessed']
-    assert sum(p['returned'] for p in source['pages']) == source['reportedTotal']
+    for region in source['sources']:
+        assert region['reportedTotal'] == region['uniqueRecords'] == sum(p['returned'] for p in region['pages'])
+    assert sum(region['processedRecords'] for region in source['sources']) == coverage['nintendoRecordsProcessed']
     compact = []
     for game in catalog:
         gid = str(game['sgdbId'])
@@ -43,7 +44,7 @@ def main():
             record['artwork'][role]['author'] = a['author']['name']
         compact.append(record)
     unresolved = json.loads((ROOT / 'unmatched-nintendo.json').read_text())
-    compact_unmatched = [{'nintendoId': x['nintendo']['fs_id'], 'title': x['nintendo']['title'],
+    compact_unmatched = [{'nintendoId': x['nintendo']['fs_id'], 'source': x['nintendo']['source'], 'title': x['nintendo']['title'],
         'sourceUrl': 'https://www.nintendo.com' + x['nintendo']['url'], 'method': x['method'],
         'queries': x.get('queries', []), 'candidates': [{'id': c['id'], 'title': c['name']} for c in x.get('candidates', [])]}
         for x in unresolved]
@@ -54,7 +55,7 @@ def main():
         request = json.loads(path.read_text())
         response = request['response']
         data = response.get('data')
-        count = len(data) if isinstance(data, list) else len(data.get('assets', [])) if isinstance(data, dict) else len(response.get('response', {}).get('docs', []))
+        count = len(data) if isinstance(data, list) else len(data.get('assets', [])) if isinstance(data, dict) else len(response['hits']) if 'hits' in response else len(response.get('response', {}).get('docs', []))
         request_rows.append({'cacheKey': path.stem, 'url': request['url'], 'body': request['body'],
             'fetchedAt': request['fetchedAt'], 'returnedCount': count})
     coverage.update({'exportedAt': datetime.now(timezone.utc).isoformat(),

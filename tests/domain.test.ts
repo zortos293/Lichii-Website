@@ -39,7 +39,7 @@ test('OAuth allowlist requires both pinned ID and exact login and fails closed',
 
 test('catalog entries have unique verified identities and every referenced image exists', async () => {
   const entries = z.array(catalogEntrySchema).parse(JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8')));
-  assert.equal(entries.length, 465);
+  assert.equal(entries.length, 565);
   assert.equal(new Set(entries.map(e => e.sgdbId)).size, entries.length);
   assert.equal(new Set(entries.map(e => e.slug)).size, entries.length);
   for (const entry of entries) {

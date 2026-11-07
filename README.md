@@ -4,7 +4,7 @@ A standalone Switch 2 community report site. All application files live at the r
 
 Imported from `zortos293/Eglantine` commit `7ab95d7028291da9b1cda3d3793d69dea1b718b4`, taking only the contents of `website/` without emulator files or history. To verify the import against a checkout of that source, run `node scripts/verify-migration.mjs /path/to/Eglantine/website`. Only this README changes from the source snapshot; the verification script is new.
 
-The launch follows the [dark Paper design](https://app.paper.design/file/01M6GQ17RX2F3XN1N9H2Z01KMA/p-2-0), using self-hosted [Paper Mono](https://paper.design/mono) throughout. The font comes from [paper-design/paper-mono at e6eaece](https://github.com/paper-design/paper-mono/tree/e6eaeceaef02e77e3db997711e07a16378de2bd7) under the SIL Open Font License 1.1, included at `public/fonts/OFL.txt`. The database starts with **465 catalog entries and zero reports**. Every title is untested until a real report is submitted. There are no generated players, statistics, performance figures or log files.
+The launch follows the [dark Paper design](https://app.paper.design/file/01M6GQ17RX2F3XN1N9H2Z01KMA/p-2-0), using self-hosted [Paper Mono](https://paper.design/mono) throughout. The font comes from [paper-design/paper-mono at e6eaece](https://github.com/paper-design/paper-mono/tree/e6eaeceaef02e77e3db997711e07a16378de2bd7) under the SIL Open Font License 1.1, included at `public/fonts/OFL.txt`. The database starts with **565 catalog entries and zero reports**. Every title is untested until a real report is submitted. There are no generated players, statistics, performance figures or log files.
 
 ## Run locally
 
@@ -94,11 +94,11 @@ Tests run migrations and real parameterized queries. They cover repeat/concurren
 
 Artwork paths must be local `/art/NAME.webp`, `.png`, `.jpg` or `.jpeg` paths. All imported artwork is decoded and reencoded to WebP by the collection scripts, rather than serving upstream HTML or arbitrary original files. Missing art remains missing, with a neutral placeholder. Real Lichii branding is copied from the project’s branding assets, with no color inversion.
 
-The snapshot matches Nintendo Europe’s English Switch 2 index against SteamGridDB. It covers 466 Nintendo records mapped to 465 unique SGDB IDs; 226 Nintendo records remain unresolved. The catalog includes announced games and some editions or bundles. It is **not an exhaustive worldwide Switch 2 list**. SteamGridDB has no console-platform enumeration endpoint, so unresolved records are not proven absent there. The UI states this limit.
+The snapshot (7 November 2026) matches Nintendo Europe’s English Switch 2 index and the Nintendo of America store titles that Europe does not list against SteamGridDB. It covers 584 of 784 Nintendo records mapped to 565 unique SGDB IDs; 200 Nintendo records remain unresolved. Every entry from an earlier snapshot keeps its SGDB ID and slug, even when the upstream record disappears. The catalog includes announced games and some editions or bundles. It is **not an exhaustive worldwide Switch 2 list**. SteamGridDB has no console-platform enumeration endpoint, so unresolved records are not proven absent there. The UI states this limit.
 
 `data/provenance.json` preserves Nintendo membership, artwork IDs, authors and original URLs. `coverage.json`, `source-coverage.json` and `unmatched-nintendo.json` record coverage and the unresolved review queue. These files are not public API payloads. Art credits are shown per game. Shared SGDB entries may have artwork from an original edition rather than a dedicated Switch 2 cover. Attribution does not itself provide copyright clearance.
 
-See `scripts/catalog/README.md` to reproduce discovery, matching and image conversion. Regenerate deliberately, review the unmatched queue and artwork, replace the checked-in export, then deploy. There is no automatic upstream sync and no API-key dependency at runtime.
+See `scripts/catalog/README.md` to reproduce discovery, matching, carrying the published catalog forward and image conversion. Regenerate deliberately, review the unmatched queue and artwork, replace the checked-in export, then deploy. There is no automatic upstream sync and no API-key dependency at runtime.
 
 ## Reporting and maintenance
 
