@@ -30,7 +30,7 @@ export async function loadFacts(sql: Database, gameId?: number): Promise<ReportF
 
 const contains = (value: string, needle: string) => value.toLowerCase().includes(needle.toLowerCase());
 export const hasReportFilter = (filter: ReportFilter) => filter.platforms.length > 0 || filter.build !== null || Boolean(filter.gpu || filter.os || filter.buildText);
-export const matchesFilter = (filter: ReportFilter) => (fact: ReportFact) =>
+export const matchesFilter = (filter: ReportFilter) => (fact: Pick<ReportFact, 'platform' | 'build' | 'gpu' | 'os' | 'buildText'>) =>
   (!filter.platforms.length || filter.platforms.includes(fact.platform))
   && (filter.build === null || (filter.build === 'other' ? fact.build === null : fact.build === filter.build))
   && contains(fact.gpu, filter.gpu) && contains(fact.os, filter.os) && contains(fact.buildText, filter.buildText);

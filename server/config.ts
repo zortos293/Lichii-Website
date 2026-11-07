@@ -14,6 +14,7 @@ const envSchema = z.object({
   GITHUB_ALLOWED_ID: z.string().regex(/^\d+$/).optional(),
   GITHUB_ALLOWED_LOGIN: z.literal('zortos293').default('zortos293'),
   DATABUDDY_WEBSITE_ID: z.uuid().default(databuddyWebsiteId),
+  MAINTAINER_API_TOKEN_SHA256: z.preprocess(value => value === '' ? undefined : value, z.string().regex(/^[0-9a-f]{64}$/).optional()),
 });
 
 export function readConfig(env: NodeJS.ProcessEnv) {

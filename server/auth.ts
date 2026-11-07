@@ -1,4 +1,4 @@
-import { createHash, randomBytes } from 'node:crypto';
+import crypto, { createHash, randomBytes } from 'node:crypto';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import * as oauth from 'oauth4webapi';
 import { z } from 'zod';
@@ -6,6 +6,12 @@ import { allowedGithubUser, oauthConfigured, type Config } from './config.ts';
 import type { Database } from './db.ts';
 
 export const hashToken = (token: string) => createHash('sha256').update(token).digest('hex');
+const bearerPattern = /^Bearer ([A-Za-z0-9._~+/-]{32,256}={0,2})$/i;
+export function maintainerTokenMatches(header: string | undefined, expectedHash: string | undefined) {
+  const token = header === undefined ? undefined : bearerPattern.exec(header)?.[1];
+  if (!expectedHash || !token) return false;
+  return crypto.timingSafeEqual(createHash('sha256').update(token).digest(), Buffer.from(expectedHash, 'hex'));
+}
 const githubUserSchema = z.object({ id: z.number().int().positive(), login: z.string() });
 const oauthCookieSchema = z.object({ state: z.string(), verifier: z.string() });
 const githubServer: oauth.AuthorizationServer = {
@@ -21,6 +27,13 @@ export function authHandlers(sql: Database, config: Config) {
   const cookie = { path: '/', secure, httpOnly: true, sameSite: 'lax' as const };
 
   async function requireMaintainer(request: FastifyRequest, reply: FastifyReply) {
+    if (request.headers.authorization !== undefined) {
+      const deny = (code: number, error: string) => reply.code(code).header('WWW-Authenticate', 'Bearer').send({ error });
+      if (!config.MAINTAINER_API_TOKEN_SHA256) return deny(401, 'Maintainer API tokens are disabled.');
+      if (request.headers.cookie !== undefined || request.headers.origin !== undefined) return deny(400, 'Send a maintainer API token without cookies or an Origin header.');
+      if (!maintainerTokenMatches(request.headers.authorization, config.MAINTAINER_API_TOKEN_SHA256)) return deny(401, 'The maintainer API token is not valid.');
+      return;
+    }
     if (!oauthConfigured(config)) return reply.code(503).send({ error: 'Maintainer sign-in is not configured.' });
     const token = request.cookies[sessionName];
     if (!token || !/^[a-f0-9]{64}$/.test(token)) return reply.code(401).send({ error: 'Sign in with the authorized GitHub account.' });

@@ -7,11 +7,12 @@ import { createHash, createHmac, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { isIP } from 'node:net';
 import { z } from 'zod';
-import { catalogEntrySchema, desktopSubmissionSchema, gameSchema, platformSchema, publicReportSchema, reportFieldsSchema, submissionSchema, summaryResponseSchema, triageSchema, maintainerReportSchema } from '../shared/domain.ts';
+import { catalogEntrySchema, desktopSubmissionSchema, gameSchema, outcomes, platformSchema, publicReportSchema, reportFieldsSchema, submissionSchema, summaryResponseSchema, triageSchema, triageStates, maintainerReportSchema } from '../shared/domain.ts';
+import { derivePlatform, lichiiBuild } from '../shared/compat.ts';
 import { validateLog } from '../shared/log.ts';
 import type { Config } from './config.ts';
 import type { Database } from './db.ts';
-import { authHandlers } from './auth.ts';
+import { authHandlers, maintainerTokenMatches } from './auth.ts';
 import { aggregateGame, buildColumns, hasReportFilter, latestBuild, loadFacts, matchesFilter, summarize, type ReportFact, type ReportFilter } from './insights.ts';
 
 const querySchema = z.object({
@@ -35,6 +36,14 @@ function groupByGame(facts: readonly ReportFact[]) {
   for (const fact of facts) groups.set(fact.gameId, [...groups.get(fact.gameId) ?? [], fact]);
   return groups;
 }
+const maintainerQuerySchema = querySchema.extend({
+  triage: z.enum(['any', ...triageStates]).default('any'),
+  log: z.enum(['any', 'attached', 'none']).default('any'),
+});
+const queueRow = z.object({
+  id: z.uuid(), game_id: z.coerce.number(), triage: z.enum(triageStates), outcome: z.enum(outcomes), build: z.string(),
+  os: z.string(), cpu: z.string(), gpu: z.string(), search: z.string(), has_log: z.boolean(),
+});
 const uuidParams = z.object({ id: z.uuid() });
 const desktopReportPath = '/api/v1/desktop/reports';
 const desktopHeaders = z.object({ 'idempotency-key': z.uuid() });
@@ -71,7 +80,9 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     hsts: config.NODE_ENV === 'production' ? { maxAge: 31536000 } : false,
   });
   app.addHook('onRequest', async (request, reply) => {
-    const path = request.routeOptions.url ?? request.url.split('?')[0] ?? '';
+    const route = request.routeOptions.url;
+    const path = route ?? request.url.split('?')[0] ?? '';
+    const maintainerApi = route?.startsWith('/api/maintainer/') === true;
     reply.header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
     if (path.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
     if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method)) {
@@ -79,7 +90,8 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
         if (request.headers['x-lichii-client'] !== 'desktop/1'
           || ['origin', 'cookie', 'authorization'].some(name => request.headers[name] !== undefined)
           || Object.keys(request.headers).some(name => name.startsWith('sec-fetch-'))) return reply.code(403).send({ error: 'Use the anonymous Lichii desktop submission protocol.' });
-      } else {
+      } else if (!(maintainerApi && request.headers.cookie === undefined && request.headers.origin === undefined
+        && maintainerTokenMatches(request.headers.authorization, config.MAINTAINER_API_TOKEN_SHA256))) {
         if (request.headers.origin !== config.APP_ORIGIN) return reply.code(403).send({ error: 'This request must come from the Lichii website.' });
         if (request.headers['sec-fetch-site'] === 'cross-site') return reply.code(403).send({ error: 'Cross-site requests are not allowed.' });
       }
@@ -88,13 +100,14 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     if (!path.startsWith('/api/') || path === '/api/health') return;
     const submitting = request.method === 'POST' && (path === '/api/reports' || path === desktopReportPath);
     const auth = path === '/api/auth/login';
+    const token = maintainerApi && request.headers.authorization !== undefined;
     const period = submitting || auth ? 3600 : 60;
-    const limit = submitting ? 5 : auth ? 20 : 240;
+    const limit = submitting ? 5 : auth ? 20 : token ? 120 : 240;
     const bucket = Math.floor(Date.now() / (period * 1000));
     const edgeIp = request.headers['x-real-ip'];
     if (config.TRUST_PROXY === 'true' && (typeof edgeIp !== 'string' || !isIP(edgeIp))) return reply.code(400).send({ error: 'A valid trusted proxy address is required.' });
     const ip = config.TRUST_PROXY === 'true' && typeof edgeIp === 'string' ? edgeIp : request.ip;
-    const key = createHmac('sha256', config.RATE_LIMIT_SECRET).update(`${ip}:${submitting ? 'submit' : auth ? 'auth' : 'read'}:${bucket}`).digest('hex');
+    const key = createHmac('sha256', config.RATE_LIMIT_SECRET).update(`${ip}:${submitting ? 'submit' : auth ? 'auth' : token ? 'token' : 'read'}:${bucket}`).digest('hex');
     const rows = await sql`INSERT INTO rate_limits(key, count, expires_at) VALUES (${key}, 1, now() + ${period} * interval '1 second')
       ON CONFLICT(key) DO UPDATE SET count = rate_limits.count + 1 RETURNING count`;
     if (Number(rows[0]?.count) > limit) return reply.header('Retry-After', String(period)).code(429).send({ error: 'Too many requests. Please try again later.' });
@@ -207,24 +220,45 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
   app.post('/api/reports', submitReport);
   app.post(desktopReportPath, { bodyLimit: 128 * 1024 }, submitReport);
 
+  const maintainerSource = sql`reports r JOIN games g ON g.sgdb_id = r.game_id LEFT JOIN private_logs l ON l.report_id = r.id AND l.expires_at > now()`;
+  const maintainerColumns = sql`${publicColumns}, r.internal_note, l.expires_at AS log_expires_at`;
+  const mapMaintainerReport = (row: Record<string, unknown>) => {
+    const logExpiresAt = row.log_expires_at instanceof Date ? row.log_expires_at.toISOString() : null;
+    return maintainerReportSchema.parse({ ...mapReport(row), internalNote: row.internal_note, hasLog: logExpiresAt !== null, logExpiresAt });
+  };
+  const actor = (request: FastifyRequest) => request.headers.authorization === undefined ? config.GITHUB_ALLOWED_ID ?? '' : 'api-token';
+
   await app.register(async privateApp => {
     privateApp.addHook('onRequest', auth.requireMaintainer);
     privateApp.get('/api/maintainer/reports', async request => {
-      const q = querySchema.parse(request.query);
-      const [rows, totals] = await Promise.all([
-        sql`SELECT ${publicColumns}, r.internal_note, EXISTS(SELECT 1 FROM private_logs l WHERE l.report_id = r.id AND l.expires_at > now()) AS has_log
-          FROM reports r JOIN games g ON g.sgdb_id = r.game_id ORDER BY r.created_at DESC, r.id DESC LIMIT 15 OFFSET ${(q.page - 1) * 15}`,
-        sql`SELECT count(*)::int AS total FROM reports`,
-      ]);
-      const total = Number(totals[0]?.total ?? 0);
-      return { reports: rows.map(row => maintainerReportSchema.parse({ ...mapReport(row), internalNote: row.internal_note, hasLog: row.has_log })), page: q.page, pageCount: Math.max(1, Math.ceil(total / 15)), total };
+      const q = maintainerQuerySchema.parse(request.query);
+      const rows = (await sql`SELECT r.id, r.game_id, r.triage, r.fields->>'outcome' AS outcome, r.fields->>'build' AS build, r.fields->>'os' AS os, r.fields->>'cpu' AS cpu, r.fields->>'gpu' AS gpu,
+        concat_ws(' ', r.id::text, g.title, r.fields->>'summary', r.fields->>'name', r.fields->>'handle') AS search, l.report_id IS NOT NULL AS has_log
+        FROM ${maintainerSource} ORDER BY r.created_at DESC, r.id DESC`).map(row => queueRow.parse(row));
+      const counts = { new: 0, reviewed: 0, 'needs-info': 0, hidden: 0 };
+      for (const row of rows) counts[row.triage]++;
+      const filter = matchesFilter(reportFilter(q));
+      const needle = q.q.toLowerCase();
+      const matching = rows.filter(row => (q.triage === 'any' || row.triage === q.triage) && (q.status === 'Any' || row.outcome === q.status)
+        && (q.log === 'any' || row.has_log === (q.log === 'attached')) && (q.gameId === undefined || row.game_id === q.gameId)
+        && filter({ platform: derivePlatform(row), build: lichiiBuild(row.build), gpu: row.gpu, os: row.os, buildText: row.build })
+        && row.search.toLowerCase().includes(needle));
+      const ids = matching.slice((q.page - 1) * 15, q.page * 15).map(row => row.id);
+      const reports = ids.length ? await sql`SELECT ${maintainerColumns} FROM ${maintainerSource} WHERE r.id IN ${sql(ids)} ORDER BY r.created_at DESC, r.id DESC` : [];
+      return { reports: reports.map(mapMaintainerReport), page: q.page, pageCount: Math.max(1, Math.ceil(matching.length / 15)), total: matching.length, counts };
+    });
+    privateApp.get('/api/maintainer/reports/:id', async (request, reply) => {
+      const { id } = uuidParams.parse(request.params);
+      const rows = await sql`SELECT ${maintainerColumns} FROM ${maintainerSource} WHERE r.id = ${id}`;
+      if (!rows[0]) return reply.code(404).send({ error: 'Report not found.' });
+      return mapMaintainerReport(rows[0]);
     });
     privateApp.patch('/api/maintainer/reports/:id', async (request, reply) => {
       const { id } = uuidParams.parse(request.params);
       const data = triageSchema.parse(request.body);
       const rows = await sql.begin(async tx => {
-        const updated = await tx`UPDATE reports SET triage = ${data.triage}, internal_note = ${data.internalNote} WHERE id = ${id} RETURNING id`;
-        if (updated.length) await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${config.GITHUB_ALLOWED_ID ?? ''}, 'triage', ${id})`;
+        const updated = await tx`UPDATE reports SET triage = COALESCE(${data.triage ?? null}, triage), internal_note = COALESCE(${data.internalNote ?? null}, internal_note) WHERE id = ${id} RETURNING id`;
+        if (updated.length) await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${actor(request)}, 'triage', ${id})`;
         return updated;
       });
       if (!rows.length) return reply.code(404).send({ error: 'Report not found.' });
@@ -234,7 +268,7 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
       const { id } = uuidParams.parse(request.params);
       const rows = await sql.begin(async tx => {
         const logs = await tx`SELECT content FROM private_logs WHERE report_id = ${id} AND expires_at > now()`;
-        if (logs.length) await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${config.GITHUB_ALLOWED_ID ?? ''}, 'read-log', ${id})`;
+        if (logs.length) await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${actor(request)}, 'read-log', ${id})`;
         return logs;
       });
       const log = rows[0]?.content;
@@ -245,7 +279,7 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
       const { id } = uuidParams.parse(request.params);
       await sql.begin(async tx => {
         await tx`DELETE FROM private_logs WHERE report_id = ${id}`;
-        await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${config.GITHUB_ALLOWED_ID ?? ''}, 'delete-log', ${id})`;
+        await tx`INSERT INTO audit_events(actor, action, report_id) VALUES (${actor(request)}, 'delete-log', ${id})`;
       });
       return reply.code(204).send();
     });

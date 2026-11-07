@@ -26,6 +26,7 @@ Migrations and imports share a PostgreSQL transaction advisory lock. They are sa
 - Set `APP_ORIGIN` to the exact HTTPS origin without a trailing slash. The production origin is `https://lichii.zortos.me`.
 - Set `COOKIE_SECRET` and `RATE_LIMIT_SECRET` to separate random values of at least 32 characters.
 - Set `NODE_ENV=production` and `TRUST_PROXY=true` only behind Railway’s edge.
+- Optionally set `MAINTAINER_API_TOKEN_SHA256` to enable token access to the maintainer API. See [Maintainer API token and MCP server](#maintainer-api-token-and-mcp-server).
 - Use `/api/health` as the health check. It queries PostgreSQL and returns 503 if the database is unavailable.
 - No volume is needed for this app. Reports, private log bytes, sessions, rate limits and audits are all in PostgreSQL.
 - No separate predeploy command is needed. Startup prepares the database under a lock before accepting traffic. Configure database backups separately according to the operator’s retention policy.
@@ -70,7 +71,7 @@ TEST_DATABASE_URL=postgresql://USER:PASSWORD@127.0.0.1:5432/lichii_test npm run 
 npm audit
 ```
 
-Tests run migrations and real parameterized queries. They cover repeat/concurrent imports, zero reports, search, report persistence, private/public separation, malformed uploads, MIME/size limits, CSRF, SQL-injection-shaped search, OAuth state and PKCE, immutable-ID rejection, expired/forged sessions, every privileged endpoint, audit events, triage/hiding, log deletion/expiry, and durable rate limits with spoofed forwarding headers.
+Tests run migrations and real parameterized queries. They cover the maintainer token boundary, the MCP server over stdio, repeat/concurrent imports, zero reports, search, report persistence, private/public separation, malformed uploads, MIME/size limits, CSRF, SQL-injection-shaped search, OAuth state and PKCE, immutable-ID rejection, expired/forged sessions, every privileged endpoint, audit events, triage/hiding, log deletion/expiry, and durable rate limits with spoofed forwarding headers.
 
 `test:privacy` starts the built application on port 3100 against the same isolated database and drives Chromium. It uses `/usr/local/bin/chromium` when available, `PLAYWRIGHT_CHROMIUM_EXECUTABLE` when set, or Playwright’s browser installed with `npx playwright install chromium`. The browser maps `lichii.example` to loopback because the production tracker suppresses analytics on localhost. Tests execute the SDK-pinned tracker while intercepting ingestion so test visits never reach Databuddy. They verify automatic analytics, disabled replay even with a previously saved replay choice, browser privacy signals, private-route isolation, and exclusion of page text, inputs and arbitrary URL queries. Internet access to the pinned CDN scripts is required.
 
@@ -141,6 +142,66 @@ The public report contains only explicitly entered fields. Logs are separate Pos
 
 Logs become inaccessible at 90 days. Hourly and startup cleanup deletes expired rows from the live database. Public reports remain. Backups have their own infrastructure retention policy. The privacy page explains the distinction. There are no author accounts or self-service editing tokens; removal requests go to the maintainer.
 
+## Maintainer view
+
+`/maintainer` follows the Ledger design's maintainer log frame (`05b` in the Paper file). It stays behind GitHub sign-in and never mounts analytics.
+
+- The queue is a table of every report, hidden ones included, newest first. Filter it by triage state, outcome, platform, GPU vendor, Lichii build and private-log presence, or search by report ID, game, summary, reporter name or handle. Platform and build come from the same `shared/compat.ts` derivation as the public pages.
+- A report opens at `/maintainer?report=<id>`. The private log stays closed until you open it, because every read creates an audit record. The viewer shows line numbers and columns for timestamp, module and level. It has level filters with counts, search with highlighting, jumps to system info, config, game boot and the first critical or error line, links to a selected line (`&line=<n>`) and a download.
+- After you open a log, a table compares the reporter's build, version, hardware, graphics API and shared settings with the values that `shared/log.ts` reads from the log.
+- Shortcuts: `/` search, `j`/`k` move through the queue, `Enter` open, `Esc` back, `[`/`]` previous and next report, `o` open the log, `1`–`4` choose new, reviewed, needs info or hidden, `Ctrl`/`⌘` + `Enter` save.
+
+## Maintainer API token and MCP server
+
+The maintainer API (`/api/maintainer/*`) also accepts a bearer token, so agents can triage without a browser session. Token auth is off unless `MAINTAINER_API_TOKEN_SHA256` is set. Production stores only the SHA-256 hex digest of the token, never the token.
+
+### Create or rotate the token
+
+1. Generate a token and its digest on your own machine:
+
+   ```sh
+   token=$(openssl rand -hex 32)
+   printf %s "$token" | sha256sum | cut -d' ' -f1
+   ```
+
+2. Set the printed digest as `MAINTAINER_API_TOKEN_SHA256` on the Railway service and redeploy. An empty value disables token auth. A malformed value stops startup.
+3. Give the token itself only to the MCP server as `LICHII_MAINTAINER_TOKEN`.
+
+To rotate, repeat the steps. The old token stops working when the new digest deploys. To revoke without a replacement, delete the variable.
+
+### Boundary
+
+- Tokens are 32–256 URL-safe characters, sent as `Authorization: Bearer <token>`. The server hashes the presented token and compares the digest with `crypto.timingSafeEqual`.
+- A request with an `Authorization` header on a maintainer route is checked only as a token request. If it also sends any cookie or an `Origin` header, the server rejects it with 400, even when the session is valid.
+- Token requests skip the browser Origin check only when all of these are true: the matched route is a maintainer API route, no cookie and no `Origin` are sent, and the token is valid. Every other route, including the native desktop endpoint, keeps its existing checks. A token grants nothing on public or auth routes.
+- Token requests have their own limit of 120 per minute per IP address. Responses are `no-store`. The logger never serializes requests or headers, so the token and `Authorization` header are never logged. Audit events record the actor `api-token`.
+- Triage updates accept a triage state, an internal note or both. Omitted fields keep their stored value, so two partial updates can't overwrite each other.
+
+### MCP server
+
+`tools/maintainer-mcp/server.mjs` is a stdio MCP server with no dependencies. Run it with Node.js 18 or later. It doesn't need `npm ci`.
+
+```sh
+LICHII_MAINTAINER_TOKEN=<token> node tools/maintainer-mcp/server.mjs
+```
+
+| Variable | Required | Meaning |
+| --- | --- | --- |
+| `LICHII_MAINTAINER_TOKEN` | Yes | The maintainer API token. Tool calls fail with a clear message without it. |
+| `LICHII_BASE_URL` | No | Site origin, default `https://lichii.zortos.me`. Plain `http` is allowed only for `localhost`, `127.0.0.1` and `[::1]`. |
+
+| Tool | Maps to | Notes |
+| --- | --- | --- |
+| `list_reports` | `GET /api/maintainer/reports` | Filters: query, triage, status, platforms, build, has_log, game_id, page. Returns counts per triage state. |
+| `get_report` | `GET /api/maintainer/reports/:id` | All fields, the internal note and the log expiry. No log contents. |
+| `get_report_log` | `GET /api/maintainer/reports/:id/log` | Line-numbered text, filterable by search and levels, capped by `max_bytes` (default 64 KiB, at most 512 KiB) with a truncation notice. Expired or deleted logs return an error. Each call writes a `read-log` audit row. |
+| `update_triage` | `PATCH /api/maintainer/reports/:id` | Set the triage state, the internal note or both. `hidden` removes the report from public pages and aggregates. |
+| `delete_report_log` | `DELETE /api/maintainer/reports/:id/log` | Destructive and irreversible. Requires `confirm: true`. |
+
+The server validates report IDs as UUIDs before it builds a URL, refuses redirects, sends `DNT: 1` so the AI crawler reporting hook skips its requests, and replaces the token with `[redacted]` in everything it writes.
+
+**Private logs fetched through the MCP land in the agent's transcript.** Treat a transcript that called `get_report_log` as private data. Read a log only when the task needs it, and narrow it with `search` or `levels`.
+
 ## Databuddy visitor analytics
 
 `@databuddy/sdk/react` uses the public client ID `da37ce88-b18d-4639-a886-b2e74119b0ad` from `shared/databuddy.ts`. Visitor analytics and Web Vitals load automatically on known public pages. There is no consent prompt or session recording. Do Not Track, Global Privacy Control and the SDK’s opt-out controls remain respected.
@@ -162,8 +223,8 @@ CSP allows scripts only from self and `https://cdn.databuddy.cc`, and connection
 - JSON bodies are bounded before parsing to 1,100 KiB. Logs are at most 512 KiB of UTF-8 text, checked both in the browser and on the server, with a database byte-length constraint.
 - Archives, binaries, HTML/SVG, unexpected content types and malformed report fields are rejected. Uploaded filenames are validated then discarded. Screenshot uploads are intentionally not supported.
 - React escapes all report/log content. There is no raw HTML rendering. CSP keeps styles, images and fonts local, limits external scripts and connections to the Databuddy origins above, and prohibits embedding and objects. Additional headers include `nosniff`, no-referrer, HSTS in production and a restrictive Permissions Policy.
-- All mutations require the exact configured Origin and JSON content type. Cross-site Fetch Metadata is rejected. SQL uses parameterized queries; the only raw SQL is the checked-in migration file.
-- Submission attempts are limited to five per IP per hour, OAuth starts to twenty per IP per hour, and other APIs to 240 requests per IP per minute. A global 1,000-report daily limit bounds storage abuse. Limits are atomic and durable across restarts. IP-derived keys are HMAC hashes, not raw addresses, and expire.
+- All mutations require the exact configured Origin and JSON content type. Cross-site Fetch Metadata is rejected. The only exception is a valid maintainer API token on a maintainer route with no cookie and no Origin, described above. SQL uses parameterized queries; the only raw SQL is the checked-in migration file.
+- Submission attempts are limited to five per IP per hour, OAuth starts to twenty per IP per hour, maintainer API token requests to 120 per IP per minute, and other APIs to 240 requests per IP per minute. A global 1,000-report daily limit bounds storage abuse. Limits are atomic and durable across restarts. IP-derived keys are HMAC hashes, not raw addresses, and expire.
 - Visitor analytics excludes reporting and maintainer pages; session replay is disabled. The server suppresses request/body/error serialization that could disclose logs, tokens or queries. Error responses do not expose stack traces or database errors.
 - Anonymous content is still untrusted. Rate limits and a honeypot reduce abuse but cannot stop distributed determined spam. The maintainer can hide reports. No automatic consensus, deduplication, issue matching, voting, benchmark inference or screenshot service is claimed.
 
@@ -175,7 +236,9 @@ CSP allows scripts only from self and `https://cdn.databuddy.cc`, and connection
 - `src/insights.tsx`: platform icons and toggles, build selector, distribution bars, build strip and build table.
 - `shared/log.ts`: bounded log validation and conservative local extraction.
 - `server/app.ts`: HTTP security boundary, public APIs and protected maintainer APIs.
-- `server/auth.ts`: GitHub OAuth and database-backed sessions.
+- `server/auth.ts`: GitHub OAuth, database-backed sessions and the maintainer API token check.
+- `src/maintainer.tsx`: maintainer queue, report detail, private log viewer and triage.
+- `tools/maintainer-mcp/server.mjs`: dependency-free stdio MCP server for the maintainer API.
 - `server/db.ts` and `server/migrations/`: locked preparation, import and retention.
 - `src/`: React routes, accessible forms and dark responsive Tailwind UI.
 - `tests/`: pure validation/parser checks and isolated PostgreSQL integration tests.
