@@ -33,6 +33,12 @@ Migrations and imports share a PostgreSQL transaction advisory lock. They are sa
 
 Configure the service in Railway’s dashboard or API with root directory `/`, Dockerfile auto-detection, health check `/api/health`, a 120-second health-check timeout, and restart policy `ON_FAILURE` with five retries. Disable app sleeping. New Railway services no longer accept `railway.json` config-as-code. A CLI source upload should upload this repository's root.
 
+## Deploy on Unkey
+
+The Unkey project `lichii-website` and app `web` build this repository's `Dockerfile` from root directory `.` and run it on port 3000 in `eu-central-1`, with `/api/health` as the HTTP GET health check. Unkey has no private network or managed database, so `DATABASE_URL` points at a managed PostgreSQL in the same AWS region. Add `sslmode=verify-full` to that URL so the connection verifies the server certificate and hostname.
+
+Set the same variables as on Railway, except `TRUST_PROXY=unkey` and no `PORT`. Keep the custom domain's DNS record DNS-only (not proxied), so the client address reaches Unkey's gateway.
+
 ### GitHub OAuth
 
 Create a GitHub OAuth App with the callback:
@@ -51,9 +57,9 @@ The application uses `oauth4webapi` for authorization response validation and th
 
 ### Trusted proxy boundary
 
-Fastify does not trust `X-Forwarded-For`. In Railway mode, rate limits use only the single `X-Real-IP` address overwritten by Railway’s edge, validated with Node’s IP parser. Missing or invalid values fail closed for API requests, except the health check. Local mode ignores all forwarded headers and uses the connection address.
+Fastify's general proxy-chain handling is disabled. With `TRUST_PROXY=true` (Railway), rate limits use only the single `X-Real-IP` address overwritten by Railway’s edge. With `TRUST_PROXY=unkey`, they use only the single `X-Forwarded-For` address that Unkey's gateway writes in place of any client value. Both modes validate the value with Node’s IP parser and reject missing, invalid or comma-separated values on API requests, except the health check. With `TRUST_PROXY=false`, the app ignores all forwarded headers and uses the connection address.
 
-Only Railway’s edge and trusted services in the private project may reach the app in this mode. Do not expose its container port directly or put an untrusted private-network service beside it. Such a caller could set `X-Real-IP`; this is a deployment trust boundary, not a portable proxy setting. Reverify the edge behavior before moving to another hosting provider. Railway’s guidance: [trusted proxy configuration](https://station.railway.com/questions/engineering-confirmation-secure-proxy-t-d05079b3).
+Only the selected platform's gateway and trusted private services may reach the app in a trusted mode. Do not expose its container port directly or put an untrusted private-network service beside it, because a direct caller could forge the trusted header. This is a deployment trust boundary, not a portable proxy setting. Reverify the edge behavior before moving to another hosting provider. References: [Railway trusted proxy configuration](https://station.railway.com/questions/engineering-confirmation-secure-proxy-t-d05079b3) and [Unkey request headers](https://www.unkey.com/docs/compute/networking/request-lifecycle#headers-your-app-receives).
 
 ## Desktop reporting API
 

@@ -100,9 +100,9 @@ export async function createApp(config: Config, sql: Database, serveStatic = tru
     const period = submitting || auth ? 3600 : 60;
     const limit = submitting ? 5 : auth ? 20 : token ? 120 : 240;
     const bucket = Math.floor(Date.now() / (period * 1000));
-    const edgeIp = request.headers['x-real-ip'];
-    if (config.TRUST_PROXY === 'true' && (typeof edgeIp !== 'string' || !isIP(edgeIp))) return reply.code(400).send({ error: 'A valid trusted proxy address is required.' });
-    const ip = config.TRUST_PROXY === 'true' && typeof edgeIp === 'string' ? edgeIp : request.ip;
+    const edgeIp = request.headers[config.TRUST_PROXY === 'unkey' ? 'x-forwarded-for' : 'x-real-ip'];
+    if (config.TRUST_PROXY !== 'false' && (typeof edgeIp !== 'string' || !isIP(edgeIp))) return reply.code(400).send({ error: 'A valid trusted proxy address is required.' });
+    const ip = config.TRUST_PROXY !== 'false' && typeof edgeIp === 'string' ? edgeIp : request.ip;
     const key = createHmac('sha256', config.RATE_LIMIT_SECRET).update(`${ip}:${submitting ? 'submit' : auth ? 'auth' : token ? 'token' : 'read'}:${bucket}`).digest('hex');
     const rows = await sql`INSERT INTO rate_limits(key, count, expires_at) VALUES (${key}, 1, now() + ${period} * interval '1 second')
       ON CONFLICT(key) DO UPDATE SET count = rate_limits.count + 1 RETURNING count`;

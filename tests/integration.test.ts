@@ -159,6 +159,21 @@ test('durable limits trust only valid Railway X-Real-IP and ignore spoofed forwa
   await local.close();
 });
 
+test('Unkey mode trusts only its single overwritten X-Forwarded-For address', async () => {
+  const unkey = await createApp({ ...config, TRUST_PROXY: 'unkey' }, sql, false);
+  const stable = { origin: config.APP_ORIGIN, 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.41' };
+  for (let i = 0; i < 5; i++) {
+    const response = await unkey.inject({ method: 'POST', url: '/api/reports', headers: { ...stable, 'x-real-ip': `1.1.1.${i}` }, payload: { ...validSubmission, name: '' } });
+    assert.equal(response.statusCode, 400);
+  }
+  assert.equal((await unkey.inject({ method: 'POST', url: '/api/reports', headers: { ...stable, 'x-real-ip': '8.8.8.8' }, payload: validSubmission })).statusCode, 429);
+  assert.equal((await unkey.inject({ url: '/api/games', headers: { 'x-real-ip': '8.8.8.8' } })).statusCode, 400);
+  assert.equal((await unkey.inject({ url: '/api/games', headers: { 'x-forwarded-for': '8.8.8.8, 1.1.1.1' } })).statusCode, 400);
+  assert.equal((await unkey.inject({ url: '/api/games', headers: { 'x-forwarded-for': '2001:db8::7' } })).statusCode, 200);
+  assert.equal((await unkey.inject({ url: '/api/health' })).statusCode, 200);
+  await unkey.close();
+});
+
 test('encoded API paths cannot bypass trusted proxy validation or private response cache protection', async () => {
   for (const url of ['/api/games', '/%61pi/games', '/a%70i/%67ames']) {
     const response = await app.inject({ url });
