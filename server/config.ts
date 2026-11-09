@@ -8,7 +8,7 @@ const envSchema = z.object({
   RATE_LIMIT_SECRET: z.string().min(32),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   NODE_ENV: z.enum(['production', 'development', 'test']).default('development'),
-  TRUST_PROXY: z.enum(['true', 'false']).default('false'),
+  TRUST_PROXY: z.enum(['true', 'false', 'unkey']).default('false'),
   GITHUB_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_SECRET: z.string().optional(),
   GITHUB_ALLOWED_ID: z.string().regex(/^\d+$/).optional(),
