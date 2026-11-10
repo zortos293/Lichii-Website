@@ -1,0 +1,10 @@
+[Unit]
+Description=Lichii Postgres backup every 15 minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+Unit=lichii-db-backup@frequent.service
+
+[Install]
+WantedBy=timers.target

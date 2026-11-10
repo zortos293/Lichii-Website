@@ -1,0 +1,8 @@
+[Unit]
+Description=Restore the newest Lichii backup into a throwaway Postgres and compare it
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/lichii-db/bin/lichii-db restore-check

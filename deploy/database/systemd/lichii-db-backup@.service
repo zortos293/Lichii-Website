@@ -1,0 +1,8 @@
+[Unit]
+Description=Lichii Postgres %i backup to R2
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/lichii-db/bin/lichii-db backup %i

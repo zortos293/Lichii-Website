@@ -6,3 +6,6 @@ dist/
 coverage/
 test-results/
 playwright-report/
+
+deploy/database/state/
+deploy/database/compose.override.yaml
