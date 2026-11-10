@@ -1,4 +1,5 @@
 \set ON_ERROR_STOP on
+\set QUIET on
 \pset footer off
 SET TimeZone = 'UTC';
 SET DateStyle = 'ISO, YMD';
