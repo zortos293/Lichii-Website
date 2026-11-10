@@ -75,7 +75,7 @@ cmd_backup() {
 
 cmd_restore_check() {
   local key=${1:-} expected=${2:-} out
-  [ -n "$key" ] || key=$(fetch "?prefix=frequent/" | python3 -c 'import json,sys; print(json.load(sys.stdin)[-1]["key"])')
+  [ -n "$key" ] || key=$(fetch "?prefix=frequent/" | python3 -c 'import json,sys; print(max(json.load(sys.stdin), key=lambda o: o["uploaded"])["key"])')
   tmp=$(mktemp /dev/shm/lichii-restore.XXXXXX)
   container=lichii-db-restore-check-$$
   trap 'rm -f "$tmp"; docker rm -f "$container" > /dev/null 2>&1 || true' EXIT
@@ -138,6 +138,21 @@ cmd_migrate() {
   echo "target matches source; fingerprints in $run"
 }
 
+cmd_archive() {
+  local env_file=${1:-} ca=${2:-} name=${3:-} run
+  [ -s "$env_file" ] && [ -s "$ca" ] && [ -n "$name" ] || die "usage: archive <source.env> <source-root-ca.pem> <name>"
+  env_file=$(realpath "$env_file") ca=$(realpath "$ca")
+  run=$state/migration/archive-$name
+  install -d -m 700 "$run"
+  dump=$(mktemp /dev/shm/lichii-archive.XXXXXX)
+  trap 'rm -f "$dump"' EXIT
+  docker run --rm -i --network host --env-file "$env_file" -e PGSSLMODE=verify-ca -e PGSSLROOTCERT=/ca/root.crt -v "$ca:/ca/root.crt:ro" "$image" psql -X -A -t -F' ' < "$root/sql/fingerprint.sql" > "$run/source.txt"
+  docker run --rm --network host --env-file "$env_file" -e PGSSLMODE=verify-ca -e PGSSLROOTCERT=/ca/root.crt -v "$ca:/ca/root.crt:ro" "$image" pg_dump -Fc > "$dump"
+  upload "$dump" "manual/$name.dump"
+  rm -f "$dump"
+  cmd_restore_check "manual/$name.dump" "$run/source.txt"
+}
+
 command=${1:-}
 shift || true
 case $command in
@@ -145,6 +160,7 @@ case $command in
   backup) cmd_backup "$@" ;;
   restore-check) cmd_restore_check "$@" ;;
   migrate) cmd_migrate "$@" ;;
+  archive) cmd_archive "$@" ;;
   psql) compose exec -u postgres postgres psql -X -d lichii "$@" ;;
-  *) die "usage: lichii-db setup | backup [frequent|daily|manual] [name] | restore-check [key] [expected-fingerprint] | migrate <source.env> <ca.pem> [--replace] | psql" ;;
+  *) die "usage: lichii-db setup | backup [frequent|daily|manual] [name] | restore-check [key] [expected-fingerprint] | migrate <source.env> <ca.pem> [--replace] | archive <source.env> <ca.pem> <name> | psql" ;;
 esac

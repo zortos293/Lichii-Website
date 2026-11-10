@@ -36,6 +36,7 @@ Setup writes the app's connection string to `state/secrets/app_database_url` and
 | Prove the newest backup restores | `sudo lichii-db restore-check` |
 | Restore a given object and compare it with a fingerprint | `sudo lichii-db restore-check manual/<name>.dump state/migration/<run>/source.txt` |
 | Copy a database in, with a write freeze on the source | `sudo lichii-db migrate <source.env> <source-ca.pem> [--replace]` |
+| Archive another database to `manual/` and prove its restore | `sudo lichii-db archive <source.env> <source-ca.pem> <name>` |
 | SQL shell | `sudo lichii-db psql` |
 
 Timers: a `frequent/` dump every 15 minutes, kept for 3 days. A `daily/` dump at 00:05 UTC, kept for 35 days. A restore check at 03:30 UTC. `manual/` objects never expire.
