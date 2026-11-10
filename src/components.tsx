@@ -1,16 +1,29 @@
-import { ArrowRight, ChevronLeft, ChevronRight, FileText, Gamepad2, LockKeyhole, Search, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, FileText, Gamepad2, LockKeyhole, Search, ShieldCheck, X } from 'lucide-react';
 import { buildLabel, derivePlatform, lichiiBuild, platformLabels, setupSummary } from '../shared/compat.ts';
 import type { Summary } from '../shared/domain.ts';
 import { BuildSelect, PlatformIcon, PlatformToggles } from './insights.tsx';
 import { useLocation } from 'react-router-dom';
 import { Link, NavLink } from './navigation.tsx';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { statuses, type Game, type PublicReport } from '../shared/domain.ts';
+import { hostingNotice } from '../shared/site-notice.ts';
+
+const hostingNoticeKey = 'lichii-hosting-notice-dismissed-v1';
+
+function HostingNotice() {
+  const [dismissed, setDismissed] = useState(() => { try { return localStorage.getItem(hostingNoticeKey) === '1'; } catch { return false; } });
+  if (dismissed) return null;
+  const dismiss = () => {
+    try { localStorage.setItem(hostingNoticeKey, '1'); } catch {}
+    setDismissed(true);
+  };
+  return <section className="site-notice" aria-label="Hosting notice"><div className="site-notice-inner"><span className="site-notice-label">Notice</span><p>{hostingNotice}</p><button type="button" className="icon-button" aria-label="Dismiss hosting notice" onClick={dismiss}><X size={15} aria-hidden="true" /></button></div></section>;
+}
 
 export function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [location.pathname]);
-  return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header"><div className="header-inner">
+  return <><a className="skip-link" href="#main">Skip to content</a><HostingNotice /><header className="site-header"><div className="header-inner">
     <Link to="/" className="brand" aria-label="Lichii compatibility home"><img src="/branding/lockup.png" width="122" height="56" alt="Lichii" /><span>compat · Switch 2</span></Link>
     <nav aria-label="Main navigation"><NavLink to="/" end>Games</NavLink><NavLink to="/reports">Recent reports</NavLink><NavLink to="/guide">How to report</NavLink></nav>
     <Link to="/submit" className="button primary header-cta">Submit a report</Link>

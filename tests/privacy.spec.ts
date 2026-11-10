@@ -155,6 +155,33 @@ test('automatic analytics never sends page text, inputs or arbitrary URL queries
   await expectNoReplay(page);
 });
 
+test('the hosting notice shows on public and maintainer pages and dismisses without network requests or cookies', async ({ page, context }) => {
+  await observeDatabuddy(page);
+  const notice = page.getByRole('region', { name: 'Hosting notice' });
+  await page.goto('/maintainer');
+  await expect(page.getByRole('heading', { name: 'Maintainer access' })).toBeVisible();
+  await expect(notice).toContainText('Raspberry Pi 5');
+  await page.goto('/guide');
+  await expect.poll(() => page.evaluate(() => Boolean(window.databuddy))).toBe(true);
+  await expect(notice).toContainText('Raspberry Pi 5');
+  await page.waitForLoadState('networkidle');
+  const cookies = await context.cookies();
+  const requests: string[] = [];
+  page.on('request', request => requests.push(request.url()));
+  await notice.getByRole('button', { name: 'Dismiss hosting notice' }).click();
+  await expect(notice).toHaveCount(0);
+  await page.waitForTimeout(1000);
+  expect(requests).toEqual([]);
+  expect(await context.cookies()).toEqual(cookies);
+  expect(await page.evaluate(() => localStorage.getItem('lichii-hosting-notice-dismissed-v1'))).toBe('1');
+  await page.reload();
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  await expect(notice).toHaveCount(0);
+  await page.goto('/maintainer');
+  await expect(page.getByRole('heading', { name: 'Maintainer access' })).toBeVisible();
+  await expect(notice).toHaveCount(0);
+});
+
 test('desktop reporting tutorial loads its self-hosted screenshots under the CSP without analytics', async ({ page }) => {
   await observeDatabuddy(page);
   const violations: string[] = [];
