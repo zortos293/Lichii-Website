@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+state=$root/state
+image=postgres:18.6-trixie
+
+die() { echo "lichii-db: $*" >&2; exit 1; }
+compose() { (cd "$root" && docker compose "$@"); }
+admin_psql() { compose exec -T -u postgres postgres psql -X -v ON_ERROR_STOP=1 "$@"; }
+secret() { cat "$state/secrets/$1"; }
+random_secret() { openssl rand -base64 96 | tr -dc 'A-Za-z0-9' | head -c 48; }
+backup_url() { [ -s "$state/backup_url" ] || die "state/backup_url is missing"; cat "$state/backup_url"; }
+fetch() { curl --fail -sS -H @"$state/secrets/backup_auth_header" "$(backup_url)/$1"; }
+
+upload() {
+  local sha
+  sha=$(sha256sum "$1" | cut -d' ' -f1)
+  curl --fail-with-body -sS -X PUT -H @"$state/secrets/backup_auth_header" -H "x-content-sha256: $sha" --data-binary @"$1" "$(backup_url)/$2"
+  echo
+}
+
+apply_roles() {
+  LICHII_OWNER_PASSWORD=$(secret owner_password) LICHII_APP_PASSWORD=$(secret app_password) \
+    compose exec -T -u postgres -e LICHII_OWNER_PASSWORD -e LICHII_APP_PASSWORD postgres psql -X -q -d postgres < "$root/sql/roles.sql"
+}
+
+issue_certificates() {
+  local tls=$state/tls ca=$state/ca
+  [ -s "$tls/server.crt" ] && return
+  openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:P-256 -nodes -days 7300 -subj "/CN=Lichii Postgres CA" \
+    -addext "basicConstraints=critical,CA:TRUE" -addext "keyUsage=critical,keyCertSign,cRLSign" \
+    -keyout "$ca/ca.key" -out "$ca/ca.crt" 2>/dev/null
+  openssl req -newkey ec -pkeyopt ec_paramgen_curve:P-256 -nodes -subj "/CN=db.lichii.internal" \
+    -keyout "$tls/server.key" -out "$ca/server.csr" 2>/dev/null
+  openssl x509 -req -in "$ca/server.csr" -CA "$ca/ca.crt" -CAkey "$ca/ca.key" -set_serial "0x$(openssl rand -hex 16)" -days 3650 \
+    -extfile <(printf 'subjectAltName=DNS:db.lichii.internal\nextendedKeyUsage=serverAuth\nkeyUsage=critical,digitalSignature\nbasicConstraints=critical,CA:FALSE\n') \
+    -out "$tls/server.crt" 2>/dev/null
+  rm "$ca/server.csr"
+}
+
+cmd_setup() {
+  [ "$(id -u)" = 0 ] || die "setup must run as root"
+  install -d -m 700 "$state" "$state/secrets" "$state/ca" "$state/migration"
+  install -d -m 755 "$state/tls"
+  for name in postgres_password owner_password app_password; do
+    [ -s "$state/secrets/$name" ] || (umask 077 && random_secret > "$state/secrets/$name")
+  done
+  [ -s "$state/secrets/tunnel_token" ] || die "write the Cloudflare tunnel token to state/secrets/tunnel_token first"
+  chmod 644 "$state/secrets/postgres_password" "$state/secrets/tunnel_token" "$root/postgresql.conf" "$root/pg_hba.conf"
+  issue_certificates
+  chown 999:999 "$state/tls/server.key" && chmod 600 "$state/tls/server.key" && chmod 644 "$state/tls/server.crt"
+  compose up -d --wait
+  apply_roles
+  (umask 077
+    printf 'postgresql://lichii_unkey:%s@127.0.0.1:5432/lichii?sslmode=require' "$(secret app_password)" > "$state/secrets/app_database_url"
+    printf 'postgresql://lichii:%s@127.0.0.1:5432/lichii?sslmode=require' "$(secret owner_password)" > "$state/secrets/owner_database_url")
+  if [ -s "$state/backup_url" ]; then
+    install -m 644 "$root"/systemd/* /etc/systemd/system/
+    systemctl daemon-reload
+    systemctl enable --now lichii-db-backup-frequent.timer lichii-db-backup-daily.timer lichii-db-restore-check.timer
+  fi
+  openssl x509 -in "$state/ca/ca.crt" -noout -subject -enddate -fingerprint -sha256
+}
+
+cmd_backup() {
+  local kind=${1:-frequent} name=${2:-$(date -u +%Y%m%dT%H%M%SZ)}
+  case $kind in frequent|daily|manual) ;; *) die "backup kind must be frequent, daily or manual" ;; esac
+  tmp=$(mktemp /dev/shm/lichii-backup.XXXXXX)
+  trap 'rm -f "$tmp"' EXIT
+  compose exec -T -u postgres postgres pg_dump -Fc -d lichii > "$tmp"
+  compose exec -T postgres pg_restore --list > /dev/null < "$tmp"
+  upload "$tmp" "$kind/$name.dump"
+}
+
+cmd_restore_check() {
+  local key=${1:-} expected=${2:-} out
+  [ -n "$key" ] || key=$(fetch "?prefix=frequent/" | python3 -c 'import json,sys; print(json.load(sys.stdin)[-1]["key"])')
+  tmp=$(mktemp /dev/shm/lichii-restore.XXXXXX)
+  container=lichii-db-restore-check-$$
+  trap 'rm -f "$tmp"; docker rm -f "$container" > /dev/null 2>&1 || true' EXIT
+  fetch "$key" > "$tmp"
+  docker run -d --rm --name "$container" --network none --tmpfs /var/lib/postgresql:rw,size=1g -e POSTGRES_HOST_AUTH_METHOD=trust "$image" > /dev/null
+  for _ in $(seq 60); do docker exec "$container" pg_isready -q -U postgres 2> /dev/null && break; sleep 1; done
+  sleep 2
+  docker exec "$container" createdb -U postgres lichii
+  docker exec -i "$container" pg_restore -U postgres -d lichii --no-owner --no-privileges --exit-on-error < "$tmp"
+  out=$(docker exec -i "$container" psql -X -U postgres -d lichii -A -t -F' ' < "$root/sql/fingerprint.sql")
+  echo "restored $key"
+  echo "$out"
+  if [ -n "$expected" ]; then
+    diff -u "$expected" <(echo "$out") && echo "fingerprint matches $expected"
+    return
+  fi
+  local restored latest live
+  restored=$(awk '$1 == "reports_latest" { print $2 }' <<< "$out")
+  latest=$(awk '$1 == "reports_latest" { print $3 " " $4 }' <<< "$out")
+  [ "$restored" -gt 0 ] || die "restored dump has no reports"
+  live=$(admin_psql -d lichii -A -t -c "SELECT count(*) FROM reports WHERE created_at <= '$latest'")
+  [ "$live" = "$restored" ] || die "restored $restored reports, live has $live up to $latest"
+  echo "restore check passed: $restored reports up to $latest match the live database"
+}
+
+cmd_migrate() {
+  local env_file=${1:-} ca=${2:-} replace=${3:-} run tables
+  [ -s "$env_file" ] && [ -s "$ca" ] || die "usage: migrate <source.env> <source-root-ca.pem> [--replace]"
+  env_file=$(realpath "$env_file") ca=$(realpath "$ca")
+  source_run() { docker run --rm -i --network host --env-file "$env_file" -e PGSSLMODE=verify-ca -e PGSSLROOTCERT=/ca/root.crt -v "$ca:/ca/root.crt:ro" "$image" "$@"; }
+  run=$state/migration/$(date -u +%Y%m%dT%H%M%SZ)
+  install -d -m 700 "$run"
+  dump=$(mktemp /dev/shm/lichii-migrate.XXXXXX)
+  trap 'rm -f "$dump"' EXIT
+
+  tables=$(admin_psql -d lichii -A -t -c "SELECT count(*) FROM pg_tables WHERE schemaname = 'public'")
+  if [ "$tables" != 0 ]; then
+    [ "$replace" = --replace ] || die "the target database already has tables; pass --replace to drop it"
+    admin_psql -d postgres -c "DROP DATABASE lichii WITH (FORCE)"
+    apply_roles
+  fi
+
+  [ "$(source_run psql -X -A -t -c "SELECT count(*) FROM pg_trigger WHERE tgname = 'lichii_write_freeze'")" != 0 ] || source_run psql -X -q < "$root/sql/freeze.sql"
+  if source_run psql -X -q -c "BEGIN; DELETE FROM reports WHERE false; ROLLBACK;" > /dev/null 2>&1; then die "the source accepted a write after the freeze"; fi
+  echo "source frozen at $(date -u +%FT%TZ)"
+
+  source_run psql -X -A -t -F' ' < "$root/sql/fingerprint.sql" > "$run/source.txt"
+  source_run pg_dump -Fc > "$dump"
+  echo "dumped $(stat -c %s "$dump") bytes"
+  if [ -s "$state/backup_url" ]; then upload "$dump" "manual/source-$(basename "$run").dump"; fi
+
+  compose exec -T -u postgres postgres pg_restore -d lichii --role=lichii --no-owner --no-privileges --single-transaction --exit-on-error < "$dump"
+  admin_psql -d lichii -q < "$root/sql/unfreeze.sql"
+  apply_roles
+  admin_psql -d lichii -q -c "ANALYZE"
+  admin_psql -d lichii -A -t -F' ' < "$root/sql/fingerprint.sql" > "$run/target.txt"
+  cat "$run/source.txt"
+  diff -u "$run/source.txt" "$run/target.txt" || die "target fingerprint differs from the source"
+  [ "$(admin_psql -d lichii -A -t -c "SELECT count(*) FROM pg_trigger WHERE tgname = 'lichii_write_freeze'")" = 0 ] || die "freeze triggers survived on the target"
+  echo "target matches source; fingerprints in $run"
+}
+
+command=${1:-}
+shift || true
+case $command in
+  setup) cmd_setup "$@" ;;
+  backup) cmd_backup "$@" ;;
+  restore-check) cmd_restore_check "$@" ;;
+  migrate) cmd_migrate "$@" ;;
+  psql) compose exec -u postgres postgres psql -X -d lichii "$@" ;;
+  *) die "usage: lichii-db setup | backup [frequent|daily|manual] [name] | restore-check [key] [expected-fingerprint] | migrate <source.env> <ca.pem> [--replace] | psql" ;;
+esac
