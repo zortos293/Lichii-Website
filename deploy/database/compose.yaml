@@ -17,7 +17,7 @@ services:
     mem_limit: 1536m
     stop_grace_period: 60s
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
+      test: ["CMD", "gosu", "postgres", "pg_isready", "-q", "-d", "postgres"]
       interval: 10s
       timeout: 5s
       retries: 6

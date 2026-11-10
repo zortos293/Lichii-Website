@@ -17,7 +17,7 @@ flowchart LR
 - `lichii-db.zortos.me` is behind Cloudflare Access with a single service-token policy. Without the token, the edge refuses the WebSocket.
 - `pg_hba.conf` accepts only `hostssl` from the Docker network, for the `lichii` and `lichii_unkey` roles, with `scram-sha-256`. TLS 1.3 is the minimum.
 - The server certificate (`CN=db.lichii.internal`) is signed by a private CA that `setup` creates. The app pins that CA through `DATABASE_SSL_CA` and checks the name through `DATABASE_SSL_SERVERNAME=db.lichii.internal`.
-- `lichii` owns the schema and is not a superuser. `lichii_unkey` has only `SELECT/INSERT/UPDATE/DELETE` and `CONNECT`, with a connection limit of 16 (`sql/roles.sql`).
+- `lichii` owns the schema and is not a superuser. `lichii_unkey` has only `SELECT/INSERT/UPDATE/DELETE` and `CONNECT`, with a connection limit of 32 (`sql/roles.sql`). Each app instance pools 8 connections, and Unkey keeps the previous deployment on standby while a new one starts, so three instances can be connected at once.
 - The backup Worker accepts only a bearer token whose SHA-256 it stores. It can list, read and create objects, but it can't overwrite or delete them. The R2 lifecycle rules handle expiry.
 
 ## Install
