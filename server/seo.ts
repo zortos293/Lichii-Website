@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { buildLabel, lichiiBuild, setupSummary } from '../shared/compat.ts';
 import { catalogEntrySchema, outcomeDescriptions, outcomes, reportFieldsSchema, statuses, type CatalogEntry } from '../shared/domain.ts';
+import { hostingNotice } from '../shared/site-notice.ts';
 import type { Config } from './config.ts';
 import type { Database } from './db.ts';
 import { aggregateGame, groupByGame, loadFacts, type ReportFact } from './insights.ts';
@@ -97,7 +98,7 @@ function head(page: Page, origin: string) {
 }
 
 function noscript(body: Html) {
-  return html`<noscript><header class="site-header"><div class="header-inner"><a href="/" class="brand"><img src="/branding/lockup.png" width="122" height="56" alt="Lichii" /><span>compat · Switch 2</span></a><nav aria-label="Main navigation"><a href="/">Games</a><a href="/reports">Recent reports</a><a href="/guide">How to report</a></nav></div></header><main class="page noscript-page">${body}</main><footer class="site-footer"><p>Lichii is an independent, experimental emulator, not affiliated with Nintendo.</p><div><a href="/privacy">Privacy &amp; safety</a></div></footer></noscript>`;
+  return html`<noscript><section class="site-notice" aria-label="Hosting notice"><div class="site-notice-inner"><span class="site-notice-label">Notice</span><p>${hostingNotice}</p></div></section><header class="site-header"><div class="header-inner"><a href="/" class="brand"><img src="/branding/lockup.png" width="122" height="56" alt="Lichii" /><span>compat · Switch 2</span></a><nav aria-label="Main navigation"><a href="/">Games</a><a href="/reports">Recent reports</a><a href="/guide">How to report</a></nav></div></header><main class="page noscript-page">${body}</main><footer class="site-footer"><p>Lichii is an independent, experimental emulator, not affiliated with Nintendo.</p><div><a href="/privacy">Privacy &amp; safety</a></div></footer></noscript>`;
 }
 
 function prepareTemplate(source: string) {
