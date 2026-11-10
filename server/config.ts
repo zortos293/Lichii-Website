@@ -3,6 +3,8 @@ import { databuddyWebsiteId } from '../shared/databuddy.ts';
 
 const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
+  DATABASE_SSL_CA: z.string().min(1).optional(),
+  DATABASE_SSL_SERVERNAME: z.string().min(1).optional(),
   APP_ORIGIN: z.url(),
   COOKIE_SECRET: z.string().min(32),
   RATE_LIMIT_SECRET: z.string().min(32),
@@ -21,12 +23,17 @@ export function readConfig(env: NodeJS.ProcessEnv) {
   const parsed = envSchema.safeParse(env);
   if (!parsed.success) throw new Error(`Invalid configuration keys: ${parsed.error.issues.map(i => i.path.join('.')).join(', ')}`);
   const value = parsed.data;
+  if (value.DATABASE_SSL_SERVERNAME && !value.DATABASE_SSL_CA) throw new Error('DATABASE_SSL_SERVERNAME requires DATABASE_SSL_CA.');
   const url = new URL(value.APP_ORIGIN);
   if (url.origin !== value.APP_ORIGIN || url.username || url.password) throw new Error('APP_ORIGIN must be an origin without a path.');
   if (value.NODE_ENV === 'production' && url.protocol !== 'https:') throw new Error('Production requires an HTTPS APP_ORIGIN.');
   return value;
 }
 export type Config = ReturnType<typeof readConfig>;
+
+export function databaseTls(config: Config) {
+  return config.DATABASE_SSL_CA ? { ca: config.DATABASE_SSL_CA, servername: config.DATABASE_SSL_SERVERNAME } : undefined;
+}
 
 export function oauthConfigured(config: Config) {
   return Boolean(config.GITHUB_CLIENT_ID && config.GITHUB_CLIENT_SECRET && config.GITHUB_ALLOWED_ID);
