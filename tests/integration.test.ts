@@ -174,6 +174,22 @@ test('Unkey mode trusts only its single overwritten X-Forwarded-For address', as
   await unkey.close();
 });
 
+test('a role without schema CREATE can prepare an already migrated database', async () => {
+  await sql`DO $$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'lichii_test_restricted') THEN CREATE ROLE lichii_test_restricted LOGIN PASSWORD 'restricted'; END IF; END $$`;
+  await sql`REVOKE CREATE ON SCHEMA public FROM PUBLIC, lichii_test_restricted`;
+  await sql`GRANT USAGE ON SCHEMA public TO lichii_test_restricted`;
+  await sql`GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO lichii_test_restricted`;
+  const url = new URL(databaseUrl);
+  url.username = 'lichii_test_restricted';
+  url.password = 'restricted';
+  const restricted = connectDatabase(url.toString());
+  try {
+    assert.equal((await restricted`SELECT has_schema_privilege('public', 'CREATE') AS allowed`)[0]?.allowed, false);
+    await prepareDatabase(restricted);
+    assert.ok(Number((await restricted`SELECT count(*) FROM games`)[0]?.count) > 0);
+  } finally { await restricted.end(); }
+});
+
 test('encoded API paths cannot bypass trusted proxy validation or private response cache protection', async () => {
   for (const url of ['/api/games', '/%61pi/games', '/a%70i/%67ames']) {
     const response = await app.inject({ url });

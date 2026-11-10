@@ -35,7 +35,11 @@ Configure the service in Railway’s dashboard or API with root directory `/`, D
 
 ## Deploy on Unkey
 
-The Unkey project `lichii-website` and app `web` build this repository's `Dockerfile` from root directory `.` and run it on port 3000 in `eu-central-1`, with `/api/health` as the HTTP GET health check. Unkey has no private network or managed database, so `DATABASE_URL` points at a managed PostgreSQL in the same AWS region. Add `sslmode=verify-full` to that URL so the connection verifies the server certificate and hostname.
+The Unkey project `lichii-website` and app `web` build this repository's `Dockerfile` from root directory `.` and run it on port 3000 in `eu-central-1`, with `/api/health` as the HTTP GET health check. Unkey has no private network or managed database, so the app reaches the Railway PostgreSQL through its public TCP proxy.
+
+Railway's `postgres-ssl` image serves a certificate from its own private root CA, for `localhost` and `postgres.railway.internal`. Set `DATABASE_SSL_CA` to that root CA PEM (`$PGDATA/../certs/root.crt` on the database volume) and `DATABASE_SSL_SERVERNAME=postgres.railway.internal`. The connection then verifies the chain and that name, even though it dials the proxy host, and any `sslmode` in the URL can't weaken it. A server name without a CA is rejected at startup. The CA expires on Jan 31, 2029, and a new CA must be copied to Unkey whenever the database regenerates its certificates.
+
+Connect as a dedicated role with `SELECT, INSERT, UPDATE, DELETE` on the tables and no `CREATE` on the schema. Startup checks for `schema_migrations` before creating it, so this role can boot an already migrated database and run the catalog import. A deployment that ships a new migration fails its startup under this role, and the previous deployment keeps serving. Apply the migration first with `npm run db:prepare` as the owner role, then redeploy. Startup migrations and imports from several services serialize on the same advisory lock.
 
 Set the same variables as on Railway, except `TRUST_PROXY=unkey` and no `PORT`. Keep the custom domain's DNS record DNS-only (not proxied), so the client address reaches Unkey's gateway.
 

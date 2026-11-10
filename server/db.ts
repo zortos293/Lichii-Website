@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { z } from 'zod';
 import { catalogEntrySchema } from '../shared/domain.ts';
 
-export function connectDatabase(url: string) {
-  return postgres(url, { max: 8, idle_timeout: 20, connect_timeout: 10, onnotice: () => {} });
+export function connectDatabase(url: string, tls?: { ca: string; servername?: string }) {
+  return postgres(url, { max: 8, idle_timeout: 20, connect_timeout: 10, onnotice: () => {}, ...(tls ? { ssl: { ca: tls.ca, ...(tls.servername ? { servername: tls.servername } : {}), rejectUnauthorized: true } } : {}) });
 }
 export type Database = ReturnType<typeof connectDatabase>;
 
@@ -14,7 +14,8 @@ export async function prepareDatabase(sql: Database, catalogPath = new URL('../d
   const migrations = await Promise.all(['001-initial.sql', '002-desktop-reporting.sql'].map(file => readFile(new URL(`./migrations/${file}`, import.meta.url), 'utf8')));
   await sql.begin(async tx => {
     await tx`SELECT pg_advisory_xact_lock(674393520)`;
-    await tx`CREATE TABLE IF NOT EXISTS schema_migrations (version integer PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now())`;
+    const [bootstrap] = await tx`SELECT to_regclass('schema_migrations') IS NOT NULL AS exists`;
+    if (!bootstrap?.exists) await tx`CREATE TABLE schema_migrations (version integer PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now())`;
     for (const [index, migration] of migrations.entries()) {
       const version = index + 1;
       const applied = await tx`SELECT version FROM schema_migrations WHERE version = ${version}`;

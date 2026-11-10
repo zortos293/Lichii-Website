@@ -1,9 +1,9 @@
-import { readConfig } from './config.ts';
+import { databaseTls, readConfig } from './config.ts';
 import { connectDatabase, prepareDatabase, cleanup } from './db.ts';
 import { createApp } from './app.ts';
 
 const config = readConfig(process.env);
-const sql = connectDatabase(config.DATABASE_URL);
+const sql = connectDatabase(config.DATABASE_URL, databaseTls(config));
 await prepareDatabase(sql);
 const app = await createApp(config, sql);
 const timer = setInterval(() => { void cleanup(sql).catch(() => app.log.error('Retention cleanup failed')); }, 3600000);
