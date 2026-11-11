@@ -14,10 +14,18 @@ backup_url() { [ -s "$state/backup_url" ] || die "state/backup_url is missing"; 
 fetch() { curl --fail -sS -H @"$state/secrets/backup_auth_header" "$(backup_url)/$1"; }
 
 upload() {
-  local sha
+  local sha code attempt
   sha=$(sha256sum "$1" | cut -d' ' -f1)
-  curl --fail-with-body -sS -X PUT -H @"$state/secrets/backup_auth_header" -H "x-content-sha256: $sha" --data-binary @"$1" "$(backup_url)/$2"
-  echo
+  for attempt in 1 2 3 4 5; do
+    code=$(curl -sS -o /dev/null -w '%{http_code}' --connect-timeout 10 --max-time 300 -X PUT -H @"$state/secrets/backup_auth_header" -H "x-content-sha256: $sha" --data-binary @"$1" "$(backup_url)/$2") || code=000
+    case $code in
+      200) echo "uploaded $2 ($(stat -c %s "$1") bytes)"; return ;;
+      409) echo "$2 was already uploaded"; return ;;
+    esac
+    echo "upload of $2 failed with HTTP $code (attempt $attempt)" >&2
+    sleep $((attempt * 15))
+  done
+  die "upload of $2 failed"
 }
 
 apply_roles() {
